@@ -40,7 +40,7 @@
   "home": {
     "eyebrow": "TÚI ĐI LÀM · HÀ NỘI",
     "headline": "Ngoài tĩnh lặng. Trong là câu chuyện.",
-    "intro": "Túi đi làm may đo cho ngày ở thành phố, với vải dệt tay Việt Nam.",
+    "intro": "Túi đi làm may đo cho ngày ở thành phố, với vải dệt Việt Nam.",
     "trust": "Kiểm hàng trước khi trả tiền · Ghé studio theo lịch hẹn",
     "collectionTitle": "Năm chiếc túi cho tuần làm việc.",
     "collectionBody": "Essential cho mỗi ngày. Signature có nắp đóng và chi tiết dệt làm điểm nhấn. Heritage với lớp lót dệt toàn phần.",
@@ -102,14 +102,57 @@
     "inspect": "Thanh toán khi nhận hàng · kiểm hàng trước khi trả tiền",
     "colourLabel": "Chọn màu",
     "more": "Khám phá bộ sưu tập",
-    "about": "Về chiếc túi"
+    "about": "Về chiếc túi",
+    "inside": "Bên trong chiếc túi.",
+    "open": "Mở ra.",
+    "before": "Trước khi mua.",
+    "moreTitle": "Có thể bạn thích.",
+    "inStock": "Còn hàng",
+    "added": "Đã thêm vào giỏ.",
+    "stockQuestion": "Hỏi studio về đợt hàng tới",
+    "shareNew": "70% vải chuyên dụng mới",
+    "shareRecovered": "30% vải tái chế, tính theo khối lượng vải",
+    "deliveryTitle": "Giao hàng",
+    "deliveryBody": "Nhận tại studio miễn phí. Phí giao hàng là 30.000 ₫ tại Hà Nội và 40.000 ₫ ở các tỉnh thành khác. Phí hiển thị khi thanh toán.",
+    "paymentTitle": "Thanh toán",
+    "paymentBody": "Chọn thanh toán khi nhận hàng hoặc chuyển khoản. Bạn có thể kiểm túi trước khi trả tiền khi nhận hàng.",
+    "returnsTitle": "Đổi trả",
+    "returnsBody": "Vui lòng liên hệ trước khi gửi túi cần đổi hoặc trả để chúng tôi hướng dẫn bước tiếp theo.",
+    "careTitle": "Bảo quản",
+    "careBody": "Lau canvas phủ bằng khăn mềm hơi ẩm. Liên hệ nếu quai, khóa hoặc đường may cần sửa chữa.",
+    "questionsTitle": "Câu hỏi",
+    "questionsBody": "Các phần vải tái chế làm từ gì? Canvas tái chế phủ hoàn thiện mờ. Bạn cũng có thể ghé studio để thử túi.",
+    "specLabels": {
+      "sizeCm": "Kích thước",
+      "weightG": "Khối lượng",
+      "laptopIn": "Vừa laptop",
+      "compartments": "Ngăn",
+      "closure": "Kiểu đóng",
+      "handleDropCm": "Độ dài quai",
+      "loadKg": "Tải trọng"
+    },
+    "partLabels": {
+      "Body": "Thân túi",
+      "Sides": "Hai bên",
+      "Lining": "Lớp lót",
+      "Flap and band": "Nắp và dải ngang",
+      "Handles": "Quai",
+      "Hardware": "Khóa và phụ kiện",
+      "Band": "Dải ngang",
+      "Flap tab": "Nắp tab",
+      "Panel": "Mảng dệt",
+      "Scarf": "Khăn",
+      "Handles and straps": "Quai và dải quai"
+    }
   },
   "cart": {
     "title": "Giỏ hàng",
     "empty": "Giỏ hàng trống.",
     "checkout": "Thanh toán",
     "update": "Cập nhật giỏ",
-    "estimate": "Phí giao hàng được tính khi thanh toán."
+    "estimate": "Phí giao hàng được tính khi thanh toán.",
+    "increase": "Tăng số lượng",
+    "decrease": "Giảm số lượng"
   },
   "checkout": {
     "title": "Thanh toán",

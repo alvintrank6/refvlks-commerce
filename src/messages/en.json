@@ -40,7 +40,7 @@
   "home": {
     "eyebrow": "WORK BAGS · HANOI",
     "headline": "Quiet on the outside. A story on the inside.",
-    "intro": "Tailored work bags for city days, with textile woven by hand in Vietnam.",
+    "intro": "Tailored work bags for city days, with textile woven in Vietnam.",
     "trust": "Inspect before you pay · Studio visits by appointment",
     "collectionTitle": "Five bags for the working week.",
     "collectionBody": "Essential for every day. Signature for a flap that closes and a woven detail you notice. Heritage for the full woven lining.",
@@ -102,14 +102,57 @@
     "inspect": "Cash on delivery · inspect before you pay",
     "colourLabel": "Select colour",
     "more": "Explore the collection",
-    "about": "About this bag"
+    "about": "About this bag",
+    "inside": "Inside the bag.",
+    "open": "Open it.",
+    "before": "Before you buy.",
+    "moreTitle": "You may also like.",
+    "inStock": "Available",
+    "added": "Added to your bag.",
+    "stockQuestion": "Ask the studio about the next batch",
+    "shareNew": "70% new technical textile",
+    "shareRecovered": "30% recovered textile, by textile weight",
+    "deliveryTitle": "Delivery",
+    "deliveryBody": "Studio pickup is free. Shipping is 30,000 ₫ in Hanoi and 40,000 ₫ elsewhere in Vietnam. Fees appear at checkout.",
+    "paymentTitle": "Payment",
+    "paymentBody": "Choose cash on delivery or bank transfer. Inspect the bag before paying on delivery.",
+    "returnsTitle": "Returns",
+    "returnsBody": "Please contact us before returning or exchanging a bag so we can help with the next step.",
+    "careTitle": "Care",
+    "careBody": "Wipe coated canvas with a soft, slightly damp cloth. Contact us if handles, buckles or seams need repair.",
+    "questionsTitle": "Questions",
+    "questionsBody": "What are the recovered parts made from? Recovered canvas with a matte coated finish. You can also try a bag at the studio.",
+    "specLabels": {
+      "sizeCm": "Size",
+      "weightG": "Weight",
+      "laptopIn": "Laptop fit",
+      "compartments": "Compartments",
+      "closure": "Closure",
+      "handleDropCm": "Handle drop",
+      "loadKg": "Load"
+    },
+    "partLabels": {
+      "Body": "Body",
+      "Sides": "Sides",
+      "Lining": "Lining",
+      "Flap and band": "Flap and band",
+      "Handles": "Handles",
+      "Hardware": "Hardware",
+      "Band": "Band",
+      "Flap tab": "Flap tab",
+      "Panel": "Panel",
+      "Scarf": "Scarf",
+      "Handles and straps": "Handles and straps"
+    }
   },
   "cart": {
     "title": "Your bag",
     "empty": "Your bag is empty.",
     "checkout": "Checkout",
     "update": "Update bag",
-    "estimate": "Shipping is calculated at checkout."
+    "estimate": "Shipping is calculated at checkout.",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity"
   },
   "checkout": {
     "title": "Checkout",

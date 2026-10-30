@@ -7,9 +7,7 @@
       "id": "HOME-01",
       "product": "SP01",
       "role": "Hero desktop (L0, parallax 5%)",
-      "sections": [
-        "H-01"
-      ],
+      "sections": ["H-01"],
       "source": "Anh_san_pham/refvlks_sp01_editorial_3x2.png",
       "origin": "AI-generated",
       "alt": {
@@ -40,9 +38,7 @@
       "id": "HOME-02",
       "product": "SP01",
       "role": "Hero mobile (crop 4:5 bằng CSS)",
-      "sections": [
-        "H-01"
-      ],
+      "sections": ["H-01"],
       "source": "Anh_san_pham/refvlks_sp01_editorial_2x3.png",
       "origin": "AI-generated",
       "alt": {
@@ -73,10 +69,7 @@
       "id": "REVEAL-01",
       "product": "SP01",
       "role": "Khung 1/8 chuỗi H-02",
-      "sections": [
-        "H-02",
-        "H-02 mobile"
-      ],
+      "sections": ["H-02", "H-02 mobile"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_01.png",
       "origin": "AI-generated",
       "alt": {
@@ -107,9 +100,7 @@
       "id": "REVEAL-02",
       "product": "SP01",
       "role": "Khung 2/8 chuỗi H-02",
-      "sections": [
-        "H-02"
-      ],
+      "sections": ["H-02"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_02_SQ-A-02.png",
       "origin": "AI-generated",
       "alt": {
@@ -140,9 +131,7 @@
       "id": "REVEAL-03",
       "product": "SP01",
       "role": "Khung 3/8 chuỗi H-02",
-      "sections": [
-        "H-02"
-      ],
+      "sections": ["H-02"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_03_SQ-A-03.png",
       "origin": "AI-generated",
       "alt": {
@@ -173,9 +162,7 @@
       "id": "REVEAL-04",
       "product": "SP01",
       "role": "Khung 4/8 chuỗi H-02",
-      "sections": [
-        "H-02"
-      ],
+      "sections": ["H-02"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_04_SQ-A-04.png",
       "origin": "AI-generated",
       "alt": {
@@ -206,10 +193,7 @@
       "id": "REVEAL-05",
       "product": "SP01",
       "role": "Khung 5/8 chuỗi H-02",
-      "sections": [
-        "H-02",
-        "H-02 mobile"
-      ],
+      "sections": ["H-02", "H-02 mobile"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_05_SQ-A-05.png",
       "origin": "AI-generated",
       "alt": {
@@ -240,9 +224,7 @@
       "id": "REVEAL-06",
       "product": "SP01",
       "role": "Khung 6/8 chuỗi H-02",
-      "sections": [
-        "H-02"
-      ],
+      "sections": ["H-02"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_06_SQ-A-06.png",
       "origin": "AI-generated",
       "alt": {
@@ -273,9 +255,7 @@
       "id": "REVEAL-07",
       "product": "SP01",
       "role": "Khung 7/8 chuỗi H-02",
-      "sections": [
-        "H-02"
-      ],
+      "sections": ["H-02"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_07_SQ-A-07.png",
       "origin": "AI-generated",
       "alt": {
@@ -306,15 +286,12 @@
       "id": "REVEAL-08",
       "product": "SP01",
       "role": "Khung 8/8 chuỗi H-02",
-      "sections": [
-        "H-02",
-        "H-02 mobile"
-      ],
+      "sections": ["H-02", "H-02 mobile"],
       "source": "Anh_san_pham/refvlks_sp01_sequence_frame_08_SQ-A-08.png",
       "origin": "AI-generated",
       "alt": {
-        "en": "Soft light falls on the hand-woven lining inside the open tote.",
-        "vi": "Ánh sáng dịu rọi vào lớp lót dệt tay bên trong túi."
+        "en": "Soft light falls on the woven lining inside the open tote.",
+        "vi": "Ánh sáng dịu rọi vào lớp lót dệt bên trong túi."
       },
       "variants": [
         {
@@ -340,11 +317,7 @@
       "id": "SP01-01",
       "product": "SP01",
       "role": "Ảnh thẻ + ảnh 1 gallery",
-      "sections": [
-        "H-03",
-        "S-03",
-        "P-01"
-      ],
+      "sections": ["H-03", "S-03", "P-01"],
       "source": "Anh_san_pham/refvlks_product_weft-structured-tote_01_front.png",
       "origin": "AI-generated",
       "alt": {
@@ -392,9 +365,7 @@
       "id": "SP01-02",
       "product": "SP01",
       "role": "Gallery ảnh 2 (góc 3/4)",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Anh_san_pham/refvlks_sp01_studio_right_35deg_closed_2x3.png",
       "origin": "AI-generated",
       "alt": {
@@ -425,15 +396,12 @@
       "id": "SP01-03",
       "product": "SP01",
       "role": "Ảnh hover thẻ + gallery ảnh 3",
-      "sections": [
-        "H-03 hover",
-        "P-01"
-      ],
+      "sections": ["H-03 hover", "P-01"],
       "source": "Anh_san_pham/refvlks_product_weft-structured-tote_03_inside.png",
       "origin": "AI-generated",
       "alt": {
-        "en": "Weft Structured Tote with the flap folded back, showing the hand-woven lining.",
-        "vi": "Túi Weft Structured Tote gập nắp ra sau, thấy lớp lót dệt tay."
+        "en": "Weft Structured Tote with the flap folded back, showing the woven lining.",
+        "vi": "Túi Weft Structured Tote gập nắp ra sau, thấy lớp lót dệt."
       },
       "variants": [
         {
@@ -476,9 +444,7 @@
       "id": "SP01-04",
       "product": "SP01",
       "role": "Gallery ảnh 4 (người mẫu)",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_product_weft-structured-tote_04_model-nm03-half.png",
       "origin": "AI-generated",
       "alt": {
@@ -509,11 +475,7 @@
       "id": "SP01-05",
       "product": "SP01",
       "role": "Gallery ảnh 5 (chi tiết) + H-05",
-      "sections": [
-        "P-01",
-        "H-05",
-        "CR-02"
-      ],
+      "sections": ["P-01", "H-05", "CR-02"],
       "source": "Anh_san_pham/refvlks_product_weft-structured-tote_05_detail-buckle.png",
       "origin": "AI-generated",
       "alt": {
@@ -544,10 +506,7 @@
       "id": "SP01-06",
       "product": "SP01",
       "role": "Gallery ảnh 6 (tay cầm) + H-04",
-      "sections": [
-        "P-01",
-        "H-04"
-      ],
+      "sections": ["P-01", "H-04"],
       "source": "Mau_cam_san_pham/refvlks_product_weft-structured-tote_06_hand-nm03.png",
       "origin": "AI-generated",
       "alt": {
@@ -578,11 +537,7 @@
       "id": "SP01-07",
       "product": "SP01",
       "role": "P-04 Open it + H-06 (tạm thay ảnh nghệ nhân)",
-      "sections": [
-        "P-04",
-        "H-06",
-        "CR-03"
-      ],
+      "sections": ["P-04", "H-06", "CR-03"],
       "source": "Anh_san_pham/refvlks_sp01_studio_portrait_open_2x3.png",
       "origin": "AI-generated",
       "alt": {
@@ -613,9 +568,7 @@
       "id": "SP01-08",
       "product": "SP01",
       "role": "Dự phòng (Size & fit)",
-      "sections": [
-        "SF-03"
-      ],
+      "sections": ["SF-03"],
       "source": "Anh_san_pham/refvlks_sp01_studio_portrait_2x3.png",
       "origin": "AI-generated",
       "alt": {
@@ -646,11 +599,7 @@
       "id": "SP02F-01",
       "product": "SP02",
       "role": "Ảnh thẻ + gallery (Forest)",
-      "sections": [
-        "H-03",
-        "S-03",
-        "P-01"
-      ],
+      "sections": ["H-03", "S-03", "P-01"],
       "source": "Anh_san_pham/refvlks_product_loom-flap-tote-forest_01_front.png",
       "origin": "AI-generated",
       "alt": {
@@ -698,10 +647,7 @@
       "id": "SP02F-02",
       "product": "SP02",
       "role": "Gallery (Forest) + hover thẻ",
-      "sections": [
-        "H-03 hover",
-        "P-01"
-      ],
+      "sections": ["H-03 hover", "P-01"],
       "source": "Mau_cam_san_pham/refvlks_product_loom-flap-tote-forest_04_model-nm04-half.png",
       "origin": "AI-generated",
       "alt": {
@@ -749,9 +695,7 @@
       "id": "SP02F-03",
       "product": "SP02",
       "role": "Gallery (Forest)",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp02-forest.png",
       "origin": "AI-generated",
       "alt": {
@@ -782,11 +726,7 @@
       "id": "SP02W-01",
       "product": "SP02",
       "role": "Ảnh thẻ + gallery (Wine)",
-      "sections": [
-        "H-03",
-        "S-03",
-        "P-01"
-      ],
+      "sections": ["H-03", "S-03", "P-01"],
       "source": "Anh_san_pham/refvlks_product_loom-flap-tote-wine_01_front.png",
       "origin": "AI-generated",
       "alt": {
@@ -834,11 +774,7 @@
       "id": "SP02W-02",
       "product": "SP02",
       "role": "Gallery (Wine) + H-04",
-      "sections": [
-        "H-03 hover",
-        "P-01",
-        "H-04"
-      ],
+      "sections": ["H-03 hover", "P-01", "H-04"],
       "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp02-wine.png",
       "origin": "AI-generated",
       "alt": {
@@ -886,11 +822,7 @@
       "id": "SP03-01",
       "product": "SP03",
       "role": "Ảnh thẻ + gallery",
-      "sections": [
-        "H-03",
-        "S-03",
-        "P-01"
-      ],
+      "sections": ["H-03", "S-03", "P-01"],
       "source": "Anh_san_pham/refvlks_product_loom-carryall_01_front.png",
       "origin": "AI-generated",
       "alt": {
@@ -938,10 +870,7 @@
       "id": "SP03-02",
       "product": "SP03",
       "role": "Gallery + hover thẻ",
-      "sections": [
-        "H-03 hover",
-        "P-01"
-      ],
+      "sections": ["H-03 hover", "P-01"],
       "source": "Mau_cam_san_pham/refvlks_product_loom-carryall_04_model-nm01-half.png",
       "origin": "AI-generated",
       "alt": {
@@ -989,9 +918,7 @@
       "id": "SP03-03",
       "product": "SP03",
       "role": "Gallery",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp03.png",
       "origin": "AI-generated",
       "alt": {
@@ -1022,11 +949,7 @@
       "id": "SP04-01",
       "product": "SP04",
       "role": "Ảnh thẻ + gallery",
-      "sections": [
-        "H-03",
-        "S-03",
-        "P-01"
-      ],
+      "sections": ["H-03", "S-03", "P-01"],
       "source": "Anh_san_pham/refvlks_product_tram-shopper_01_front.png",
       "origin": "AI-generated",
       "alt": {
@@ -1074,10 +997,7 @@
       "id": "SP04-02",
       "product": "SP04",
       "role": "Gallery + hover thẻ",
-      "sections": [
-        "H-03 hover",
-        "P-01"
-      ],
+      "sections": ["H-03 hover", "P-01"],
       "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp04.png",
       "origin": "AI-generated",
       "alt": {
@@ -1125,10 +1045,7 @@
       "id": "LIFE-01",
       "product": "SP01",
       "role": "Gallery SP01 + AB-01",
-      "sections": [
-        "P-01",
-        "AB-01"
-      ],
+      "sections": ["P-01", "AB-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_weft-structured-tote_nm03-street.png",
       "origin": "AI-generated",
       "alt": {
@@ -1159,9 +1076,7 @@
       "id": "LIFE-02",
       "product": "SP02",
       "role": "Gallery SP02 Forest",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-forest_nm04-street.png",
       "origin": "AI-generated",
       "alt": {
@@ -1192,9 +1107,7 @@
       "id": "LIFE-03",
       "product": "SP02",
       "role": "Gallery SP02 Forest",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-forest_nm02-courtyard.png",
       "origin": "AI-generated",
       "alt": {
@@ -1225,9 +1138,7 @@
       "id": "LIFE-04",
       "product": "SP02",
       "role": "Gallery SP02 Wine",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-wine_nm02-street.png",
       "origin": "AI-generated",
       "alt": {
@@ -1258,10 +1169,7 @@
       "id": "LIFE-05",
       "product": "SP03",
       "role": "Gallery SP03 + H-04",
-      "sections": [
-        "P-01",
-        "H-04"
-      ],
+      "sections": ["P-01", "H-04"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm01-bookshop.png",
       "origin": "AI-generated",
       "alt": {
@@ -1292,9 +1200,7 @@
       "id": "LIFE-06",
       "product": "SP03",
       "role": "Gallery SP03",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm01-campus.png",
       "origin": "AI-generated",
       "alt": {
@@ -1325,9 +1231,7 @@
       "id": "LIFE-07",
       "product": "SP03",
       "role": "Gallery SP03",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm02-boulevard.png",
       "origin": "AI-generated",
       "alt": {
@@ -1358,9 +1262,7 @@
       "id": "LIFE-08",
       "product": "SP04",
       "role": "Gallery SP04",
-      "sections": [
-        "P-01"
-      ],
+      "sections": ["P-01"],
       "source": "Mau_cam_san_pham/refvlks_lifestyle_tram-shopper_nm04-park.png",
       "origin": "AI-generated",
       "alt": {
@@ -1391,9 +1293,7 @@
       "id": "OG-01",
       "product": "SP01",
       "role": "Ảnh chia sẻ mạng xã hội 1200×630",
-      "sections": [
-        "SEO"
-      ],
+      "sections": ["SEO"],
       "source": "Anh_san_pham/refvlks_sp01_editorial_3x2.png",
       "origin": "AI-generated",
       "alt": {

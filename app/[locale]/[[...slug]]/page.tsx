@@ -24,6 +24,9 @@ import CheckoutPage from "../../../src/components/CheckoutPage";
 import QRCode from "qrcode";
 import { vietqrPayload } from "../../../src/lib/vietqr";
 import { HomeMotion } from "../../../src/motion/HomeMotion";
+import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
+import { AddToBagForm } from "../../../src/components/AddToBagForm";
+import { Claim } from "../../../src/components/Claim";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -143,7 +146,7 @@ export default async function Page({ params, searchParams }: Props) {
         ) : kind === "studio" ? (
           <Studio locale={locale} q={q} />
         ) : kind === "cart" ? (
-          <Cart locale={locale} cart={cart} />
+          <Cart locale={locale} cart={cart} q={q} />
         ) : kind === "checkout" ? (
           slug[1] === "card" ? (
             <CardPreview locale={locale} />
@@ -448,95 +451,171 @@ async function ProductPage({
   const available = (stockRow?.stock ?? variant.stock) > 0;
   return (
     <div className="with-mobile-buy">
-      <div className="container product-detail">
-        <div className="gallery">
-          {gallery.map((id) => (
-            <Picture key={id} id={id} locale={locale} />
-          ))}
-        </div>
-        <div className="buy-box">
-          <Eyebrow>
-            {product.tier.toUpperCase()} · {product.code}
-          </Eyebrow>
-          <h1>{product.name[locale]}</h1>
-          <p className="buy-price">{money(variant.priceVnd)}</p>
-          <p className="lead">{product.short[locale]}</p>
-          <div className="field-label">
-            {d.product.colourLabel}: {variant.colour[locale]}
-          </div>
-          <div className="swatches">
-            {product.variants.map((v) => (
-              <a
-                key={v.sku}
-                className="swatch"
-                href={`${p.product}/${product.handle}?colour=${v.colourKey}`}
-                aria-label={v.colour[locale]}
-                aria-current={v.sku === variant.sku}
-              >
-                <i style={{ backgroundColor: v.swatch }} />
-              </a>
+      <section data-section="P-01" className="product-buy-section">
+        <div className="container product-detail">
+          <div className="gallery">
+            {gallery.map((id, index) => (
+              <figure key={id} className="gallery-frame">
+                <Picture id={id} locale={locale} />
+                <figcaption className="gallery-index">
+                  {String(index + 1).padStart(2, "0")} /{" "}
+                  {String(gallery.length).padStart(2, "0")}
+                </figcaption>
+              </figure>
             ))}
           </div>
-          <form method="post" action="/api/cart">
-            <input type="hidden" name="action" value="add" />
-            <input type="hidden" name="sku" value={variant.sku} />
-            <input type="hidden" name="locale" value={locale} />
-            <button
-              className="button button-primary"
-              type="submit"
-              disabled={!available}
-            >
-              {available ? d.common.addToBag : d.common.soldOut}
-              <span aria-hidden="true">↗</span>
-            </button>
-          </form>
-          <p className="buy-note">{d.product.inspect}</p>
-          <a
-            className="text-link"
-            href={`${p.studio}?bag=${product.handle}#book`}
-          >
-            {d.product.studio} ↗
-          </a>
-        </div>
-      </div>
-      <section className="section container">
-        <Eyebrow>{d.product.about}</Eyebrow>
-        <h2>{product.name[locale]}</h2>
-        <p className="lead">{product.long[locale]}</p>
-        <div className="material-list">
-          {product.materials.parts.map((part, i) => (
-            <div key={i}>
-              <dt>{part.part}</dt>
-              <dd>{part[locale]}</dd>
+          <div className="buy-box">
+            <Eyebrow>
+              {product.tier.toUpperCase()} · {product.code}
+            </Eyebrow>
+            <h1>{product.name[locale]}</h1>
+            <p className="buy-price">{money(variant.priceVnd)}</p>
+            <p className="lead">{product.short[locale]}</p>
+            {available && <p className="stock-status">{d.product.inStock}</p>}
+            <div className="field-label">
+              {d.product.colourLabel}: {variant.colour[locale]}
             </div>
+            <div className="swatches">
+              {product.variants.map((v) => (
+                <a
+                  key={v.sku}
+                  className="swatch"
+                  href={`${p.product}/${product.handle}?colour=${v.colourKey}`}
+                  aria-label={v.colour[locale]}
+                  aria-current={v.sku === variant.sku}
+                >
+                  <i style={{ backgroundColor: v.swatch }} />
+                </a>
+              ))}
+            </div>
+            <AddToBagForm
+              sku={variant.sku}
+              locale={locale}
+              available={available}
+              label={available ? d.common.addToBag : d.common.soldOut}
+            />
+            {!available && (
+              <a className="text-link" href={p.contact}>
+                {d.product.stockQuestion} ↗
+              </a>
+            )}
+            <p className="buy-note">{d.product.inspect}</p>
+            <a
+              className="text-link"
+              href={`${p.studio}?bag=${product.handle}#book`}
+            >
+              {d.product.studio} ↗
+            </a>
+          </div>
+        </div>
+      </section>
+      <section data-section="P-02" className="section product-inside">
+        <div className="container">
+          <Eyebrow>{d.product.materials}</Eyebrow>
+          <h2>{d.product.inside}</h2>
+          <p className="lead">{product.long[locale]}</p>
+          <div className="inside-layout">
+            <MaterialHotspots
+              hotspots={product.hotspots ?? []}
+              parts={product.materials.parts}
+              labels={d.product.partLabels}
+              locale={locale}
+            >
+              <Picture id={gallery[0]} locale={locale} />
+            </MaterialHotspots>
+            <div>
+              <dl className="material-list">
+                {product.materials.parts.map((part) => (
+                  <div key={part.part}>
+                    <dt>
+                      {d.product.partLabels[
+                        part.part as keyof typeof d.product.partLabels
+                      ] ?? part.part}
+                    </dt>
+                    <dd>{part[locale]}</dd>
+                  </div>
+                ))}
+              </dl>
+              <Claim id="CL-01">
+                <p className="material-share">
+                  <strong>{d.product.shareNew}</strong>
+                  <Claim id="CL-02">
+                    <span>{d.product.shareRecovered}</span>
+                  </Claim>
+                </p>
+              </Claim>
+              {Object.values(product.specs ?? {}).some(
+                (value) => value !== null,
+              ) && (
+                <dl className="product-specs">
+                  {Object.entries(product.specs ?? {})
+                    .filter(([, value]) => value !== null)
+                    .map(([key, value]) => (
+                      <div key={key}>
+                        <dt>
+                          {d.product.specLabels[
+                            key as keyof typeof d.product.specLabels
+                          ] ?? key}
+                        </dt>
+                        <dd>
+                          {String(value)}
+                          {key === "sizeCm" || key === "handleDropCm"
+                            ? " cm"
+                            : key === "weightG"
+                              ? " g"
+                              : key === "laptopIn"
+                                ? " in"
+                                : key === "loadKg"
+                                  ? " kg"
+                                  : ""}
+                        </dd>
+                      </div>
+                    ))}
+                </dl>
+              )}
+            </div>
+          </div>
+          {inside && (
+            <div className="inside-open">
+              <div>
+                <h3>{d.product.open}</h3>
+                <p>{product.short[locale]}</p>
+              </div>
+              <Picture id={inside.asset} locale={locale} />
+            </div>
+          )}
+        </div>
+      </section>
+      <section data-section="P-03" className="section container product-before">
+        <Eyebrow>{d.product.about}</Eyebrow>
+        <h2>{d.product.before}</h2>
+        <div className="product-accordions">
+          {[
+            [d.product.deliveryTitle, d.product.deliveryBody],
+            [d.product.paymentTitle, d.product.paymentBody],
+            [d.product.returnsTitle, d.product.returnsBody],
+            [d.product.careTitle, d.product.careBody],
+            [d.product.questionsTitle, d.product.questionsBody],
+          ].map(([title, body]) => (
+            <details key={title}>
+              <summary>{title}</summary>
+              <p>{body}</p>
+            </details>
           ))}
         </div>
-        <p className="mono">{product.materials.share[locale]}</p>
-      </section>
-      {inside && (
-        <section className="story-panel">
-          <div>
-            <Eyebrow>{d.home.revealLabel}</Eyebrow>
-            <h2>{locale === "vi" ? "Mở ra." : "Open it."}</h2>
-            <p className="lead">{product.short[locale]}</p>
-          </div>
-          <Picture id={inside.asset} locale={locale} />
-        </section>
-      )}
-      <section className="section container">
         <div className="section-heading">
           <div>
             <Eyebrow>{d.shop.eyebrow}</Eyebrow>
-            <h2>{d.product.more}</h2>
+            <h3>{d.product.moreTitle}</h3>
           </div>
           <a className="text-link" href={p.shop}>
             {d.common.allBags} ↗
           </a>
         </div>
-        <div className="product-grid">
+        <div className="product-grid product-rail">
           {allVariants
-            .filter((row) => row.product.code !== product.code)
-            .slice(0, 3)
+            .filter((row) => row.variant.sku !== variant.sku)
+            .slice(0, 4)
             .map(({ product, variant }) => (
               <ProductCard
                 key={variant.sku}
@@ -548,15 +627,14 @@ async function ProductPage({
         </div>
       </section>
       <div className="mobile-buy">
-        <form method="post" action="/api/cart">
-          <input type="hidden" name="action" value="add" />
-          <input type="hidden" name="sku" value={variant.sku} />
-          <input type="hidden" name="locale" value={locale} />
-          <span>{money(variant.priceVnd)}</span>
-          <button className="button button-primary" disabled={!available}>
-            {available ? d.common.addToBag : d.common.soldOut} ↗
-          </button>
-        </form>
+        <span>{money(variant.priceVnd)}</span>
+        <AddToBagForm
+          sku={variant.sku}
+          locale={locale}
+          available={available}
+          label={available ? d.common.addToBag : d.common.soldOut}
+          mobile
+        />
       </div>
     </div>
   );
@@ -783,9 +861,11 @@ function Studio({
 function Cart({
   locale,
   cart,
+  q,
 }: {
   locale: Locale;
   cart: Awaited<ReturnType<typeof getCart>>;
+  q: Record<string, string | string[] | undefined>;
 }) {
   const d = dictionary(locale),
     p = paths(locale),
@@ -795,6 +875,11 @@ function Cart({
     <section className="container section">
       <Eyebrow>{d.nav.bag}</Eyebrow>
       <h1>{d.cart.title}</h1>
+      {param(q, "added") === "1" && (
+        <p className="cart-added" role="status" aria-live="polite">
+          {d.product.added}
+        </p>
+      )}
       {rows.length ? (
         <div className="cart-layout">
           <div>
@@ -808,23 +893,29 @@ function Cart({
                 <div>
                   <h2>{row.product.name[locale]}</h2>
                   <p>{row.variant.colour[locale]}</p>
-                  <form method="post" action="/api/cart">
-                    <input type="hidden" name="action" value="update" />
-                    <input type="hidden" name="sku" value={row.variant.sku} />
-                    <input type="hidden" name="locale" value={locale} />
-                    <label className="field" htmlFor={`qty-${row.variant.sku}`}>
-                      {d.common.quantity}
-                      <input
-                        id={`qty-${row.variant.sku}`}
-                        type="number"
-                        name="qty"
-                        min="0"
-                        max={row.variant.stock}
-                        defaultValue={row.qty}
-                      />
-                    </label>
-                    <button type="submit">{d.cart.update}</button>
-                  </form>
+                  <div
+                    className="cart-quantity"
+                    role="group"
+                    aria-label={d.common.quantity}
+                  >
+                    <form method="post" action="/api/cart">
+                      <input type="hidden" name="action" value="decrement" />
+                      <input type="hidden" name="sku" value={row.variant.sku} />
+                      <input type="hidden" name="locale" value={locale} />
+                      <button type="submit" aria-label={d.cart.decrease}>
+                        −
+                      </button>
+                    </form>
+                    <span>{row.qty}</span>
+                    <form method="post" action="/api/cart">
+                      <input type="hidden" name="action" value="increment" />
+                      <input type="hidden" name="sku" value={row.variant.sku} />
+                      <input type="hidden" name="locale" value={locale} />
+                      <button type="submit" aria-label={d.cart.increase}>
+                        +
+                      </button>
+                    </form>
+                  </div>
                   <form method="post" action="/api/cart">
                     <input type="hidden" name="action" value="remove" />
                     <input type="hidden" name="sku" value={row.variant.sku} />

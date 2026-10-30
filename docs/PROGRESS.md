@@ -50,3 +50,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - The remaining legacy Home sections stay in place until H-02 (F5) and H-04/H-05 (F6) replace them. The final five-section count belongs to F6.
 - Next: F4 product detail, hotspots and cart interaction.
 
+## F4 · Product detail and cart
+
+- Reworked the product template into exactly P-01 gallery/buy, P-02 inside/materials and P-03 before-you-buy. The gallery has image indices; the buy box retains colour, stock and studio actions. P-02 has accessible, keyboard-operable hotspots from the seed, a material profile and the approved 70/30 share. Unconfirmed specifications stay hidden. P-03 has five native accordions and four related cards.
+- Added the 0.7s Flip image-to-bag transition on add; reduced motion submits immediately. Cart now has localized add success, plus/minus quantity and remove controls, and its API caps quantities at live D1 inventory. Corrected two image alt descriptions that made an unapproved hand-weaving claim.
+- Format — pass. `npm run lint` — pass. `npm run typecheck` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e -- product-cart.spec.ts` — 13 passed at 360/390/768/1024/1440 in normal and reduced motion, including no overflow, hidden sections or console errors, hotspot and cart interaction, and no serious/critical axe violations. Screenshots: `test-results/screens/F4/`.
+- Applied the React component review checklist to the new client code. The heavier Flip module loads only after an add action.
+- Next: F5 motion core and Home H-02 Reveal.
+
