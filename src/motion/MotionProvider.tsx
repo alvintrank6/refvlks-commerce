@@ -57,7 +57,6 @@ export function MotionProvider({ children }: { children: ReactNode }) {
                 gsap.from(split.lines, {
                   yPercent: tier.full ? 105 : 0,
                   y: tier.full ? 0 : 12,
-                  opacity: 0,
                   duration: tier.full ? 0.8 : 0.45,
                   stagger: tier.full ? 0.08 : 0.04,
                   ease: "power3.out",

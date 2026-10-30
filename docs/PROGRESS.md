@@ -66,3 +66,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run lint` — pass. `npm run typecheck` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e` — 49 passed, including F5 at 360/390/768/1024/1440 pixels in normal and reduced motion, no-JavaScript content and navigation, keyboard travel through the pin, View Transition navigation, and axe serious/critical checks. Screenshots: `test-results/screens/F5/`.
 - Next: F6 Home H-04 and H-05.
 
+## F6 · Home gallery and invitations
+
+- Replaced the remaining legacy Home sections with H-04 Carried in Hanoi and H-05 Two invitations, giving Home exactly five V2 sections. H-04 uses the eight specified images in order, product-linked captions and an ending panel with approved delivery, repair and studio promises. H-05 uses the specified product and lifestyle images, original Weft pattern, exact EN/VI copy and Donation Event/studio actions.
+- Desktop H-04 pins a horizontal gallery with progress, image parallax and bounded velocity skew. Touch uses a swipeable snap rail; reduced motion uses a two-column static grid. H-05 shifts its surrounding background to Cocoa in the viewport and reveals images on full/light tiers; reduced motion changes background instantly.
+- Fixed a contrast issue in the F5 Reveal: inactive story text remains fully legible, with the active step marked by border and inset. SplitText now moves headings without fading them, avoiding transient low contrast during motion.
+- `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e` — 62 passed, including F6 at 360/390/768/1024/1440 pixels in normal/reduced motion, gallery end reach, caption/invitation navigation, no browser errors and serious/critical axe checks. Screenshots: `test-results/screens/F6/`.
+- Next: F7 Shop S-01–S-03.
+

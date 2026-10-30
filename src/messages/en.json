@@ -71,6 +71,27 @@
       "three": "Open it: a lining woven in Vietnam.",
       "cta": "See how it's made"
     },
+    "carried": {
+      "title": "Carried in Hanoi.",
+      "body": "From office lobbies to tree-lined streets, five bags made for the way the city moves.",
+      "inspectTitle": "Inspect before you pay.",
+      "inspectBody": "Open the parcel and check your bag before paying the courier.",
+      "repairTitle": "Repairs we stand behind.",
+      "repairBody": "Handles, buckles and seams can come back to us.",
+      "studioTitle": "See it in person.",
+      "studioBody": "Book a time at our studio on Le Quy Don.",
+      "cta": "Shipping & returns"
+    },
+    "invite": {
+      "donationEyebrow": "DONATION EVENT · EVERY MONTH",
+      "donationTitle": "Your old clothes, up the mountain.",
+      "donationBody": "Once a month we take sorted, wearable clothes to communities in the Northwest. Worn-out pieces become the recovered textile in our bags.",
+      "donationCta": "Join the next drive",
+      "studioEyebrow": "THE STUDIO · BY APPOINTMENT",
+      "studioTitle": "Come and carry one.",
+      "studioBody": "22 Le Quy Don, Hai Ba Trung Ward, Hanoi. Every day, 8:00 to 21:30.",
+      "studioCta": "Book a visit"
+    },
     "revealOne": "A body cut from new technical textile.",
     "revealTwo": "Handles and flaps in recovered cotton, denim and synthetics.",
     "revealThree": "Open it: a woven lining.",

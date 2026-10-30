@@ -25,6 +25,10 @@ import QRCode from "qrcode";
 import { vietqrPayload } from "../../../src/lib/vietqr";
 import { HomeMotion } from "../../../src/motion/HomeMotion";
 import { HomeReveal } from "../../../src/components/HomeReveal";
+import {
+  HomeCarried,
+  HomeInvitations,
+} from "../../../src/components/HomeClosing";
 import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
 import { AddToBagForm } from "../../../src/components/AddToBagForm";
 import { Claim } from "../../../src/components/Claim";
@@ -238,61 +242,8 @@ function Home({ locale }: { locale: Locale }) {
           ))}
         </div>
       </section>
-      <section className="section materials-section" id="after-reveal">
-        <div className="container">
-          <Eyebrow>{d.craft.eyebrow}</Eyebrow>
-          <div className="section-heading">
-            <h2>{d.home.materialsTitle}</h2>
-            <a className="text-link" href={p.craft}>
-              {d.common.learnMore} ↗
-            </a>
-          </div>
-          <div className="materials-grid">
-            <div className="material-panel">
-              <div className="material-number">70%</div>
-              <h3>{d.craft.new}</h3>
-              <p>{d.home.materialOne}</p>
-            </div>
-            <div className="material-panel">
-              <div className="material-number">30%</div>
-              <h3>{d.craft.recovered}</h3>
-              <p>{d.home.materialTwo}</p>
-            </div>
-          </div>
-          <p className="material-foot">{d.home.materialNote}</p>
-        </div>
-      </section>
-      <section className="section container">
-        <Eyebrow>REFVLKS / 03</Eyebrow>
-        <h2>{d.home.trustTitle}</h2>
-        <div className="trust-grid">
-          <div className="trust-item">
-            <span className="number">01</span>
-            <h3>{d.home.trustOneTitle}</h3>
-            <p>{d.home.trustOne}</p>
-          </div>
-          <div className="trust-item">
-            <span className="number">02</span>
-            <h3>{d.home.trustTwoTitle}</h3>
-            <p>{d.home.trustTwo}</p>
-          </div>
-          <div className="trust-item">
-            <span className="number">03</span>
-            <h3>{d.home.trustThreeTitle}</h3>
-            <p>{d.home.trustThree}</p>
-          </div>
-        </div>
-      </section>
-      <section className="section studio-cta">
-        <div className="container">
-          <div>
-            <Eyebrow>{d.studio.eyebrow}</Eyebrow>
-            <h2>{d.home.studioTitle}</h2>
-            <p className="lead">{d.home.studioBody}</p>
-          </div>
-          <ButtonLink href={`${p.studio}#book`}>{d.studio.book}</ButtonLink>
-        </div>
-      </section>
+      <HomeCarried locale={locale} />
+      <HomeInvitations locale={locale} />
     </HomeMotion>
   );
 }

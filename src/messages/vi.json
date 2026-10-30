@@ -71,6 +71,27 @@
       "three": "Mở ra: lớp lót dệt tại Việt Nam.",
       "cta": "Xem cách chúng tôi làm"
     },
+    "carried": {
+      "title": "Mang theo khắp Hà Nội.",
+      "body": "Từ sảnh văn phòng đến những con phố rợp cây, năm chiếc túi làm cho nhịp sống của thành phố.",
+      "inspectTitle": "Kiểm hàng rồi trả tiền.",
+      "inspectBody": "Mở gói và kiểm túi trước khi trả tiền cho người giao hàng.",
+      "repairTitle": "Sửa chữa có cam kết.",
+      "repairBody": "Quai, khóa và đường may có thể gửi lại cho chúng tôi.",
+      "studioTitle": "Xem tận tay.",
+      "studioBody": "Đặt lịch tại studio trên phố Lê Quý Đôn.",
+      "cta": "Giao hàng & đổi trả"
+    },
+    "invite": {
+      "donationEyebrow": "SỰ KIỆN QUYÊN GÓP · MỖI THÁNG",
+      "donationTitle": "Áo cũ của bạn, lên với vùng cao.",
+      "donationBody": "Mỗi tháng, chúng tôi mang quần áo đã phân loại, còn mặc tốt lên với bà con Tây Bắc. Áo đã quá cũ trở thành vải tái chế trong túi Refvlks.",
+      "donationCta": "Tham gia chuyến tới",
+      "studioEyebrow": "STUDIO · THEO LỊCH HẸN",
+      "studioTitle": "Đến và đeo thử một chiếc.",
+      "studioBody": "22 Lê Quý Đôn, phường Hai Bà Trưng, Hà Nội. Mở cửa hằng ngày, 8:00 đến 21:30.",
+      "studioCta": "Đặt lịch ghé studio"
+    },
     "revealOne": "Thân túi từ vải chuyên dụng mới.",
     "revealTwo": "Quai và nắp từ cotton, jeans và vải tổng hợp tái chế.",
     "revealThree": "Mở ra: lớp lót dệt.",
