@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import { LocaleProvider } from "../../src/components/LocaleProvider";
 import { ViewTransitions } from "next-view-transitions";
 import { MotionProvider } from "../../src/motion/MotionProvider";
+import { absoluteUrl, jsonLd, siteOrigin } from "../../src/lib/seo";
 import "../globals.css";
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://refvlks-atelier-2026.alvintrank95.chatgpt.site",
-  ),
+  metadataBase: new URL(siteOrigin),
   title: { default: "Work Bags | Refvlks", template: "%s | Refvlks" },
   description: "Tailored work bags with woven details from Hanoi.",
   icons: {
@@ -14,7 +13,8 @@ export const metadata: Metadata = {
     apple: "/brand/favicons/apple-touch-icon.png",
   },
   manifest: "/manifest.webmanifest",
-  openGraph: { images: ["/images/og/refvlks_og_01_default.jpg"] },
+  openGraph: { siteName: "Refvlks", images: [{ url: "/images/og/refvlks_og_v2.jpg", width: 1200, height: 630, alt: "Refvlks work bags" }] },
+  twitter: { card: "summary_large_image", images: ["/images/og/refvlks_og_v2.jpg"] },
 };
 export default async function RootLayout({
   children,
@@ -36,6 +36,12 @@ export default async function RootLayout({
           />
         </head>
         <body>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
+            "@context": "https://schema.org", "@type": "Organization",
+            "@id": `${siteOrigin}/#organization`, name: "Refvlks", url: siteOrigin,
+            logo: absoluteUrl("/brand/refvlks_logo_wordmark_primary.svg"),
+            description: selected === "vi" ? "Túi đi làm với chi tiết dệt thủ công tại Việt Nam." : "Work bags with textile woven by hand in Vietnam.",
+          }) }} />
           <LocaleProvider locale={selected}>
             <MotionProvider>{children}</MotionProvider>
           </LocaleProvider>

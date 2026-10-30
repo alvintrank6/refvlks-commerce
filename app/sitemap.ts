@@ -6,7 +6,7 @@ import {
   legalPath,
   type Locale,
 } from "../src/lib/catalog";
-const origin = "https://refvlks-atelier-2026.alvintrank95.chatgpt.site";
+import { absoluteUrl } from "../src/lib/seo";
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
   for (const locale of ["en", "vi"] as Locale[]) {
@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       legalPath(locale, "payment"),
       ...products.map((product) => `${p.product}/${product.handle}`),
     ])
-      entries.push({ url: origin + url, changeFrequency: "weekly" });
+      entries.push({ url: absoluteUrl(url), changeFrequency: "weekly" });
   }
   return entries;
 }

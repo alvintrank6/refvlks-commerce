@@ -120,3 +120,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/help-legal-v2.spec.ts` — 15 passed at five widths and normal/reduced motion, including all seven Vietnamese localized URLs and switches, 404 status, omitted assumptions and axe checks.
 - Next: F13 metadata, structured data and asset metadata.
 
+## F13 · SEO and share assets
+
+- Added localized page titles, descriptions, absolute canonical URLs, EN/VI/x-default alternates, Open Graph and Twitter metadata. Filtered Shop URLs and private cart, checkout and order routes are noindex. Product colour URLs canonicalize to the product path.
+- Added Organization, Studio Store, Product/Offer, FAQPage and BreadcrumbList structured data. Donation Event schema is emitted only when an actual event date exists; the current null event date produces none. Product availability reads the current D1 inventory when present.
+- Generated 1200 × 630 share images for the site and four product designs from mapped photography and the original Refvlks vector wordmark. Updated sitemap, robots and PWA manifest with the supplied maskable icon. Analytics was deliberately omitted under the user's direct instruction.
+- `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/seo-v2.spec.ts` — 4 passed against the local production preview. Visually inspected the generic OG card.
+- Next: F14 full QA and final handoff. No source push or deployment.
+
