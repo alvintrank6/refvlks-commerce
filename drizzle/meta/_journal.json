@@ -15,6 +15,13 @@
       "when": 1793361542273,
       "tag": "0001_nifty_starfox",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793381051214,
+      "tag": "0002_rapid_randall",
+      "breakpoints": true
     }
   ]
 }

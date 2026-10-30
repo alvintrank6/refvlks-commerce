@@ -90,3 +90,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — pass. `npm run build` — pass. `npx playwright test tests/e2e/checkout-v2.spec.ts` — 13 passed across five widths in normal/reduced motion, including COD, transfer, validation and axe serious/critical checks. Local D1 showed `RV-SP01-BRN` stock at 5 after order tests, down from the 10-unit seed and previous order runs.
 - Next: F9 Studio and Contact.
 
+## F9 · Studio and Contact
+
+- Rebuilt Studio into ST-01 through ST-03 with exact V2 hero copy, the LIFE-04 photograph, booking form and a static Weft-like location illustration linking to Google Maps. The form offers 30-minute slots from 08:00 to 21:00 and reads booked times through the shared D1/local/Supabase repository; database uniqueness still blocks races. Same-day past slots are rejected server-side.
+- Expanded Contact to all six requested topics, showing order number only for Order or Repair. Both forms persist to the repository, have honeypots, inline native-validation messages and accessible status alerts. Optional admin email is wired through Resend when configured; no live credentials were available.
+- Added hashed IP limits of three studio requests and five messages per hour to all three adapters, with D1 and Supabase migrations. Applied the D1 migration to the local preview. The hosted Supabase migration and email delivery remain unverified without owner credentials.
+- `npm run typecheck`, `npm run lint`, `npm run test` (8 tests), `npm run build` — pass. `npx playwright test tests/e2e/studio-contact-v2.spec.ts` — 15 passed at five widths in normal/reduced motion, including slot visibility, duplicate blocking, topic switching, persistence, rate limits, inline errors and axe checks.
+- Next: F10 Craft and About.
+

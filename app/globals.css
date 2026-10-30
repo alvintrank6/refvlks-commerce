@@ -2015,6 +2015,51 @@ input[type="date"] {
   display: grid;
   gap: 16px;
 }
+.studio-hero,
+.studio-location {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 7%;
+  align-items: center;
+}
+.studio-hero .picture {
+  aspect-ratio: 4 / 5;
+}
+.studio-points {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+.studio-points li {
+  border-top: 1px solid var(--border);
+  padding: 11px 0;
+}
+.studio-points li::before {
+  content: "—";
+  color: var(--accent);
+  margin-right: 10px;
+}
+.studio-map {
+  width: 100%;
+  background: var(--sand);
+}
+.booking-card .field:has(#message-order) {
+  display: none;
+}
+.booking-card
+  form:has(#message-topic option[value="order"]:checked)
+  .field:has(#message-order),
+.booking-card
+  form:has(#message-topic option[value="repair"]:checked)
+  .field:has(#message-order) {
+  display: grid;
+}
+@media (max-width: 767px) {
+  .studio-hero,
+  .studio-location {
+    grid-template-columns: 1fr;
+  }
+}
 .policy-content {
   max-width: 800px;
   padding-bottom: 90px;
@@ -2046,6 +2091,12 @@ input[type="date"] {
 .field-error.is-visible,
 .checkout-form[data-attempted="true"] .field input:invalid + .field-error,
 .checkout-form[data-attempted="true"]
+  .consent:has(input:invalid)
+  + .field-error,
+.validated-form[data-attempted="true"] .field input:invalid + .field-error,
+.validated-form[data-attempted="true"] .field select:invalid + .field-error,
+.validated-form[data-attempted="true"] .field textarea:invalid + .field-error,
+.validated-form[data-attempted="true"]
   .consent:has(input:invalid)
   + .field-error {
   display: block;

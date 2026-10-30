@@ -100,9 +100,19 @@ export class D1StoreRepository implements StoreRepository {
   }
 
   async createVisit(input: VisitDraft) {
+    if (input.ipHash) {
+      const cutoff = new Date(Date.now() - 3_600_000).toISOString();
+      const recent = await this.db
+        .prepare(
+          "SELECT COUNT(*) AS count FROM studio_visits WHERE ip_hash = ? AND created_at >= ?",
+        )
+        .bind(input.ipHash, cutoff)
+        .first<{ count: number }>();
+      if ((recent?.count ?? 0) >= 3) throw new Error("RATE_LIMITED");
+    }
     await this.db
       .prepare(
-        "INSERT INTO studio_visits (id,created_at,name,phone,email,visit_date,visit_time,bag,note,locale,status) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO studio_visits (id,created_at,name,phone,email,visit_date,visit_time,bag,note,locale,status,ip_hash) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
       )
       .bind(
         crypto.randomUUID(),
@@ -116,14 +126,35 @@ export class D1StoreRepository implements StoreRepository {
         input.note,
         input.locale,
         "requested",
+        input.ipHash ?? null,
       )
       .run();
   }
 
+  async getBookedVisitSlots(date: string) {
+    const rows = await this.db
+      .prepare(
+        "SELECT visit_time FROM studio_visits WHERE visit_date = ? AND status != 'cancelled'",
+      )
+      .bind(date)
+      .all<{ visit_time: string }>();
+    return rows.results.map((row) => row.visit_time);
+  }
+
   async createMessage(input: MessageDraft) {
+    if (input.ipHash) {
+      const cutoff = new Date(Date.now() - 3_600_000).toISOString();
+      const recent = await this.db
+        .prepare(
+          "SELECT COUNT(*) AS count FROM messages WHERE ip_hash = ? AND created_at >= ?",
+        )
+        .bind(input.ipHash, cutoff)
+        .first<{ count: number }>();
+      if ((recent?.count ?? 0) >= 5) throw new Error("RATE_LIMITED");
+    }
     await this.db
       .prepare(
-        "INSERT INTO messages (id,created_at,name,contact,topic,order_number,body,locale,status) VALUES (?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO messages (id,created_at,name,contact,topic,order_number,body,locale,status,ip_hash) VALUES (?,?,?,?,?,?,?,?,?,?)",
       )
       .bind(
         crypto.randomUUID(),
@@ -135,6 +166,7 @@ export class D1StoreRepository implements StoreRepository {
         input.body,
         input.locale,
         "new",
+        input.ipHash ?? null,
       )
       .run();
   }

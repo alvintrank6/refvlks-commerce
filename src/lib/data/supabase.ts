@@ -147,6 +147,17 @@ export class SupabaseStoreRepository
   }
 
   async createVisit(input: VisitDraft) {
+    if (input.ipHash) {
+      const cutoff = new Date(Date.now() - 3_600_000).toISOString();
+      const check = await fetch(
+        `${this.endpoint("studio_visits")}?select=id&ip_hash=eq.${input.ipHash}&created_at=gte.${encodeURIComponent(cutoff)}`,
+        { headers: this.headers({ Prefer: "count=exact" }), cache: "no-store" },
+      );
+      if (!check.ok)
+        throw new Error(`Visit rate check failed: ${check.status}`);
+      if (Number(check.headers.get("content-range")?.split("/")[1] ?? 0) >= 3)
+        throw new Error("RATE_LIMITED");
+    }
     const response = await fetch(this.endpoint("studio_visits"), {
       method: "POST",
       headers: this.headers({ Prefer: "return=minimal" }),
@@ -162,13 +173,39 @@ export class SupabaseStoreRepository
         locale: input.locale,
         status: "requested",
         created_at: new Date().toISOString(),
+        ip_hash: input.ipHash ?? null,
       }),
       cache: "no-store",
     });
     if (!response.ok) throw new Error(`Visit failed: ${response.status}`);
   }
 
+  async getBookedVisitSlots(date: string) {
+    const response = await fetch(
+      `${this.endpoint("studio_visits")}?select=visit_time&visit_date=eq.${encodeURIComponent(date)}&status=neq.cancelled`,
+      {
+        headers: this.headers(),
+        cache: "no-store",
+      },
+    );
+    if (!response.ok)
+      throw new Error(`Visit availability failed: ${response.status}`);
+    const rows = (await response.json()) as { visit_time: string }[];
+    return rows.map((row) => row.visit_time.slice(0, 5));
+  }
+
   async createMessage(input: MessageDraft) {
+    if (input.ipHash) {
+      const cutoff = new Date(Date.now() - 3_600_000).toISOString();
+      const check = await fetch(
+        `${this.endpoint("messages")}?select=id&ip_hash=eq.${input.ipHash}&created_at=gte.${encodeURIComponent(cutoff)}`,
+        { headers: this.headers({ Prefer: "count=exact" }), cache: "no-store" },
+      );
+      if (!check.ok)
+        throw new Error(`Message rate check failed: ${check.status}`);
+      if (Number(check.headers.get("content-range")?.split("/")[1] ?? 0) >= 5)
+        throw new Error("RATE_LIMITED");
+    }
     const response = await fetch(this.endpoint("messages"), {
       method: "POST",
       headers: this.headers({ Prefer: "return=minimal" }),
@@ -182,6 +219,7 @@ export class SupabaseStoreRepository
         locale: input.locale,
         status: "new",
         created_at: new Date().toISOString(),
+        ip_hash: input.ipHash ?? null,
       }),
       cache: "no-store",
     });

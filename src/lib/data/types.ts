@@ -30,6 +30,7 @@ export type VisitDraft = {
   bag: string | null;
   note: string | null;
   locale: Locale;
+  ipHash?: string | null;
 };
 export type MessageDraft = {
   name: string;
@@ -38,6 +39,7 @@ export type MessageDraft = {
   orderNumber: string | null;
   body: string;
   locale: Locale;
+  ipHash?: string | null;
 };
 
 export interface StoreRepository extends DonationRepository {
@@ -45,5 +47,6 @@ export interface StoreRepository extends DonationRepository {
   getProduct(handle: string): Promise<Product | null>;
   placeOrder(input: OrderDraft): Promise<OrderCreated>;
   createVisit(input: VisitDraft): Promise<void>;
+  getBookedVisitSlots(date: string): Promise<string[]>;
   createMessage(input: MessageDraft): Promise<void>;
 }

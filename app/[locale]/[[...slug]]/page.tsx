@@ -35,6 +35,8 @@ import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
 import { AddToBagForm } from "../../../src/components/AddToBagForm";
 import { Claim } from "../../../src/components/Claim";
 import { CopyButton } from "../../../src/components/CopyButton";
+import { VisitDateTime } from "../../../src/components/VisitDateTime";
+import { CheckoutSubmit } from "../../../src/components/CheckoutSubmit";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -628,42 +630,39 @@ function Studio({
     month: "2-digit",
     day: "2-digit",
   }).format(now);
-  const last = new Date(now.getTime() + 30 * 86400000)
-    .toISOString()
-    .slice(0, 10);
-  const slots = Array.from({ length: 27 }, (_, i) => {
-    const mins = 8 * 60 + i * 30;
-    return `${String(Math.floor(mins / 60)).padStart(2, "0")}:${String(mins % 60).padStart(2, "0")}`;
-  });
+  const last = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(now.getTime() + 30 * 86400000));
   return (
     <>
-      <section className="container page-hero">
-        <Eyebrow>{d.studio.eyebrow}</Eyebrow>
-        <h1>{d.studio.title}</h1>
-        <p className="lead">{d.studio.intro}</p>
-        <p>
-          {d.footer.studio}
-          <br />
-          {d.studio.hours} · {d.studio.appointment}
-        </p>
-        <ButtonLink href="#book">{d.studio.book}</ButtonLink>
+      <section className="container page-hero studio-hero" data-section="ST-01">
+        <div>
+          <Eyebrow>{d.studio.eyebrow}</Eyebrow>
+          <h1>{d.studio.title}</h1>
+          <p className="lead">{d.studio.intro}</p>
+          <ul className="studio-points">
+            <li>{d.studio.bring}</li>
+            <li>{d.studio.slow}</li>
+            <li>{d.studio.pay}</li>
+          </ul>
+          <ButtonLink href="#book">{d.studio.book}</ButtonLink>
+        </div>
+        <Picture id="LIFE-04" locale={locale} />
       </section>
-      <section className="section materials-section" id="book">
+      <section
+        className="section materials-section"
+        id="book"
+        data-section="ST-02"
+      >
         <div className="container booking-layout">
           <div>
             <Eyebrow>{d.studio.eyebrow}</Eyebrow>
             <h2>{d.studio.book}</h2>
             <p className="lead">{d.studio.appointment}</p>
-            <p>{d.footer.studio}</p>
-            <p>{d.studio.hours}</p>
-            <a
-              className="text-link"
-              href="https://maps.google.com/?q=22+Le+Quy+Don+Ha+Noi"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Google Maps ↗
-            </a>
+            <p>{d.studio.intro}</p>
           </div>
           <div className="booking-card">
             {status === "success" && (
@@ -676,16 +675,39 @@ function Studio({
                 {d.studio.error}
               </p>
             )}
-            <form method="post" action="/api/visits">
+            {status === "taken" && (
+              <p className="message-box error" role="alert">
+                {d.studio.taken}
+              </p>
+            )}
+            {status === "rate-limit" && (
+              <p className="message-box error" role="alert">
+                {d.studio.rateLimit}
+              </p>
+            )}
+            <form className="validated-form" method="post" action="/api/visits">
               <input type="hidden" name="locale" value={locale} />
+              <input
+                type="text"
+                name="website"
+                className="honeypot"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+              />
               <div className="field">
                 <label htmlFor="visit-name">{d.common.name}</label>
                 <input
                   id="visit-name"
                   name="name"
                   required
+                  minLength={2}
                   autoComplete="name"
+                  aria-describedby="visit-name-error"
                 />
+                <p className="field-error" id="visit-name-error">
+                  {d.studio.nameError}
+                </p>
               </div>
               <div className="field">
                 <label htmlFor="visit-phone">{d.common.phone}</label>
@@ -696,7 +718,11 @@ function Studio({
                   required
                   pattern="0[0-9]{9}"
                   autoComplete="tel"
+                  aria-describedby="visit-phone-error"
                 />
+                <p className="field-error" id="visit-phone-error">
+                  {d.studio.phoneError}
+                </p>
               </div>
               <div className="field">
                 <label htmlFor="visit-email">{d.common.email}</label>
@@ -707,30 +733,15 @@ function Studio({
                   autoComplete="email"
                 />
               </div>
-              <div className="form-grid">
-                <div className="field">
-                  <label htmlFor="visit-date">{d.studio.date}</label>
-                  <input
-                    id="visit-date"
-                    name="date"
-                    type="date"
-                    min={today}
-                    max={last}
-                    required
-                  />
-                </div>
-                <div className="field">
-                  <label htmlFor="visit-time">{d.studio.time}</label>
-                  <select id="visit-time" name="time" required>
-                    <option value="">{d.common.choose}</option>
-                    {slots.map((slot) => (
-                      <option key={slot} value={slot}>
-                        {slot}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              <VisitDateTime
+                today={today}
+                last={last}
+                dateLabel={d.studio.date}
+                timeLabel={d.studio.time}
+                choose={d.common.choose}
+                dateError={d.studio.dateError}
+                timeError={d.studio.timeError}
+              />
               <div className="field">
                 <label htmlFor="visit-bag">{d.studio.bag}</label>
                 <select id="visit-bag" name="bag" defaultValue={bag}>
@@ -750,12 +761,61 @@ function Studio({
                 <input type="checkbox" name="consent" required />
                 <span>{d.checkout.terms}</span>
               </label>
-              <button className="button button-primary" type="submit">
-                {d.studio.book} ↗
-              </button>
+              <p className="field-error" id="visit-consent-error">
+                {d.studio.consentError}
+              </p>
+              <CheckoutSubmit>{d.studio.book} ↗</CheckoutSubmit>
             </form>
           </div>
         </div>
+      </section>
+      <section
+        className="section container studio-location"
+        data-section="ST-03"
+      >
+        <div>
+          <Eyebrow>{d.studio.eyebrow}</Eyebrow>
+          <h2>{d.studio.find}</h2>
+          <p className="lead">{d.studio.intro}</p>
+          <a
+            className="button button-secondary"
+            href="https://maps.google.com/?q=22+Le+Quy+Don+Ha+Noi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {d.studio.maps} ↗
+          </a>
+        </div>
+        <svg
+          className="studio-map"
+          viewBox="0 0 640 420"
+          role="img"
+          aria-label={d.footer.studio}
+        >
+          <rect width="640" height="420" fill="#E8DFD0" />
+          <path
+            d="M30 50H610M-20 115H580M80 190H640M-20 270H610M30 365H640"
+            stroke="#4A2E1F"
+            strokeWidth="2"
+          />
+          <path
+            d="M120 0V420M260 0V420M390 0V420M530 0V420"
+            stroke="#4A2E1F"
+            strokeWidth="2"
+          />
+          <path d="M5 190H640M390 0V420" stroke="#B3341F" strokeWidth="4" />
+          <circle
+            cx="390"
+            cy="190"
+            r="17"
+            fill="#B3341F"
+            stroke="#F4EFE6"
+            strokeWidth="6"
+          />
+          <text x="414" y="177" fill="#4A2E1F" fontSize="19">
+            REFVLKS STUDIO
+          </text>
+        </svg>
       </section>
     </>
   );
@@ -979,7 +1039,8 @@ function Contact({
   q: Record<string, string | string[] | undefined>;
 }) {
   const d = dictionary(locale),
-    status = param(q, "status");
+    status = param(q, "status"),
+    topic = param(q, "topic");
   return (
     <section className="container section">
       <Eyebrow>{d.nav.contact}</Eyebrow>
@@ -1004,24 +1065,72 @@ function Contact({
               {d.contact.error}
             </p>
           )}
-          <form method="post" action="/api/messages">
+          {status === "rate-limit" && (
+            <p className="message-box error" role="alert">
+              {d.contact.rateLimit}
+            </p>
+          )}
+          <form className="validated-form" method="post" action="/api/messages">
             <input type="hidden" name="locale" value={locale} />
+            <input
+              type="text"
+              name="website"
+              className="honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <div className="field">
               <label htmlFor="message-name">{d.common.name}</label>
-              <input id="message-name" name="name" required />
+              <input
+                id="message-name"
+                name="name"
+                required
+                minLength={2}
+                aria-describedby="message-name-error"
+              />
+              <p className="field-error" id="message-name-error">
+                {d.contact.nameError}
+              </p>
             </div>
             <div className="field">
               <label htmlFor="message-contact">
                 {d.common.phone} / {d.common.email}
               </label>
-              <input id="message-contact" name="contact" required />
+              <input
+                id="message-contact"
+                name="contact"
+                required
+                minLength={5}
+                aria-describedby="message-contact-error"
+              />
+              <p className="field-error" id="message-contact-error">
+                {d.contact.contactError}
+              </p>
             </div>
             <div className="field">
               <label htmlFor="message-topic">{d.contact.topic}</label>
-              <select id="message-topic" name="topic">
+              <select
+                id="message-topic"
+                name="topic"
+                defaultValue={
+                  [
+                    "order",
+                    "visit",
+                    "repair",
+                    "corporate",
+                    "press",
+                    "other",
+                  ].includes(topic)
+                    ? topic
+                    : "order"
+                }
+              >
                 <option value="order">{d.contact.order}</option>
                 <option value="visit">{d.contact.visit}</option>
                 <option value="repair">{d.contact.repair}</option>
+                <option value="corporate">{d.contact.corporate}</option>
+                <option value="press">{d.contact.press}</option>
                 <option value="other">{d.contact.other}</option>
               </select>
             </div>
@@ -1035,16 +1144,22 @@ function Contact({
                 id="message-body"
                 name="body"
                 required
+                minLength={5}
                 maxLength={2000}
+                aria-describedby="message-body-error"
               />
+              <p className="field-error" id="message-body-error">
+                {d.contact.bodyError}
+              </p>
             </div>
             <label className="consent">
               <input type="checkbox" name="consent" required />
               <span>{d.checkout.terms}</span>
             </label>
-            <button className="button button-primary" type="submit">
-              {d.common.send} ↗
-            </button>
+            <p className="field-error" id="message-consent-error">
+              {d.contact.consentError}
+            </p>
+            <CheckoutSubmit>{d.common.send} ↗</CheckoutSubmit>
           </form>
         </div>
       </div>

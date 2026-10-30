@@ -60,6 +60,7 @@ export const visits = sqliteTable(
     note: text("note"),
     locale: text("locale").notNull(),
     status: text("status").notNull(),
+    ipHash: text("ip_hash"),
   },
   (table) => [
     uniqueIndex("visits_slot_unique").on(table.visitDate, table.visitTime),
@@ -75,6 +76,7 @@ export const messages = sqliteTable("messages", {
   body: text("body").notNull(),
   locale: text("locale").notNull(),
   status: text("status").notNull(),
+  ipHash: text("ip_hash"),
 });
 
 export const donationEvents = sqliteTable("donation_events", {

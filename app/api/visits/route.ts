@@ -2,6 +2,8 @@ import { env } from "cloudflare:workers";
 import { NextRequest, NextResponse } from "next/server";
 import { isLocale, paths, products } from "../../../src/lib/catalog";
 import { storeRepository } from "../../../src/lib/data";
+import { sendTransactionalEmail } from "../../../src/lib/email";
+import { requestIpHash } from "../../../src/lib/ip-hash";
 
 const clean = (form: FormData, key: string, max = 250) =>
   String(form.get(key) ?? "")
@@ -48,8 +50,17 @@ export async function POST(request: NextRequest) {
     minutes < 480 ||
     minutes > 1260 ||
     minutes % 30 !== 0 ||
+    (date === today &&
+      time <=
+        new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Asia/Ho_Chi_Minh",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date())) ||
     (bag && !products.some((product) => product.handle === bag)) ||
-    !form.has("consent")
+    !form.has("consent") ||
+    clean(form, "website")
   )
     return redirect("error");
   try {
@@ -63,9 +74,23 @@ export async function POST(request: NextRequest) {
       bag: bag || null,
       note: note || null,
       locale,
+      ipHash: await requestIpHash(request),
     });
+    if (process.env.ORDER_NOTIFY_EMAIL)
+      await sendTransactionalEmail({
+        to: process.env.ORDER_NOTIFY_EMAIL,
+        subject: `Refvlks studio visit: ${date} ${time}`,
+        text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\nTime: ${time}\nBag: ${bag}\nNote: ${note}`,
+        idempotencyKey: `visit-${date}-${time}`,
+      }).catch((error) => console.error("Visit notification failed", error));
     return redirect("success");
-  } catch {
-    return redirect("error");
+  } catch (error) {
+    return redirect(
+      /unique|constraint|VISIT_SLOT_TAKEN|409/i.test(String(error))
+        ? "taken"
+        : String(error).includes("RATE_LIMITED")
+          ? "rate-limit"
+          : "error",
+    );
   }
 }

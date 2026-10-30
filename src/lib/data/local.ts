@@ -140,30 +140,101 @@ export class LocalStoreRepository
   }
 
   async createVisit(input: VisitDraft) {
-    await mkdir(this.directory, { recursive: true });
-    await appendFile(
-      join(this.directory, "studio_visits.jsonl"),
-      JSON.stringify({
-        ...input,
-        id: crypto.randomUUID(),
-        status: "requested",
-        createdAt: new Date().toISOString(),
-      }) + "\n",
-      "utf8",
-    );
+    await serialized(async () => {
+      const file = join(this.directory, "studio_visits.jsonl");
+      const existing = await readFile(file, "utf8").catch(
+        (error: NodeJS.ErrnoException) => {
+          if (error.code === "ENOENT") return "";
+          throw error;
+        },
+      );
+      if (input.ipHash) {
+        const recent = existing
+          .split("\n")
+          .filter(Boolean)
+          .map(
+            (line) =>
+              JSON.parse(line) as { ipHash?: string | null; createdAt: string },
+          )
+          .filter(
+            (row) =>
+              row.ipHash === input.ipHash &&
+              Date.parse(row.createdAt) >= Date.now() - 3_600_000,
+          );
+        if (recent.length >= 3) throw new Error("RATE_LIMITED");
+      }
+      const booked = await this.getBookedVisitSlots(input.date);
+      if (booked.includes(input.time)) throw new Error("VISIT_SLOT_TAKEN");
+      await mkdir(this.directory, { recursive: true });
+      await appendFile(
+        file,
+        JSON.stringify({
+          ...input,
+          id: crypto.randomUUID(),
+          status: "requested",
+          createdAt: new Date().toISOString(),
+        }) + "\n",
+        "utf8",
+      );
+    });
+  }
+
+  async getBookedVisitSlots(date: string) {
+    try {
+      const lines = (
+        await readFile(join(this.directory, "studio_visits.jsonl"), "utf8")
+      )
+        .trim()
+        .split("\n");
+      return lines
+        .filter(Boolean)
+        .map(
+          (line) =>
+            JSON.parse(line) as { date: string; time: string; status: string },
+        )
+        .filter((row) => row.date === date && row.status !== "cancelled")
+        .map((row) => row.time);
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return [];
+      throw error;
+    }
   }
 
   async createMessage(input: MessageDraft) {
-    await mkdir(this.directory, { recursive: true });
-    await appendFile(
-      join(this.directory, "messages.jsonl"),
-      JSON.stringify({
-        ...input,
-        id: crypto.randomUUID(),
-        status: "new",
-        createdAt: new Date().toISOString(),
-      }) + "\n",
-      "utf8",
-    );
+    await serialized(async () => {
+      await mkdir(this.directory, { recursive: true });
+      const file = join(this.directory, "messages.jsonl");
+      const existing = await readFile(file, "utf8").catch(
+        (error: NodeJS.ErrnoException) => {
+          if (error.code === "ENOENT") return "";
+          throw error;
+        },
+      );
+      if (input.ipHash) {
+        const recent = existing
+          .split("\n")
+          .filter(Boolean)
+          .map(
+            (line) =>
+              JSON.parse(line) as { ipHash?: string | null; createdAt: string },
+          )
+          .filter(
+            (row) =>
+              row.ipHash === input.ipHash &&
+              Date.parse(row.createdAt) >= Date.now() - 3_600_000,
+          );
+        if (recent.length >= 5) throw new Error("RATE_LIMITED");
+      }
+      await appendFile(
+        file,
+        JSON.stringify({
+          ...input,
+          id: crypto.randomUUID(),
+          status: "new",
+          createdAt: new Date().toISOString(),
+        }) + "\n",
+        "utf8",
+      );
+    });
   }
 }
