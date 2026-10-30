@@ -222,9 +222,18 @@
     "terms": "I agree to the terms of sale and privacy policy.",
     "place": "Place order",
     "summary": "Order summary",
-    "codLimit": "COD is available for up to two items.",
     "error": "Please check your details and try again.",
-    "stockError": "An item is no longer available in the requested quantity. Please review your bag."
+    "stockError": "An item is no longer available in the requested quantity. Please review your bag.",
+    "errors": {
+      "name": "Enter your full name (at least 2 characters).",
+      "phone": "Enter a 10-digit Vietnamese phone number beginning with 0.",
+      "email": "Enter a valid email address, or leave this field blank.",
+      "address": "Enter your street address (at least 5 characters).",
+      "delivery": "Choose a delivery method.",
+      "city": "Choose a city or province.",
+      "payment": "Choose cash on delivery or bank transfer.",
+      "consent": "Agree to the terms and privacy policy to place your order."
+    }
   },
   "order": {
     "title": "Order received",
@@ -237,7 +246,8 @@
     "recipient": "Recipient",
     "reference": "Transfer reference",
     "amount": "Amount to transfer",
-    "deadline": "Please transfer within 24 hours.",
+    "copy": "Copy",
+    "copied": "Copied",
     "codNote": "We will contact you to confirm the order. You can inspect the parcel before paying.",
     "marked": "I’ve made the transfer",
     "markedDone": "Transfer noted. We will verify it when the funds arrive."

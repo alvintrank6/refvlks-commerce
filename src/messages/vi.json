@@ -222,9 +222,18 @@
     "terms": "Tôi đồng ý với điều khoản bán hàng và chính sách bảo mật.",
     "place": "Đặt hàng",
     "summary": "Tóm tắt đơn hàng",
-    "codLimit": "COD áp dụng cho tối đa hai sản phẩm.",
     "error": "Vui lòng kiểm tra thông tin và thử lại.",
-    "stockError": "Một sản phẩm không còn đủ số lượng. Vui lòng kiểm tra giỏ hàng."
+    "stockError": "Một sản phẩm không còn đủ số lượng. Vui lòng kiểm tra giỏ hàng.",
+    "errors": {
+      "name": "Nhập họ tên (ít nhất 2 ký tự).",
+      "phone": "Nhập số điện thoại Việt Nam gồm 10 chữ số, bắt đầu bằng 0.",
+      "email": "Nhập email hợp lệ hoặc để trống.",
+      "address": "Nhập địa chỉ (ít nhất 5 ký tự).",
+      "delivery": "Chọn cách nhận hàng.",
+      "city": "Chọn tỉnh hoặc thành phố.",
+      "payment": "Chọn thanh toán khi nhận hàng hoặc chuyển khoản.",
+      "consent": "Đồng ý với điều khoản và chính sách bảo mật để đặt hàng."
+    }
   },
   "order": {
     "title": "Đã nhận đơn hàng",
@@ -237,7 +246,8 @@
     "recipient": "Người thụ hưởng",
     "reference": "Nội dung chuyển khoản",
     "amount": "Số tiền cần chuyển",
-    "deadline": "Vui lòng chuyển khoản trong 24 giờ.",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép",
     "codNote": "Chúng tôi sẽ liên hệ xác nhận đơn hàng. Bạn có thể kiểm hàng trước khi trả tiền.",
     "marked": "Tôi đã chuyển khoản",
     "markedDone": "Đã ghi nhận thông báo. Chúng tôi sẽ xác nhận khi nhận được tiền."

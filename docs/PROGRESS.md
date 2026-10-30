@@ -82,3 +82,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npx playwright test tests/e2e/shop-v2.spec.ts` — 13 passed at 360/390/768/1024/1440 pixels in normal/reduced motion, desktop filter/sort/history, mobile drawer, no-JavaScript GET filtering and axe serious/critical checks. Screenshots: `test-results/screens/F7/`.
 - Next: F8 checkout.
 
+## F8 · Checkout and order confirmation
+
+- Added localized field-level checkout validation with an accessible error summary, approved delivery rates and both COD and transfer order paths. Removed the unapproved two-item COD limit and transfer deadline from customer-facing copy.
+- Transfer confirmation displays a server-generated VietQR SVG, bank details and copy controls for account, amount and reference. The transfer acknowledgement remains a manual reconciliation signal. The card preview has disabled fields and no payment handler.
+- Orders continue through the D1/local atomic stock transaction. Optional Resend customer and operator notices use environment configuration and do not block order completion; no email keys were provided, so live delivery remains unverified.
+- `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — pass. `npm run build` — pass. `npx playwright test tests/e2e/checkout-v2.spec.ts` — 13 passed across five widths in normal/reduced motion, including COD, transfer, validation and axe serious/critical checks. Local D1 showed `RV-SP01-BRN` stock at 5 after order tests, down from the 10-unit seed and previous order runs.
+- Next: F9 Studio and Contact.
+

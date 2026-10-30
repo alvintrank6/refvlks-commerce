@@ -1937,7 +1937,6 @@ input[type="date"] {
   color: var(--text);
 }
 .disabled-card {
-  opacity: 0.58;
   cursor: not-allowed;
   background: var(--sand);
 }
@@ -2041,6 +2040,31 @@ input[type="date"] {
 .field-error {
   color: var(--error);
   font-size: 14px;
+  display: none;
+  margin: 5px 0 0;
+}
+.field-error.is-visible,
+.checkout-form[data-attempted="true"] .field input:invalid + .field-error,
+.checkout-form[data-attempted="true"]
+  .consent:has(input:invalid)
+  + .field-error {
+  display: block;
+}
+.copy-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.copy-button {
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  padding: 6px 10px;
+  font:
+    500 11px PlexMono,
+    monospace;
+  cursor: pointer;
 }
 .mobile-buy {
   display: none;

@@ -34,6 +34,7 @@ import { ShopTiers } from "../../../src/components/ShopTiers";
 import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
 import { AddToBagForm } from "../../../src/components/AddToBagForm";
 import { Claim } from "../../../src/components/Claim";
+import { CopyButton } from "../../../src/components/CopyButton";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -918,18 +919,38 @@ async function Order({ locale, token }: { locale: Locale; token?: string }) {
             </div>
             <div>
               <dt>{d.order.account}</dt>
-              <dd>19070671343017</dd>
+              <dd className="copy-field">
+                19070671343017{" "}
+                <CopyButton
+                  value="19070671343017"
+                  copy={d.order.copy}
+                  copied={d.order.copied}
+                />
+              </dd>
             </div>
             <div>
               <dt>{d.order.amount}</dt>
-              <dd>{money(Number(order.total))}</dd>
+              <dd className="copy-field">
+                {money(Number(order.total))}{" "}
+                <CopyButton
+                  value={String(order.total)}
+                  copy={d.order.copy}
+                  copied={d.order.copied}
+                />
+              </dd>
             </div>
             <div>
               <dt>{d.order.reference}</dt>
-              <dd>{order.number}</dd>
+              <dd className="copy-field">
+                {order.number}{" "}
+                <CopyButton
+                  value={String(order.number)}
+                  copy={d.order.copy}
+                  copied={d.order.copied}
+                />
+              </dd>
             </div>
           </dl>
-          <p>{d.order.deadline}</p>
           {order.customer_marked_paid_at ? (
             <p className="message-box">{d.order.markedDone}</p>
           ) : (
