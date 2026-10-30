@@ -1,0 +1,58 @@
+:root {
+  --bg: #f4efe6;
+  --surface: #fbf8f2;
+  --sand: #e8dfd0;
+  --text: #1f1712;
+  --muted: #6b5a4c;
+  --primary: #4a2e1f;
+  --on-primary: #fff;
+  --secondary: #2f4a3a;
+  --accent: #b3341f;
+  --border: #d9cfc0;
+  --strong: #857565;
+  --success: #2f6b3e;
+  --warning: #8a5a00;
+  --error: #9b1c2c;
+  --focus: var(--accent);
+  --focus-on-dark: var(--bg);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --container: 1280px;
+
+  --h1: clamp(2.5rem, 1.65rem + 3.7vw, 5rem);
+  --h2: clamp(2rem, 1.5rem + 2.22vw, 3.5rem);
+  --h3: clamp(1.5rem, 1.25rem + 1.11vw, 2.25rem);
+  --fs-body: clamp(1rem, 0.979rem + 0.09vw, 1.0625rem);
+  --fs-body-lg: clamp(1.125rem, 1.083rem + 0.19vw, 1.25rem);
+  --fs-ui: 1rem;
+  --fs-label: 0.875rem;
+
+  --radius-1: 2px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgb(31 23 18 / 0.06), 0 4px 16px rgb(31 23 18 / 0.06);
+  --shadow-2: 0 8px 32px rgb(31 23 18 / 0.14);
+  --z-sticky: 10;
+  --z-header: 20;
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-transition: 70;
+}
+
+@theme inline {
+  --color-bone: var(--bg);
+  --color-surface: var(--surface);
+  --color-sand: var(--sand);
+  --color-ink: var(--text);
+  --color-cocoa: var(--primary);
+  --color-forest: var(--secondary);
+  --color-cinnabar: var(--accent);
+}
