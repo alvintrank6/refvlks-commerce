@@ -10,7 +10,7 @@ import {
   type Variant,
 } from "../lib/catalog";
 
-export function Picture({
+export function ResponsivePicture({
   id,
   locale,
   kind = "full",
@@ -18,6 +18,7 @@ export function Picture({
   priority = false,
   sizes = "(max-width: 700px) 100vw, 50vw",
   mobileId,
+  decorative = false,
 }: {
   id: string;
   locale: Locale;
@@ -26,6 +27,7 @@ export function Picture({
   priority?: boolean;
   sizes?: string;
   mobileId?: string;
+  decorative?: boolean;
 }) {
   const asset = assets.get(id);
   if (!asset) return null;
@@ -63,12 +65,32 @@ export function Picture({
         src={src}
         width={variant.w}
         height={variant.h}
-        alt={asset.alt[locale]}
+        alt={decorative ? "" : asset.alt[locale]}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         sizes={sizes}
       />
     </picture>
+  );
+}
+export const Picture = ResponsivePicture;
+
+function RollingLink({
+  href,
+  text,
+  className = "",
+}: {
+  href: string;
+  text: string;
+  className?: string;
+}) {
+  return (
+    <a className={`rolling-link ${className}`} href={href}>
+      <span className="rolling-viewport">
+        <span>{text}</span>
+        <span aria-hidden="true">{text}</span>
+      </span>
+    </a>
   );
 }
 
@@ -102,18 +124,18 @@ export function Header({
   return (
     <>
       <a className="skip-link" href="#main">
-        {locale === "vi" ? "Đến nội dung chính" : "Skip to main content"}
+        {d.ui.skip}
       </a>
-      <div className="announcement">{d.home.trust}</div>
+      <div className="announcement">{d.home.hero.trust}</div>
       <header className="site-header">
         <div className="header-inner">
           <details className="mobile-nav">
-            <summary aria-label={locale === "vi" ? "Mở menu" : "Open menu"}>
+            <summary aria-label={d.ui.openMenu}>
               <span></span>
               <span></span>
               <span></span>
             </summary>
-            <nav aria-label="Mobile">
+            <nav aria-label={d.ui.mobileNav}>
               <a href={p.shop}>{d.nav.shop}</a>
               <a href={p.craft}>{d.nav.craft}</a>
               <a href={p.donation}>{d.nav.donation}</a>
@@ -121,15 +143,15 @@ export function Header({
               <a href={p.studio}>{d.nav.studio}</a>
             </nav>
           </details>
-          <a className="logo-link" href={p.home} aria-label="Refvlks home">
+          <a className="logo-link" href={p.home} aria-label={d.ui.logoHome}>
             <Logo />
           </a>
-          <nav className="desktop-nav" aria-label="Main">
-            <a href={p.shop}>{d.nav.shop}</a>
-            <a href={p.craft}>{d.nav.craft}</a>
-            <a href={p.donation}>{d.nav.donation}</a>
-            <a href={p.about}>{d.nav.about}</a>
-            <a href={p.studio}>{d.nav.studio}</a>
+          <nav className="desktop-nav" aria-label={d.ui.mainNav}>
+            <RollingLink href={p.shop} text={d.nav.shop} />
+            <RollingLink href={p.craft} text={d.nav.craft} />
+            <RollingLink href={p.donation} text={d.nav.donation} />
+            <RollingLink href={p.about} text={d.nav.about} />
+            <RollingLink href={p.studio} text={d.nav.studio} />
           </nav>
           <div className="header-actions">
             <a
@@ -140,7 +162,10 @@ export function Header({
               {locale === "vi" ? "EN" : "VI"}
             </a>
             <a className="bag-link" href={p.cart}>
-              {d.nav.bag} <span aria-label={`${count} items`}>({count})</span>
+              {d.nav.bag}{" "}
+              <span aria-label={d.ui.itemCount.replace("{n}", String(count))}>
+                ({count})
+              </span>
             </a>
           </div>
         </div>
@@ -156,7 +181,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer className="site-footer">
       <div className="container footer-top">
         <div>
-          <a href={p.home} aria-label="Refvlks home">
+          <a href={p.home} aria-label={d.ui.logoHome}>
             <Logo reversed />
           </a>
           <p className="footer-tagline">{d.footer.tagline}</p>
@@ -164,30 +189,45 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="footer-grid">
           <div>
             <h2>{d.nav.shop}</h2>
-            <a href={p.shop}>{d.common.allBags}</a>
-            <a href={`${p.shop}?tier=heritage`}>Heritage</a>
-            <a href={`${p.shop}?tier=signature`}>Signature</a>
-            <a href={`${p.shop}?tier=essential`}>Essential</a>
+            <RollingLink href={p.shop} text={d.common.allBags} />
+            <RollingLink
+              href={`${p.shop}?tier=heritage`}
+              text={d.home.collection.heritage}
+            />
+            <RollingLink
+              href={`${p.shop}?tier=signature`}
+              text={d.home.collection.signature}
+            />
+            <RollingLink
+              href={`${p.shop}?tier=essential`}
+              text={d.home.collection.essential}
+            />
           </div>
           <div>
             <h2>Refvlks</h2>
-            <a href={p.craft}>{d.nav.craft}</a>
-            <a href={p.donation}>{d.nav.donation}</a>
-            <a href={p.about}>{d.nav.about}</a>
-            <a href={p.studio}>{d.nav.studio}</a>
+            <RollingLink href={p.craft} text={d.nav.craft} />
+            <RollingLink href={p.donation} text={d.nav.donation} />
+            <RollingLink href={p.about} text={d.nav.about} />
+            <RollingLink href={p.studio} text={d.nav.studio} />
           </div>
           <div>
             <h2>{d.nav.help}</h2>
-            <a href={p.contact}>{d.nav.contact}</a>
-            <a href={`${p.help}/shipping-returns`}>{d.footer.shipping}</a>
-            <a href={`${p.help}/care-repair`}>{d.footer.care}</a>
-            <a href={`${p.help}/faq`}>{d.footer.faq}</a>
+            <RollingLink href={p.contact} text={d.nav.contact} />
+            <RollingLink
+              href={`${p.help}/shipping-returns`}
+              text={d.footer.shipping}
+            />
+            <RollingLink href={`${p.help}/care-repair`} text={d.footer.care} />
+            <RollingLink href={`${p.help}/faq`} text={d.footer.faq} />
           </div>
           <div>
             <h2>{d.footer.legal}</h2>
-            <a href={`${p.legal}/privacy`}>{d.footer.privacy}</a>
-            <a href={`${p.legal}/terms`}>{d.footer.terms}</a>
-            <a href={`${p.legal}/payment`}>{d.checkout.payment}</a>
+            <RollingLink href={`${p.legal}/privacy`} text={d.footer.privacy} />
+            <RollingLink href={`${p.legal}/terms`} text={d.footer.terms} />
+            <RollingLink
+              href={`${p.legal}/payment`}
+              text={d.checkout.payment}
+            />
           </div>
         </div>
       </div>
@@ -246,10 +286,21 @@ export function ProductCard({
     <a
       className="product-card"
       href={`${p.product}/${product.handle}?colour=${variant.colourKey}`}
-      aria-label={`${product.name[locale]}, ${variant.colour[locale]}, ${money(variant.priceVnd)}`}
     >
       <div className="card-media">
-        <Picture id={variant.cardImage} locale={locale} kind="card" />
+        <Picture
+          id={variant.cardImage}
+          locale={locale}
+          kind="card"
+          decorative
+        />
+        <Picture
+          id={variant.hoverImage}
+          locale={locale}
+          kind="card"
+          className="card-hover-image"
+          decorative
+        />
         <span className="card-view">{d.common.viewDetails} ↗</span>
       </div>
       <div className="card-meta">

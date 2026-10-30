@@ -42,3 +42,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - Open decisions/data remain hidden: Donation Event date, collection window, destination and impact; pending claims CL-19, CL-20, CL-22 and CL-23. The Supabase adapter is optional and unverified against a hosted database.
 - Next: F3 shell, Home H-01 and H-03.
 
+## F3 · Shell and Home introduction/collection
+
+- Updated shared navigation and footer links with accessible rolling text, localized controls and the curtain-style sticky footer. The Home hero now uses the exact V2 EN/VI text, responsive reference imagery and a Weft pattern layer. The collection has five variant cards, tier chips, staggered desktop layout, hover image reveals and pointer tilt.
+- Added scoped GSAP matchMedia motion for the hero and cards: desktop parallax/tilt, touch parallax only, reduced motion off. Moved plugin registration into the browser effect after a production SSR check exposed a server error; the built Worker now serves `/en` successfully.
+- Format — pass. `npm run lint` — pass. `npm run typecheck` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e -- home-shell.spec.ts` — 11 passed at 360/390/768/1024/1440 in normal and reduced motion, including no overflow, no console errors, no hidden sections and no serious/critical axe violations. Screenshots: `test-results/screens/F3/`.
+- The remaining legacy Home sections stay in place until H-02 (F5) and H-04/H-05 (F6) replace them. The final five-section count belongs to F6.
+- Next: F4 product detail, hotspots and cart interaction.
+

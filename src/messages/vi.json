@@ -42,8 +42,24 @@
     "headline": "Ngoài tĩnh lặng. Trong là câu chuyện.",
     "intro": "Túi đi làm may đo cho ngày ở thành phố, với vải dệt tay Việt Nam.",
     "trust": "Kiểm hàng trước khi trả tiền · Ghé studio theo lịch hẹn",
-    "collectionTitle": "Ba cách mang theo một ngày.",
-    "collectionBody": "Essential cho mỗi ngày. Signature có nắp đóng và dải dệt làm điểm nhấn. Heritage với lớp lót dệt toàn phần.",
+    "collectionTitle": "Năm chiếc túi cho tuần làm việc.",
+    "collectionBody": "Essential cho mỗi ngày. Signature có nắp đóng và chi tiết dệt làm điểm nhấn. Heritage với lớp lót dệt toàn phần.",
+    "hero": {
+      "eyebrow": "TÚI ĐI LÀM · HÀ NỘI",
+      "title": "Ngoài tĩnh lặng. Trong là câu chuyện.",
+      "body": "Túi đi làm may đo cho ngày ở thành phố, bên trong là vải dệt Việt Nam.",
+      "trust": "Kiểm hàng trước khi trả tiền · Ghé studio theo lịch hẹn, 8:00 đến 21:30"
+    },
+    "collection": {
+      "eyebrow": "BỘ SƯU TẬP",
+      "title": "Năm chiếc túi cho tuần làm việc.",
+      "body": "Essential cho mỗi ngày. Signature có nắp đóng và chi tiết dệt làm điểm nhấn. Heritage với lớp lót dệt toàn phần.",
+      "all": "Tất cả",
+      "essential": "Essential",
+      "signature": "Signature",
+      "heritage": "Heritage",
+      "cta": "Xem tất cả"
+    },
     "revealLabel": "MỞ RA",
     "revealTitle": "Câu chuyện nằm ở bên trong.",
     "revealOne": "Thân túi từ vải chuyên dụng mới.",
@@ -194,5 +210,13 @@
     "eyebrow": "SỰ KIỆN QUYÊN GÓP · MỖI THÁNG",
     "title": "Mỗi tháng một lần, chúng tôi mang áo quần lên vùng cao.",
     "intro": "Hãy gửi chúng tôi những bộ quần áo bạn không còn mặc. Chúng tôi kiểm từng chiếc, mang những chiếc còn mặc tốt lên với bà con Tây Bắc và các vùng núi khác, phần còn lại trở thành vải tái chế trong túi Refvlks."
+  },
+  "ui": {
+    "skip": "Đến nội dung chính",
+    "openMenu": "Mở menu",
+    "mainNav": "Điều hướng chính",
+    "mobileNav": "Điều hướng di động",
+    "logoHome": "Trang chủ Refvlks",
+    "itemCount": "{n} sản phẩm"
   }
 }

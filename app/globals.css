@@ -324,12 +324,24 @@ img {
   min-height: 590px;
   background: var(--sand);
   position: relative;
+  overflow: hidden;
+  perspective: 1200px;
 }
 .hero-media .picture {
   height: 100%;
 }
 .hero-media .picture img {
   object-position: 50% 50%;
+  height: 110%;
+  margin-top: -5%;
+}
+.hero-weft {
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  background: url("/brand/refvlks_pattern_weft.svg") center / cover;
+  opacity: 0.35;
+  pointer-events: none;
 }
 .hero-index {
   position: absolute;
@@ -350,6 +362,7 @@ img {
   display: block;
   text-decoration: none;
   min-width: 0;
+  will-change: transform;
 }
 .card-media {
   position: relative;
@@ -362,10 +375,46 @@ img {
   height: 100%;
 }
 .card-media img {
-  transition: transform 0.4s ease;
+  transition: transform 0.6s ease;
 }
 .product-card:hover .card-media img {
-  transform: scale(1.035);
+  transform: scale(1.06);
+}
+.card-media .card-hover-image {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0 0);
+  transition: clip-path 0.6s ease;
+}
+.product-card:hover .card-hover-image,
+.product-card:focus-visible .card-hover-image {
+  clip-path: inset(0);
+}
+.collection-chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--space-5)) 0 var(--space-6);
+}
+.collection-chips a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+}
+.collection-chips a:hover,
+.collection-chips a:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+@media (min-width: 1024px) {
+  .home-collection .product-card:nth-child(2),
+  .home-collection .product-card:nth-child(4) {
+    margin-top: var(--space-8);
+  }
 }
 .card-view {
   position: absolute;
@@ -558,6 +607,57 @@ img {
   background: var(--primary);
   color: var(--bg);
   padding: 70px 0 26px;
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
+}
+main {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+}
+.home-motion-root {
+  display: contents;
+}
+.rolling-link {
+  position: relative;
+  text-decoration: none;
+}
+.rolling-viewport {
+  display: inline-grid;
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.rolling-viewport > span {
+  grid-area: 1 / 1;
+  transition: transform 0.35s ease;
+}
+.rolling-viewport > span + span {
+  transform: translateY(100%);
+}
+.rolling-link:hover .rolling-viewport > span:first-child,
+.rolling-link:focus-visible .rolling-viewport > span:first-child {
+  transform: translateY(-100%);
+}
+.rolling-link:hover .rolling-viewport > span + span,
+.rolling-link:focus-visible .rolling-viewport > span + span {
+  transform: translateY(0);
+}
+.rolling-link::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -2px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.rolling-link:hover::after,
+.rolling-link:focus-visible::after {
+  transform: scaleX(1);
 }
 .footer-top {
   display: grid;
@@ -1321,6 +1421,15 @@ input[type="date"] {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .rolling-viewport > span + span {
+    display: none;
+  }
+  .rolling-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+  .card-media .card-hover-image {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }

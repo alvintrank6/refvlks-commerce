@@ -42,8 +42,24 @@
     "headline": "Quiet on the outside. A story on the inside.",
     "intro": "Tailored work bags for city days, with textile woven by hand in Vietnam.",
     "trust": "Inspect before you pay · Studio visits by appointment",
-    "collectionTitle": "Three ways to carry your day.",
-    "collectionBody": "Essential for everyday. Signature for a flap that closes and a woven band you notice. Heritage for the full woven lining.",
+    "collectionTitle": "Five bags for the working week.",
+    "collectionBody": "Essential for every day. Signature for a flap that closes and a woven detail you notice. Heritage for the full woven lining.",
+    "hero": {
+      "eyebrow": "WORK BAGS · HANOI",
+      "title": "Quiet on the outside. A story on the inside.",
+      "body": "Tailored work bags for city days, with textile woven in Vietnam on the inside.",
+      "trust": "Inspect before you pay · Studio visits by appointment, 8:00 to 21:30"
+    },
+    "collection": {
+      "eyebrow": "THE COLLECTION",
+      "title": "Five bags for the working week.",
+      "body": "Essential for every day. Signature for a flap that closes and a woven detail you notice. Heritage for the full woven lining.",
+      "all": "All",
+      "essential": "Essential",
+      "signature": "Signature",
+      "heritage": "Heritage",
+      "cta": "Shop all bags"
+    },
     "revealLabel": "THE REVEAL",
     "revealTitle": "The story opens from within.",
     "revealOne": "A body cut from new technical textile.",
@@ -194,5 +210,13 @@
     "eyebrow": "DONATION EVENT · EVERY MONTH",
     "title": "Once a month, we take clothes to the mountains.",
     "intro": "Bring us the clothes you no longer wear. We check every piece, take the wearable ones to communities in the Northwest and other mountain regions, and turn the rest into the recovered textile in our bags."
+  },
+  "ui": {
+    "skip": "Skip to main content",
+    "openMenu": "Open menu",
+    "mainNav": "Main",
+    "mobileNav": "Mobile",
+    "logoHome": "Refvlks home",
+    "itemCount": "{n} items"
   }
 }

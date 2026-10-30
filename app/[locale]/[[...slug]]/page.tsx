@@ -23,6 +23,7 @@ import {
 import CheckoutPage from "../../../src/components/CheckoutPage";
 import QRCode from "qrcode";
 import { vietqrPayload } from "../../../src/lib/vietqr";
+import { HomeMotion } from "../../../src/motion/HomeMotion";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -85,9 +86,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     kind = kindOf(raw, slug);
   let title =
     raw === "vi"
-      ? "Túi đi làm, ngoài tĩnh, trong dệt tay"
+      ? "Túi đi làm, ngoài tĩnh, trong có câu chuyện dệt"
       : "Work Bags, Quiet Outside, Woven Inside";
-  let description = d.home.intro;
+  let description = d.home.hero.body;
   if (kind === "shop") title = d.shop.title;
   if (kind === "product") {
     const product = productByHandle(slug[1] ?? "");
@@ -179,36 +180,46 @@ function Home({ locale }: { locale: Locale }) {
   const d = dictionary(locale),
     p = paths(locale);
   return (
-    <>
-      <section className="hero">
+    <HomeMotion>
+      <section className="hero" data-section="H-01">
         <div className="hero-content">
-          <Eyebrow>{d.home.eyebrow}</Eyebrow>
-          <h1>{d.home.headline}</h1>
-          <p className="lead">{d.home.intro}</p>
+          <Eyebrow>{d.home.hero.eyebrow}</Eyebrow>
+          <h1>{d.home.hero.title}</h1>
+          <p className="lead">{d.home.hero.body}</p>
           <div className="hero-actions">
             <ButtonLink href={p.shop}>{d.common.shopCollection}</ButtonLink>
             <ButtonLink secondary href={p.studio}>
               {d.common.visitStudio}
             </ButtonLink>
           </div>
-          <p className="hero-note">{d.home.trust}</p>
+          <p className="hero-note">{d.home.hero.trust}</p>
         </div>
         <div className="hero-media">
           <Picture id="HOME-01" mobileId="HOME-02" locale={locale} priority />
+          <span className="hero-weft" aria-hidden="true" />
           <span className="hero-index">01 / REFVLKS</span>
         </div>
       </section>
-      <section className="section container">
+      <section
+        className="section container home-collection"
+        data-section="H-03"
+      >
         <div className="section-heading">
           <div>
-            <Eyebrow>{d.shop.eyebrow}</Eyebrow>
-            <h2>{d.home.collectionTitle}</h2>
-            <p className="lead">{d.home.collectionBody}</p>
+            <Eyebrow>{d.home.collection.eyebrow}</Eyebrow>
+            <h2>{d.home.collection.title}</h2>
+            <p className="lead">{d.home.collection.body}</p>
           </div>
           <a className="text-link" href={p.shop}>
-            {d.common.allBags} ↗
+            {d.home.collection.cta} ↗
           </a>
         </div>
+        <nav className="collection-chips" aria-label={d.shop.tier}>
+          <a href={p.shop}>{d.home.collection.all}</a>
+          <a href={`${p.shop}?tier=essential`}>{d.home.collection.essential}</a>
+          <a href={`${p.shop}?tier=signature`}>{d.home.collection.signature}</a>
+          <a href={`${p.shop}?tier=heritage`}>{d.home.collection.heritage}</a>
+        </nav>
         <div className="product-grid">
           {allVariants.map(({ product, variant }) => (
             <ProductCard
@@ -306,7 +317,7 @@ function Home({ locale }: { locale: Locale }) {
           <ButtonLink href={`${p.studio}#book`}>{d.studio.book}</ButtonLink>
         </div>
       </section>
-    </>
+    </HomeMotion>
   );
 }
 
