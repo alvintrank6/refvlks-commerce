@@ -1,0 +1,1421 @@
+{
+  "version": 1,
+  "generated": "2026-10-30",
+  "note": "Generated from refvlks_tat-ca-anh-san-pham-va-mau.zip. Do not edit by hand; edit assets_map and re-export.",
+  "assets": [
+    {
+      "id": "HOME-01",
+      "product": "SP01",
+      "role": "Hero desktop (L0, parallax 5%)",
+      "sections": [
+        "H-01"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_editorial_3x2.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote on a travertine block beside a sunlit window, flap closed.",
+        "vi": "Túi Weft Structured Tote đặt trên bệ đá cạnh cửa sổ đón nắng, nắp đóng."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/home/refvlks_home_01_hero-weft-structured-tote.avif",
+            "webp": "/images/home/refvlks_home_01_hero-weft-structured-tote.webp"
+          },
+          "kb": {
+            "avif": 176,
+            "webp": 173
+          },
+          "q": {
+            "avif": 81,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "HOME-02",
+      "product": "SP01",
+      "role": "Hero mobile (crop 4:5 bằng CSS)",
+      "sections": [
+        "H-01"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_editorial_2x3.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote on a travertine block in soft window light.",
+        "vi": "Túi Weft Structured Tote trên bệ đá dưới ánh sáng cửa sổ dịu."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile.avif",
+            "webp": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile.webp"
+          },
+          "kb": {
+            "avif": 116,
+            "webp": 153
+          },
+          "q": {
+            "avif": 63,
+            "webp": 84
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-01",
+      "product": "SP01",
+      "role": "Khung 1/8 chuỗi H-02",
+      "sections": [
+        "H-02",
+        "H-02 mobile"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_01.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote with its flap closed and buckle fastened.",
+        "vi": "Túi Weft Structured Tote nắp đóng, khóa cài."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_01_closed.avif",
+            "webp": "/images/reveal/refvlks_reveal_01_closed.webp"
+          },
+          "kb": {
+            "avif": 89,
+            "webp": 120
+          },
+          "q": {
+            "avif": 62,
+            "webp": 82
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-02",
+      "product": "SP01",
+      "role": "Khung 2/8 chuỗi H-02",
+      "sections": [
+        "H-02"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_02_SQ-A-02.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The buckle strap of the tote is released.",
+        "vi": "Dây khóa của túi được tháo ra."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_02_buckle-released.avif",
+            "webp": "/images/reveal/refvlks_reveal_02_buckle-released.webp"
+          },
+          "kb": {
+            "avif": 89,
+            "webp": 120
+          },
+          "q": {
+            "avif": 62,
+            "webp": 82
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-03",
+      "product": "SP01",
+      "role": "Khung 3/8 chuỗi H-02",
+      "sections": [
+        "H-02"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_03_SQ-A-03.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The loose buckle strap hangs down the flap.",
+        "vi": "Dây khóa buông xuống trước nắp túi."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_03_strap-loose.avif",
+            "webp": "/images/reveal/refvlks_reveal_03_strap-loose.webp"
+          },
+          "kb": {
+            "avif": 89,
+            "webp": 120
+          },
+          "q": {
+            "avif": 62,
+            "webp": 82
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-04",
+      "product": "SP01",
+      "role": "Khung 4/8 chuỗi H-02",
+      "sections": [
+        "H-02"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_04_SQ-A-04.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The flap lifts and the edge of the woven lining appears.",
+        "vi": "Nắp túi nâng lên, mép lớp lót dệt bắt đầu lộ ra."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_04_flap-lifting.avif",
+            "webp": "/images/reveal/refvlks_reveal_04_flap-lifting.webp"
+          },
+          "kb": {
+            "avif": 86,
+            "webp": 119
+          },
+          "q": {
+            "avif": 59,
+            "webp": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-05",
+      "product": "SP01",
+      "role": "Khung 5/8 chuỗi H-02",
+      "sections": [
+        "H-02",
+        "H-02 mobile"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_05_SQ-A-05.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The flap is open and the top of the woven lining shows.",
+        "vi": "Nắp túi mở, phần trên lớp lót dệt hiện ra."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_05_flap-open.avif",
+            "webp": "/images/reveal/refvlks_reveal_05_flap-open.webp"
+          },
+          "kb": {
+            "avif": 88,
+            "webp": 115
+          },
+          "q": {
+            "avif": 61,
+            "webp": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-06",
+      "product": "SP01",
+      "role": "Khung 6/8 chuỗi H-02",
+      "sections": [
+        "H-02"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_06_SQ-A-06.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "More of the blue and ochre woven lining is visible.",
+        "vi": "Lớp lót dệt màu xanh và vàng đất lộ rõ hơn."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_06_lining-visible.avif",
+            "webp": "/images/reveal/refvlks_reveal_06_lining-visible.webp"
+          },
+          "kb": {
+            "avif": 84,
+            "webp": 117
+          },
+          "q": {
+            "avif": 59,
+            "webp": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-07",
+      "product": "SP01",
+      "role": "Khung 7/8 chuỗi H-02",
+      "sections": [
+        "H-02"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_07_SQ-A-07.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The opening is spread to show the woven lining.",
+        "vi": "Miệng túi mở rộng để thấy lớp lót dệt."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_07_lining-wide.avif",
+            "webp": "/images/reveal/refvlks_reveal_07_lining-wide.webp"
+          },
+          "kb": {
+            "avif": 88,
+            "webp": 118
+          },
+          "q": {
+            "avif": 59,
+            "webp": 79
+          }
+        }
+      ]
+    },
+    {
+      "id": "REVEAL-08",
+      "product": "SP01",
+      "role": "Khung 8/8 chuỗi H-02",
+      "sections": [
+        "H-02",
+        "H-02 mobile"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_sequence_frame_08_SQ-A-08.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Soft light falls on the hand-woven lining inside the open tote.",
+        "vi": "Ánh sáng dịu rọi vào lớp lót dệt tay bên trong túi."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1536,
+          "h": 1024,
+          "files": {
+            "avif": "/images/reveal/refvlks_reveal_08_lining-lit.avif",
+            "webp": "/images/reveal/refvlks_reveal_08_lining-lit.webp"
+          },
+          "kb": {
+            "avif": 87,
+            "webp": 117
+          },
+          "q": {
+            "avif": 59,
+            "webp": 79
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-01",
+      "product": "SP01",
+      "role": "Ảnh thẻ + ảnh 1 gallery",
+      "sections": [
+        "H-03",
+        "S-03",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_weft-structured-tote_01_front.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote, front view, flap closed, on a plain sand background.",
+        "vi": "Túi Weft Structured Tote nhìn chính diện, nắp đóng, trên nền cát trơn."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_01_weft-structured-tote-front.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_01_weft-structured-tote-front.webp"
+          },
+          "kb": {
+            "avif": 149,
+            "webp": 198
+          },
+          "q": {
+            "avif": 75,
+            "webp": 87
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_01_weft-structured-tote-front-card.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_01_weft-structured-tote-front-card.webp"
+          },
+          "kb": {
+            "avif": 59,
+            "webp": 79
+          },
+          "q": {
+            "avif": 57,
+            "webp": 73
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-02",
+      "product": "SP01",
+      "role": "Gallery ảnh 2 (góc 3/4)",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_studio_right_35deg_closed_2x3.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote seen from a three-quarter angle, showing its side gusset.",
+        "vi": "Túi Weft Structured Tote nhìn góc 3/4, thấy phần hông túi."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_02_weft-structured-tote-three-quarter.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_02_weft-structured-tote-three-quarter.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 149
+          },
+          "q": {
+            "avif": 83,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-03",
+      "product": "SP01",
+      "role": "Ảnh hover thẻ + gallery ảnh 3",
+      "sections": [
+        "H-03 hover",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_weft-structured-tote_03_inside.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote with the flap folded back, showing the hand-woven lining.",
+        "vi": "Túi Weft Structured Tote gập nắp ra sau, thấy lớp lót dệt tay."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_03_weft-structured-tote-inside.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_03_weft-structured-tote-inside.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 195
+          },
+          "q": {
+            "avif": 63,
+            "webp": 78
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_03_weft-structured-tote-inside-card.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_03_weft-structured-tote-inside-card.webp"
+          },
+          "kb": {
+            "avif": 56,
+            "webp": 80
+          },
+          "q": {
+            "avif": 48,
+            "webp": 46
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-04",
+      "product": "SP01",
+      "role": "Gallery ảnh 4 (người mẫu)",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_product_weft-structured-tote_04_model-nm03-half.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a linen blazer holds the Weft Structured Tote at his side in a bright lobby.",
+        "vi": "Người mẫu nam mặc blazer linen cầm túi Weft Structured Tote trong sảnh sáng."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_04_weft-structured-tote-model-half.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_04_weft-structured-tote-model-half.webp"
+          },
+          "kb": {
+            "avif": 147,
+            "webp": 119
+          },
+          "q": {
+            "avif": 83,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-05",
+      "product": "SP01",
+      "role": "Gallery ảnh 5 (chi tiết) + H-05",
+      "sections": [
+        "P-01",
+        "H-05",
+        "CR-02"
+      ],
+      "source": "Anh_san_pham/refvlks_product_weft-structured-tote_05_detail-buckle.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Close-up of the buckle on the dark brown flap above the diamond weave.",
+        "vi": "Cận cảnh khóa cài trên nắp nâu sẫm, phía dưới là hoa văn hình thoi."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1254,
+          "h": 1254,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_05_weft-structured-tote-detail-buckle.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_05_weft-structured-tote-detail-buckle.webp"
+          },
+          "kb": {
+            "avif": 144,
+            "webp": 201
+          },
+          "q": {
+            "avif": 65,
+            "webp": 79
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-06",
+      "product": "SP01",
+      "role": "Gallery ảnh 6 (tay cầm) + H-04",
+      "sections": [
+        "P-01",
+        "H-04"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_product_weft-structured-tote_06_hand-nm03.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A hand holds both handles of the Weft Structured Tote.",
+        "vi": "Bàn tay cầm hai quai túi Weft Structured Tote."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1254,
+          "h": 1254,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_06_weft-structured-tote-hand.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_06_weft-structured-tote-hand.webp"
+          },
+          "kb": {
+            "avif": 142,
+            "webp": 196
+          },
+          "q": {
+            "avif": 66,
+            "webp": 83
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-07",
+      "product": "SP01",
+      "role": "P-04 Open it + H-06 (tạm thay ảnh nghệ nhân)",
+      "sections": [
+        "P-04",
+        "H-06",
+        "CR-03"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_studio_portrait_open_2x3.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "The open Weft Structured Tote showing its blue, ochre and cream woven lining.",
+        "vi": "Túi Weft Structured Tote mở, lộ lớp lót dệt màu xanh, vàng đất và kem."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_07_weft-structured-tote-open.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_07_weft-structured-tote-open.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 186
+          },
+          "q": {
+            "avif": 75,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP01-08",
+      "product": "SP01",
+      "role": "Dự phòng (Size & fit)",
+      "sections": [
+        "SF-03"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_studio_portrait_2x3.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote, front view on a plain background.",
+        "vi": "Túi Weft Structured Tote nhìn chính diện trên nền trơn."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/weft-structured-tote/refvlks_product_08_weft-structured-tote-front-alt.avif",
+            "webp": "/images/products/weft-structured-tote/refvlks_product_08_weft-structured-tote-front-alt.webp"
+          },
+          "kb": {
+            "avif": 145,
+            "webp": 164
+          },
+          "q": {
+            "avif": 79,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP02F-01",
+      "product": "SP02",
+      "role": "Ảnh thẻ + gallery (Forest)",
+      "sections": [
+        "H-03",
+        "S-03",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_loom-flap-tote-forest_01_front.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Loom Flap Tote in forest green with a cream woven band near the base, front view.",
+        "vi": "Túi Loom Flap Tote màu xanh rừng, dải hoa văn kem gần đáy, nhìn chính diện."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_01_loom-flap-tote-forest-front.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_01_loom-flap-tote-forest-front.webp"
+          },
+          "kb": {
+            "avif": 144,
+            "webp": 155
+          },
+          "q": {
+            "avif": 81,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_01_loom-flap-tote-forest-front-card.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_01_loom-flap-tote-forest-front-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 77
+          },
+          "q": {
+            "avif": 66,
+            "webp": 83
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP02F-02",
+      "product": "SP02",
+      "role": "Gallery (Forest) + hover thẻ",
+      "sections": [
+        "H-03 hover",
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_product_loom-flap-tote-forest_04_model-nm04-half.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A woman seated in a café holds the forest green Loom Flap Tote on her lap.",
+        "vi": "Người mẫu nữ ngồi trong quán cà phê, đặt túi Loom Flap Tote xanh rừng trên đùi."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_02_loom-flap-tote-forest-model-cafe.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_02_loom-flap-tote-forest-model-cafe.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 192
+          },
+          "q": {
+            "avif": 67,
+            "webp": 86
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_02_loom-flap-tote-forest-model-cafe-card.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_02_loom-flap-tote-forest-model-cafe-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 79
+          },
+          "q": {
+            "avif": 57,
+            "webp": 78
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP02F-03",
+      "product": "SP02",
+      "role": "Gallery (Forest)",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp02-forest.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a beige coat holds the forest green Loom Flap Tote by its handles.",
+        "vi": "Người mẫu nam mặc áo khoác be cầm túi Loom Flap Tote xanh rừng."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_03_loom-flap-tote-forest-model-office.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_03_loom-flap-tote-forest-model-office.webp"
+          },
+          "kb": {
+            "avif": 149,
+            "webp": 200
+          },
+          "q": {
+            "avif": 71,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP02W-01",
+      "product": "SP02",
+      "role": "Ảnh thẻ + gallery (Wine)",
+      "sections": [
+        "H-03",
+        "S-03",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_loom-flap-tote-wine_01_front.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Loom Flap Tote in deep wine with a tone-on-tone woven band, front view.",
+        "vi": "Túi Loom Flap Tote màu đỏ rượu, dải hoa văn cùng tông, nhìn chính diện."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_04_loom-flap-tote-wine-front.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_04_loom-flap-tote-wine-front.webp"
+          },
+          "kb": {
+            "avif": 132,
+            "webp": 96
+          },
+          "q": {
+            "avif": 86,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_04_loom-flap-tote-wine-front-card.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_04_loom-flap-tote-wine-front-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 60
+          },
+          "q": {
+            "avif": 78,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP02W-02",
+      "product": "SP02",
+      "role": "Gallery (Wine) + H-04",
+      "sections": [
+        "H-03 hover",
+        "P-01",
+        "H-04"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp02-wine.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a grey suit holds the wine Loom Flap Tote in an office lounge.",
+        "vi": "Người mẫu nam mặc vest xám cầm túi Loom Flap Tote đỏ rượu trong sảnh văn phòng."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_05_loom-flap-tote-wine-model-office.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_05_loom-flap-tote-wine-model-office.webp"
+          },
+          "kb": {
+            "avif": 147,
+            "webp": 120
+          },
+          "q": {
+            "avif": 83,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-flap-tote/refvlks_product_05_loom-flap-tote-wine-model-office-card.avif",
+            "webp": "/images/products/loom-flap-tote/refvlks_product_05_loom-flap-tote-wine-model-office-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 70
+          },
+          "q": {
+            "avif": 73,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP03-01",
+      "product": "SP03",
+      "role": "Ảnh thẻ + gallery",
+      "sections": [
+        "H-03",
+        "S-03",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_loom-carryall_01_front.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Loom Carryall in black with a cinnabar flap, a triangular woven panel and scarf-wrapped handles.",
+        "vi": "Túi Loom Carryall màu đen, nắp đỏ son, mảng dệt tam giác và quai quấn khăn."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-carryall/refvlks_product_01_loom-carryall-front.avif",
+            "webp": "/images/products/loom-carryall/refvlks_product_01_loom-carryall-front.webp"
+          },
+          "kb": {
+            "avif": 149,
+            "webp": 175
+          },
+          "q": {
+            "avif": 78,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-carryall/refvlks_product_01_loom-carryall-front-card.avif",
+            "webp": "/images/products/loom-carryall/refvlks_product_01_loom-carryall-front-card.webp"
+          },
+          "kb": {
+            "avif": 59,
+            "webp": 78
+          },
+          "q": {
+            "avif": 62,
+            "webp": 80
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP03-02",
+      "product": "SP03",
+      "role": "Gallery + hover thẻ",
+      "sections": [
+        "H-03 hover",
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_product_loom-carryall_04_model-nm01-half.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a dark suit holds the Loom Carryall in front of him with both hands.",
+        "vi": "Người mẫu nam mặc vest tối màu cầm túi Loom Carryall bằng hai tay."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-carryall/refvlks_product_02_loom-carryall-model-half.avif",
+            "webp": "/images/products/loom-carryall/refvlks_product_02_loom-carryall-model-half.webp"
+          },
+          "kb": {
+            "avif": 142,
+            "webp": 112
+          },
+          "q": {
+            "avif": 86,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/loom-carryall/refvlks_product_02_loom-carryall-model-half-card.avif",
+            "webp": "/images/products/loom-carryall/refvlks_product_02_loom-carryall-model-half-card.webp"
+          },
+          "kb": {
+            "avif": 59,
+            "webp": 67
+          },
+          "q": {
+            "avif": 77,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP03-03",
+      "product": "SP03",
+      "role": "Gallery",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp03.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a navy blazer carries the Loom Carryall under a stone arcade.",
+        "vi": "Người mẫu nam mặc blazer xanh navy xách túi Loom Carryall dưới hành lang đá."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/loom-carryall/refvlks_product_03_loom-carryall-model-arcade.avif",
+            "webp": "/images/products/loom-carryall/refvlks_product_03_loom-carryall-model-arcade.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 184
+          },
+          "q": {
+            "avif": 70,
+            "webp": 87
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP04-01",
+      "product": "SP04",
+      "role": "Ảnh thẻ + gallery",
+      "sections": [
+        "H-03",
+        "S-03",
+        "P-01"
+      ],
+      "source": "Anh_san_pham/refvlks_product_tram-shopper_01_front.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Trám Shopper in cream with an all-over brown diamond motif and two vertical straps, front view.",
+        "vi": "Túi Trám Shopper màu kem phủ họa tiết hình thoi nâu, hai dải quai đứng, nhìn chính diện."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/tram-shopper/refvlks_product_01_tram-shopper-front.avif",
+            "webp": "/images/products/tram-shopper/refvlks_product_01_tram-shopper-front.webp"
+          },
+          "kb": {
+            "avif": 146,
+            "webp": 184
+          },
+          "q": {
+            "avif": 73,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/tram-shopper/refvlks_product_01_tram-shopper-front-card.avif",
+            "webp": "/images/products/tram-shopper/refvlks_product_01_tram-shopper-front-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 77
+          },
+          "q": {
+            "avif": 58,
+            "webp": 77
+          }
+        }
+      ]
+    },
+    {
+      "id": "SP04-02",
+      "product": "SP04",
+      "role": "Gallery + hover thẻ",
+      "sections": [
+        "H-03 hover",
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_nm05-updated_sp04.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a brown jacket holds the Trám Shopper beside stone columns.",
+        "vi": "Người mẫu nam mặc áo khoác nâu cầm túi Trám Shopper cạnh hàng cột đá."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/products/tram-shopper/refvlks_product_02_tram-shopper-model-colonnade.avif",
+            "webp": "/images/products/tram-shopper/refvlks_product_02_tram-shopper-model-colonnade.webp"
+          },
+          "kb": {
+            "avif": 148,
+            "webp": 184
+          },
+          "q": {
+            "avif": 73,
+            "webp": 88
+          }
+        },
+        {
+          "kind": "card",
+          "w": 800,
+          "h": 1000,
+          "files": {
+            "avif": "/images/products/tram-shopper/refvlks_product_02_tram-shopper-model-colonnade-card.avif",
+            "webp": "/images/products/tram-shopper/refvlks_product_02_tram-shopper-model-colonnade-card.webp"
+          },
+          "kb": {
+            "avif": 58,
+            "webp": 78
+          },
+          "q": {
+            "avif": 62,
+            "webp": 83
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-01",
+      "product": "SP01",
+      "role": "Gallery SP01 + AB-01",
+      "sections": [
+        "P-01",
+        "AB-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_weft-structured-tote_nm03-street.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a linen suit walks past yellow colonial facades carrying the Weft Structured Tote.",
+        "vi": "Người mẫu nam mặc vest linen đi qua dãy nhà Pháp màu vàng, xách túi Weft Structured Tote."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_01_weft-structured-tote-street.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_01_weft-structured-tote-street.webp"
+          },
+          "kb": {
+            "avif": 138,
+            "webp": 180
+          },
+          "q": {
+            "avif": 63,
+            "webp": 81
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-02",
+      "product": "SP02",
+      "role": "Gallery SP02 Forest",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-forest_nm04-street.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A woman walks along a tree-lined Hanoi street with the forest green Loom Flap Tote on her arm.",
+        "vi": "Người mẫu nữ đi trên phố Hà Nội rợp cây, khoác túi Loom Flap Tote xanh rừng trên tay."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_02_loom-flap-tote-forest-street.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_02_loom-flap-tote-forest-street.webp"
+          },
+          "kb": {
+            "avif": 138,
+            "webp": 182
+          },
+          "q": {
+            "avif": 63,
+            "webp": 81
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-03",
+      "product": "SP02",
+      "role": "Gallery SP02 Forest",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-forest_nm02-courtyard.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in an ecru overshirt holds the forest green Loom Flap Tote in a leafy courtyard.",
+        "vi": "Người mẫu nam mặc sơ mi khoác màu mộc cầm túi Loom Flap Tote xanh rừng trong sân nhiều cây."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_03_loom-flap-tote-forest-courtyard.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_03_loom-flap-tote-forest-courtyard.webp"
+          },
+          "kb": {
+            "avif": 137,
+            "webp": 182
+          },
+          "q": {
+            "avif": 62,
+            "webp": 81
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-04",
+      "product": "SP02",
+      "role": "Gallery SP02 Wine",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-flap-tote-wine_nm02-street.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man leans against a sunlit ochre wall holding the wine Loom Flap Tote.",
+        "vi": "Người mẫu nam tựa vào bức tường vàng đất đầy nắng, cầm túi Loom Flap Tote đỏ rượu."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_04_loom-flap-tote-wine-street.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_04_loom-flap-tote-wine-street.webp"
+          },
+          "kb": {
+            "avif": 136,
+            "webp": 187
+          },
+          "q": {
+            "avif": 59,
+            "webp": 81
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-05",
+      "product": "SP03",
+      "role": "Gallery SP03 + H-04",
+      "sections": [
+        "P-01",
+        "H-04"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm01-bookshop.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a dark suit holds the Loom Carryall in a bookshop.",
+        "vi": "Người mẫu nam mặc vest tối màu cầm túi Loom Carryall trong hiệu sách."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_05_loom-carryall-bookshop.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_05_loom-carryall-bookshop.webp"
+          },
+          "kb": {
+            "avif": 136,
+            "webp": 171
+          },
+          "q": {
+            "avif": 74,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-06",
+      "product": "SP03",
+      "role": "Gallery SP03",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm01-campus.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man in a dark suit walks down stone steps carrying the Loom Carryall.",
+        "vi": "Người mẫu nam mặc vest tối màu bước xuống bậc đá, xách túi Loom Carryall."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_06_loom-carryall-campus.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_06_loom-carryall-campus.webp"
+          },
+          "kb": {
+            "avif": 134,
+            "webp": 136
+          },
+          "q": {
+            "avif": 79,
+            "webp": 88
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-07",
+      "product": "SP03",
+      "role": "Gallery SP03",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_loom-carryall_nm02-boulevard.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A man crosses a tree-lined boulevard carrying the Loom Carryall.",
+        "vi": "Người mẫu nam băng qua đại lộ rợp cây, xách túi Loom Carryall."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_07_loom-carryall-boulevard.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_07_loom-carryall-boulevard.webp"
+          },
+          "kb": {
+            "avif": 136,
+            "webp": 188
+          },
+          "q": {
+            "avif": 66,
+            "webp": 84
+          }
+        }
+      ]
+    },
+    {
+      "id": "LIFE-08",
+      "product": "SP04",
+      "role": "Gallery SP04",
+      "sections": [
+        "P-01"
+      ],
+      "source": "Mau_cam_san_pham/refvlks_lifestyle_tram-shopper_nm04-park.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "A woman in a white dress walks through a park with the Trám Shopper on her shoulder.",
+        "vi": "Người mẫu nữ mặc váy trắng đi dạo công viên, đeo túi Trám Shopper trên vai."
+      },
+      "variants": [
+        {
+          "kind": "full",
+          "w": 1024,
+          "h": 1536,
+          "files": {
+            "avif": "/images/lifestyle/refvlks_lifestyle_08_tram-shopper-park.avif",
+            "webp": "/images/lifestyle/refvlks_lifestyle_08_tram-shopper-park.webp"
+          },
+          "kb": {
+            "avif": 134,
+            "webp": 183
+          },
+          "q": {
+            "avif": 57,
+            "webp": 75
+          }
+        }
+      ]
+    },
+    {
+      "id": "OG-01",
+      "product": "SP01",
+      "role": "Ảnh chia sẻ mạng xã hội 1200×630",
+      "sections": [
+        "SEO"
+      ],
+      "source": "Anh_san_pham/refvlks_sp01_editorial_3x2.png",
+      "origin": "AI-generated",
+      "alt": {
+        "en": "Weft Structured Tote on a travertine block beside a sunlit window.",
+        "vi": "Túi Weft Structured Tote trên bệ đá cạnh cửa sổ đón nắng."
+      },
+      "variants": [
+        {
+          "kind": "og",
+          "w": 1200,
+          "h": 630,
+          "files": {
+            "jpg": "/images/og/refvlks_og_01_default.jpg"
+          },
+          "kb": {
+            "jpg": 129
+          },
+          "q": {
+            "jpg": 88
+          }
+        }
+      ]
+    }
+  ]
+}

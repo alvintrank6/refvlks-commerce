@@ -1,0 +1,5 @@
+import {env} from "cloudflare:workers";
+import {NextRequest,NextResponse} from "next/server";
+import {isLocale,paths} from "../../../src/lib/catalog";
+const clean=(form:FormData,key:string,max=250)=>String(form.get(key)??"").trim().slice(0,max);
+export async function POST(request:NextRequest){const form=await request.formData();const rawLocale=clean(form,"locale",2),locale=isLocale(rawLocale)?rawLocale:"en",p=paths(locale);const redirect=(status:string)=>NextResponse.redirect(new URL(`${p.contact}?status=${status}`,request.url),303);const name=clean(form,"name",80),contact=clean(form,"contact",150),topic=clean(form,"topic",30),orderNumber=clean(form,"orderNumber",40),body=clean(form,"body",2000);if(name.length<2||contact.length<5||body.length<5||!['order','visit','repair','other'].includes(topic)||!form.has("consent")||!env.DB)return redirect("error");try{await env.DB.prepare("INSERT INTO messages (id,created_at,name,contact,topic,order_number,body,locale,status) VALUES (?,?,?,?,?,?,?,?,?)").bind(crypto.randomUUID(),new Date().toISOString(),name,contact,topic,orderNumber||null,body,locale,"new").run();return redirect("success")}catch{return redirect("error")}}

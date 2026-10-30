@@ -1,0 +1,508 @@
+{
+  "_note": "Generated from docs/02 and docs/04 on 2026-10-30. Prices, names and stock (10 per variant) are assumed and await owner approval. specs/woven null = missing: UI must hide them.",
+  "products": [
+    {
+      "code": "SP01",
+      "handle": "weft-structured-tote",
+      "tier": "heritage",
+      "name": {
+        "en": "Weft Structured Tote",
+        "vi": "Weft Structured Tote"
+      },
+      "variants": [
+        {
+          "sku": "RV-SP01-BRN",
+          "colourKey": "brown",
+          "colour": {
+            "en": "Brown",
+            "vi": "Nâu"
+          },
+          "swatch": "#5A3A24",
+          "priceVnd": 1890000,
+          "stock": 10,
+          "cardImage": "SP01-01",
+          "hoverImage": "SP01-03"
+        }
+      ],
+      "images": [
+        {
+          "asset": "SP01-01",
+          "role": "front"
+        },
+        {
+          "asset": "SP01-02",
+          "role": "three_quarter"
+        },
+        {
+          "asset": "SP01-03",
+          "role": "inside"
+        },
+        {
+          "asset": "SP01-04",
+          "role": "model"
+        },
+        {
+          "asset": "LIFE-01",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "SP01-05",
+          "role": "detail"
+        },
+        {
+          "asset": "SP01-06",
+          "role": "hand"
+        },
+        {
+          "asset": "SP01-07",
+          "role": "open"
+        }
+      ],
+      "short": {
+        "en": "A structured work tote with a buckled flap, a diamond-weave body and a woven lining you see when you open it.",
+        "vi": "Túi đi làm phom cứng, nắp có khóa cài, thân hoa văn hình thoi và lớp lót dệt hiện ra khi mở túi."
+      },
+      "long": {
+        "en": "Built around a working day. The Weft Structured Tote keeps its shape whether it is full or almost empty, and the buckled flap closes over everything inside. The body is a dense jacquard canvas in a diamond weave; the flap, band and handles are recovered cotton-denim canvas with a matte coated finish. Open the flap and the bag changes character: a woven lining in blue, ochre and cream. Quiet on the outside. A story on the inside.",
+        "vi": "Được thiết kế quanh một ngày làm việc. Weft Structured Tote giữ phom dù đầy đồ hay gần như trống, nắp có khóa cài đóng lại trên mọi thứ bên trong. Thân túi là canvas jacquard mật độ cao dệt hoa văn hình thoi; nắp, dải ngang và quai là canvas cotton-jeans tái chế phủ mờ. Mở nắp ra, chiếc túi đổi tính cách: lớp lót dệt màu xanh, vàng đất và kem. Ngoài tĩnh lặng. Trong là câu chuyện."
+      },
+      "materials": {
+        "basis": "textile_weight",
+        "share": {
+          "en": "70% new technical textile · 30% recovered textile, by textile weight",
+          "vi": "70% vải chuyên dụng mới · 30% vải tái chế, tính theo khối lượng vải"
+        },
+        "parts": [
+          {
+            "part": "Body",
+            "en": "Jacquard canvas, diamond weave, water-repellent finish",
+            "vi": "Canvas jacquard dệt hoa văn hình thoi, phủ chống thấm nhẹ",
+            "group": "new"
+          },
+          {
+            "part": "Sides",
+            "en": "Brushed cotton twill",
+            "vi": "Twill cotton chải mịn",
+            "group": "new"
+          },
+          {
+            "part": "Lining",
+            "en": "Woven brocade",
+            "vi": "Thổ cẩm dệt",
+            "group": "new"
+          },
+          {
+            "part": "Flap and band",
+            "en": "Recovered cotton-denim canvas, matte coated finish",
+            "vi": "Canvas cotton-jeans tái chế, phủ mờ",
+            "group": "recovered"
+          },
+          {
+            "part": "Handles",
+            "en": "Recovered canvas rolled over a recovered cotton cord",
+            "vi": "Canvas tái chế cuộn quanh lõi dây cotton tái chế",
+            "group": "recovered"
+          },
+          {
+            "part": "Hardware",
+            "en": "Brass-tone zinc alloy buckle",
+            "vi": "Khóa hợp kim kẽm màu đồng",
+            "group": "hardware"
+          }
+        ],
+        "madeIn": null
+      },
+      "specs": {
+        "sizeCm": null,
+        "weightG": null,
+        "laptopIn": null,
+        "compartments": null,
+        "closure": null,
+        "handleDropCm": null,
+        "loadKg": null
+      },
+      "woven": {
+        "artisanGroup": null,
+        "place": null,
+        "technique": null,
+        "confirmed": false
+      },
+      "status": "active"
+    },
+    {
+      "code": "SP02",
+      "handle": "loom-flap-tote",
+      "tier": "signature",
+      "name": {
+        "en": "Loom Flap Tote",
+        "vi": "Loom Flap Tote"
+      },
+      "variants": [
+        {
+          "sku": "RV-SP02-FOR",
+          "colourKey": "forest",
+          "colour": {
+            "en": "Forest",
+            "vi": "Xanh rừng"
+          },
+          "swatch": "#1E3B28",
+          "priceVnd": 1590000,
+          "stock": 10,
+          "cardImage": "SP02F-01",
+          "hoverImage": "SP02F-02",
+          "images": [
+            "SP02F-01",
+            "SP02F-02",
+            "SP02F-03",
+            "LIFE-02",
+            "LIFE-03"
+          ]
+        },
+        {
+          "sku": "RV-SP02-WIN",
+          "colourKey": "wine",
+          "colour": {
+            "en": "Wine",
+            "vi": "Đỏ rượu"
+          },
+          "swatch": "#2B1A20",
+          "priceVnd": 1590000,
+          "stock": 10,
+          "cardImage": "SP02W-01",
+          "hoverImage": "SP02W-02",
+          "images": [
+            "SP02W-01",
+            "SP02W-02",
+            "LIFE-04"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "asset": "SP02F-01",
+          "role": "front"
+        },
+        {
+          "asset": "SP02F-02",
+          "role": "model"
+        },
+        {
+          "asset": "SP02F-03",
+          "role": "model"
+        },
+        {
+          "asset": "LIFE-02",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "LIFE-03",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "SP02W-01",
+          "role": "front"
+        },
+        {
+          "asset": "SP02W-02",
+          "role": "model"
+        },
+        {
+          "asset": "LIFE-04",
+          "role": "lifestyle"
+        }
+      ],
+      "short": {
+        "en": "An everyday tote with a flared opening, a snap-tab flap and a woven band around the base. In forest or wine.",
+        "vi": "Túi tote hằng ngày với miệng loe, nắp tab có nút bấm và dải dệt quanh đáy. Màu xanh rừng hoặc đỏ rượu."
+      },
+      "long": {
+        "en": "Easy to reach into, easy to close. The opening flares wide, a small tab snaps shut at the centre, and a jacquard band runs around the lower third of the bag. The body is a dense technical felt that keeps its shape; the tab and handles are recovered canvas with a matte coated finish. Forest pairs a deep green body with a cream band; Wine keeps the band tone-on-tone for a quieter look.",
+        "vi": "Dễ lấy đồ, dễ đóng lại. Miệng túi loe rộng, nắp tab nhỏ bấm lại ở giữa, và một dải jacquard chạy quanh một phần ba thân dưới. Thân túi là nỉ kỹ thuật dày giữ phom; nắp tab và quai là canvas tái chế phủ mờ. Màu Forest kết hợp thân xanh rừng với dải kem; màu Wine giữ dải cùng tông cho vẻ trầm hơn."
+      },
+      "materials": {
+        "basis": "textile_weight",
+        "share": {
+          "en": "70% new technical textile · 30% recovered textile, by textile weight",
+          "vi": "70% vải chuyên dụng mới · 30% vải tái chế, tính theo khối lượng vải"
+        },
+        "parts": [
+          {
+            "part": "Body",
+            "en": "Dense technical felt, 3 mm",
+            "vi": "Nỉ kỹ thuật dày 3 mm",
+            "group": "new"
+          },
+          {
+            "part": "Band",
+            "en": "Jacquard-woven band",
+            "vi": "Dải dệt jacquard",
+            "group": "new"
+          },
+          {
+            "part": "Lining",
+            "en": "Cotton canvas",
+            "vi": "Canvas cotton",
+            "group": "new"
+          },
+          {
+            "part": "Flap tab",
+            "en": "Recovered cotton-denim canvas, matte coated finish",
+            "vi": "Canvas cotton-jeans tái chế, phủ mờ",
+            "group": "recovered"
+          },
+          {
+            "part": "Handles",
+            "en": "Recovered canvas rolled over a recovered cotton cord",
+            "vi": "Canvas tái chế cuộn quanh lõi dây cotton tái chế",
+            "group": "recovered"
+          },
+          {
+            "part": "Hardware",
+            "en": "Metal snap",
+            "vi": "Nút bấm kim loại",
+            "group": "hardware"
+          }
+        ],
+        "madeIn": null
+      },
+      "specs": {
+        "sizeCm": null,
+        "weightG": null,
+        "laptopIn": null,
+        "compartments": null,
+        "closure": null,
+        "handleDropCm": null,
+        "loadKg": null
+      },
+      "woven": {
+        "artisanGroup": null,
+        "place": null,
+        "technique": null,
+        "confirmed": false
+      },
+      "status": "active"
+    },
+    {
+      "code": "SP03",
+      "handle": "loom-carryall",
+      "tier": "signature",
+      "name": {
+        "en": "Loom Carryall",
+        "vi": "Loom Carryall"
+      },
+      "variants": [
+        {
+          "sku": "RV-SP03-BLK",
+          "colourKey": "black-cinnabar",
+          "colour": {
+            "en": "Black / Cinnabar",
+            "vi": "Đen / Đỏ son"
+          },
+          "swatch": "#171617",
+          "priceVnd": 1590000,
+          "stock": 10,
+          "cardImage": "SP03-01",
+          "hoverImage": "SP03-02"
+        }
+      ],
+      "images": [
+        {
+          "asset": "SP03-01",
+          "role": "front"
+        },
+        {
+          "asset": "SP03-02",
+          "role": "model"
+        },
+        {
+          "asset": "LIFE-05",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "LIFE-06",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "LIFE-07",
+          "role": "lifestyle"
+        },
+        {
+          "asset": "SP03-03",
+          "role": "model"
+        }
+      ],
+      "short": {
+        "en": "A black carryall with a cinnabar flap, a triangular woven panel and handles wrapped in a woven scarf.",
+        "vi": "Túi đen với nắp đỏ son, mảng dệt tam giác và quai quấn khăn dệt."
+      },
+      "long": {
+        "en": "The most graphic bag in the collection. A matte black felt body, a small cinnabar tab that snaps shut, and a triangle of multicolour brocade across the lower front. The handles are wrapped in a scarf woven from recovered cotton and polyester yarn; handles and tab are recovered canvas with a matte coated finish.",
+        "vi": "Chiếc túi nổi bật nhất trong bộ sưu tập. Thân nỉ đen lì, nắp tab đỏ son bấm lại, và một mảng thổ cẩm nhiều màu hình tam giác ở nửa dưới mặt trước. Quai được quấn khăn dệt từ sợi cotton và polyester tái chế; quai và nắp tab là canvas tái chế phủ mờ."
+      },
+      "materials": {
+        "basis": "textile_weight",
+        "share": {
+          "en": "70% new technical textile · 30% recovered textile, by textile weight",
+          "vi": "70% vải chuyên dụng mới · 30% vải tái chế, tính theo khối lượng vải"
+        },
+        "parts": [
+          {
+            "part": "Body",
+            "en": "Dense technical felt, 3 mm, black",
+            "vi": "Nỉ kỹ thuật dày 3 mm, màu đen",
+            "group": "new"
+          },
+          {
+            "part": "Panel",
+            "en": "Multicolour woven brocade",
+            "vi": "Thổ cẩm dệt nhiều màu",
+            "group": "new"
+          },
+          {
+            "part": "Lining",
+            "en": "Cotton canvas",
+            "vi": "Canvas cotton",
+            "group": "new"
+          },
+          {
+            "part": "Flap tab",
+            "en": "Recovered canvas in cinnabar, matte coated finish",
+            "vi": "Canvas tái chế màu đỏ son, phủ mờ",
+            "group": "recovered"
+          },
+          {
+            "part": "Handles",
+            "en": "Recovered canvas rolled over a recovered cotton cord",
+            "vi": "Canvas tái chế cuộn quanh lõi dây cotton tái chế",
+            "group": "recovered"
+          },
+          {
+            "part": "Scarf",
+            "en": "Woven from recovered cotton and polyester yarn",
+            "vi": "Dệt từ sợi cotton và polyester tái chế",
+            "group": "recovered"
+          },
+          {
+            "part": "Hardware",
+            "en": "Metal snap",
+            "vi": "Nút bấm kim loại",
+            "group": "hardware"
+          }
+        ],
+        "madeIn": null
+      },
+      "specs": {
+        "sizeCm": null,
+        "weightG": null,
+        "laptopIn": null,
+        "compartments": null,
+        "closure": null,
+        "handleDropCm": null,
+        "loadKg": null
+      },
+      "woven": {
+        "artisanGroup": null,
+        "place": null,
+        "technique": null,
+        "confirmed": false
+      },
+      "status": "active"
+    },
+    {
+      "code": "SP04",
+      "handle": "tram-shopper",
+      "tier": "essential",
+      "name": {
+        "en": "Trám Shopper",
+        "vi": "Trám Shopper"
+      },
+      "variants": [
+        {
+          "sku": "RV-SP04-CRM",
+          "colourKey": "cream-brown",
+          "colour": {
+            "en": "Cream / Brown",
+            "vi": "Kem / Nâu"
+          },
+          "swatch": "#E8DED2",
+          "priceVnd": 1290000,
+          "stock": 10,
+          "cardImage": "SP04-01",
+          "hoverImage": "SP04-02"
+        }
+      ],
+      "images": [
+        {
+          "asset": "SP04-01",
+          "role": "front"
+        },
+        {
+          "asset": "SP04-02",
+          "role": "model"
+        },
+        {
+          "asset": "LIFE-08",
+          "role": "lifestyle"
+        }
+      ],
+      "short": {
+        "en": "An open shopper in an all-over diamond motif, with two straps that run from the handles down the front.",
+        "vi": "Túi shopper mở miệng phủ họa tiết hình trám, hai dải quai chạy từ quai xuống mặt trước."
+      },
+      "long": {
+        "en": "Named after the trám, the diamond shape repeated across its body. With no flap, it is the quickest bag to load. The body is a jacquard canvas with a stain-resistant finish; two straps run from the handles down the front, each with a small buckle, all in recovered cotton-denim canvas.",
+        "vi": "Đặt tên theo hình trám lặp lại trên thân túi. Không có nắp nên đây là chiếc túi bỏ đồ nhanh nhất. Thân túi là canvas jacquard phủ chống bám bẩn; hai dải quai chạy từ quai xuống mặt trước, mỗi dải có một khóa nhỏ, tất cả bằng canvas cotton-jeans tái chế."
+      },
+      "materials": {
+        "basis": "textile_weight",
+        "share": {
+          "en": "70% new technical textile · 30% recovered textile, by textile weight",
+          "vi": "70% vải chuyên dụng mới · 30% vải tái chế, tính theo khối lượng vải"
+        },
+        "parts": [
+          {
+            "part": "Body",
+            "en": "Jacquard canvas, trám (diamond) motif, stain-resistant finish",
+            "vi": "Canvas jacquard họa tiết hình trám, phủ chống bám bẩn",
+            "group": "new"
+          },
+          {
+            "part": "Lining",
+            "en": "Cotton canvas",
+            "vi": "Canvas cotton",
+            "group": "new"
+          },
+          {
+            "part": "Handles and straps",
+            "en": "Recovered cotton-denim canvas, matte coated finish",
+            "vi": "Canvas cotton-jeans tái chế, phủ mờ",
+            "group": "recovered"
+          },
+          {
+            "part": "Hardware",
+            "en": "Brass-tone zinc alloy buckles",
+            "vi": "Khóa hợp kim kẽm màu đồng",
+            "group": "hardware"
+          }
+        ],
+        "madeIn": null
+      },
+      "specs": {
+        "sizeCm": null,
+        "weightG": null,
+        "laptopIn": null,
+        "compartments": null,
+        "closure": null,
+        "handleDropCm": null,
+        "loadKg": null
+      },
+      "woven": {
+        "artisanGroup": null,
+        "place": null,
+        "technique": null,
+        "confirmed": false
+      },
+      "status": "active"
+    }
+  ]
+}
