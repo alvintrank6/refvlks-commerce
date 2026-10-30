@@ -1,5 +1,5 @@
 {
-  "_note": "Generated from docs/02 and docs/04 on 2026-10-30. Prices, names and stock (10 per variant) are assumed and await owner approval. specs/woven null = missing: UI must hide them.",
+  "_note": "Generated from docs/02 and docs/04 on 2026-10-30. The owner approved use of the proposed seed prices, stock and ordering for this Site. specs/woven null = missing: UI must hide them. Hotspot coordinates (%) are defaults from docs/10 §3.3; fine-tune against the front image.",
   "products": [
     {
       "code": "SP01",
@@ -127,7 +127,29 @@
         "technique": null,
         "confirmed": false
       },
-      "status": "active"
+      "status": "active",
+      "hotspots": [
+        {
+          "part": "Body",
+          "x": 50,
+          "y": 72
+        },
+        {
+          "part": "Sides",
+          "x": 12,
+          "y": 62
+        },
+        {
+          "part": "Flap and band",
+          "x": 50,
+          "y": 38
+        },
+        {
+          "part": "Handles",
+          "x": 50,
+          "y": 12
+        }
+      ]
     },
     {
       "code": "SP02",
@@ -150,13 +172,7 @@
           "stock": 10,
           "cardImage": "SP02F-01",
           "hoverImage": "SP02F-02",
-          "images": [
-            "SP02F-01",
-            "SP02F-02",
-            "SP02F-03",
-            "LIFE-02",
-            "LIFE-03"
-          ]
+          "images": ["SP02F-01", "SP02F-02", "SP02F-03", "LIFE-02", "LIFE-03"]
         },
         {
           "sku": "RV-SP02-WIN",
@@ -170,11 +186,7 @@
           "stock": 10,
           "cardImage": "SP02W-01",
           "hoverImage": "SP02W-02",
-          "images": [
-            "SP02W-01",
-            "SP02W-02",
-            "LIFE-04"
-          ]
+          "images": ["SP02W-01", "SP02W-02", "LIFE-04"]
         }
       ],
       "images": [
@@ -280,7 +292,29 @@
         "technique": null,
         "confirmed": false
       },
-      "status": "active"
+      "status": "active",
+      "hotspots": [
+        {
+          "part": "Body",
+          "x": 50,
+          "y": 60
+        },
+        {
+          "part": "Band",
+          "x": 50,
+          "y": 82
+        },
+        {
+          "part": "Flap tab",
+          "x": 50,
+          "y": 36
+        },
+        {
+          "part": "Handles",
+          "x": 50,
+          "y": 12
+        }
+      ]
     },
     {
       "code": "SP03",
@@ -406,7 +440,34 @@
         "technique": null,
         "confirmed": false
       },
-      "status": "active"
+      "status": "active",
+      "hotspots": [
+        {
+          "part": "Body",
+          "x": 30,
+          "y": 55
+        },
+        {
+          "part": "Panel",
+          "x": 50,
+          "y": 80
+        },
+        {
+          "part": "Flap tab",
+          "x": 50,
+          "y": 36
+        },
+        {
+          "part": "Handles",
+          "x": 40,
+          "y": 12
+        },
+        {
+          "part": "Scarf",
+          "x": 62,
+          "y": 18
+        }
+      ]
     },
     {
       "code": "SP04",
@@ -502,7 +563,19 @@
         "technique": null,
         "confirmed": false
       },
-      "status": "active"
+      "status": "active",
+      "hotspots": [
+        {
+          "part": "Body",
+          "x": 35,
+          "y": 55
+        },
+        {
+          "part": "Handles and straps",
+          "x": 62,
+          "y": 45
+        }
+      ]
     }
   ]
 }

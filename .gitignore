@@ -29,8 +29,10 @@ yarn-error.log*
 
 # Local environment and keys
 .env*
+!.env.example
 .dev.vars*
 *.pem
+/.data/
 
 # Checkout-local tool state
 /.wrangler/

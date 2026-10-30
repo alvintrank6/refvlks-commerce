@@ -32,3 +32,13 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - Local HTTP checks: `/en`, `/en/donation-event`, `/vi/su-kien-quyen-gop`, `/sitemap.xml` returned 200. Browser console errors: none on `/en`.
 - Next: F2 data contract, donation persistence and claims gate.
 
+## F2 · Data and claims retrofit
+
+- Added the approved-claim gate, updated five-variant product seed with material hotspots and null fields for unconfirmed specifications, and a null-safe Donation Event seed. The owner approved seed prices, stock and ordering in the current task.
+- Added a shared store repository with D1, local file and optional Supabase adapters. Local orders reserve stock in an atomic file update; D1 retains the order-item stock trigger. Supabase has schema, row-level security, a transactional `create_order` RPC and a repeatable seed generator. No Supabase credentials were provided, so that adapter and migration have not been run against a remote instance.
+- Added D1 and Supabase donation tables and local/D1/Supabase signup persistence. Donation consent and three signups per hour per IP are enforced in the form route/adapters. The local adapter serializes rate checks and appends.
+- Format: `npx prettier --write` for changed source — pass. `npm run lint` — pass. `npm run typecheck` — pass. `npm run test` — 8 passed. `npm run build` — pass.
+- Local HTTP checks on built Worker: valid order redirected to order page and reduced `RV-SP03-BLK` stock from 10 to 9; an overstock order redirected with `error=stock`; studio and contact forms redirected with success. Donation form checks from this slice: missing recycling consent rejected; three valid signups saved and fourth rate limited.
+- Open decisions/data remain hidden: Donation Event date, collection window, destination and impact; pending claims CL-19, CL-20, CL-22 and CL-23. The Supabase adapter is optional and unverified against a hosted database.
+- Next: F3 shell, Home H-01 and H-03.
+

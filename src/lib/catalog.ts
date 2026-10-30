@@ -35,6 +35,14 @@ export type Product = {
     parts: { part: string; en: string; vi: string; group: string }[];
   };
   status: string;
+  hotspots?: { part: string; x: number; y: number }[];
+  specs?: Record<string, number | string | null>;
+  woven?: {
+    artisanGroup: string | null;
+    place: string | null;
+    technique: string | null;
+    confirmed: boolean;
+  };
 };
 export type Asset = {
   id: string;

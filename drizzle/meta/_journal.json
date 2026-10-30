@@ -8,6 +8,13 @@
       "when": 1793350548914,
       "tag": "0000_wealthy_silver_surfer",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793361542273,
+      "tag": "0001_nifty_starfox",
+      "breakpoints": true
     }
   ]
 }

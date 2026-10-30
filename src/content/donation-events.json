@@ -1,0 +1,49 @@
+{
+  "_note": "Donation Event data (docs/10 mục 4). null = chưa có dữ liệu, UI ẩn trường đó. Cập nhật mỗi tháng, hoặc qua CMS slice C7.",
+  "nextEvent": {
+    "date": null,
+    "collectionWindow": {
+      "en": null,
+      "vi": null
+    },
+    "destination": {
+      "en": null,
+      "vi": null
+    },
+    "status": "announcing"
+  },
+  "pastEvents": [],
+  "impact": {
+    "kgCollected": null,
+    "piecesDelivered": null,
+    "kgRecycled": null
+  },
+  "accepts": {
+    "bring": {
+      "en": [
+        "Clean clothes in good condition",
+        "Warm layers: jackets, sweaters, scarves",
+        "Children's clothes",
+        "Torn or faded cotton and denim: we'll recycle it"
+      ],
+      "vi": [
+        "Quần áo sạch, còn tốt",
+        "Đồ ấm: áo khoác, áo len, khăn",
+        "Quần áo trẻ em",
+        "Đồ cotton, jeans đã rách hoặc bạc màu: chúng tôi sẽ tái chế"
+      ]
+    },
+    "dontBring": {
+      "en": [
+        "Underwear and socks",
+        "Wet, mouldy or unwashed clothes",
+        "Shoes, bags and other non-textile items"
+      ],
+      "vi": [
+        "Đồ lót và tất",
+        "Quần áo ẩm, mốc hoặc chưa giặt",
+        "Giày, túi và đồ không phải vải"
+      ]
+    }
+  }
+}

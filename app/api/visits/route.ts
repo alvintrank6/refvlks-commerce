@@ -1,5 +1,71 @@
-import {env} from "cloudflare:workers";
-import {NextRequest,NextResponse} from "next/server";
-import {isLocale,paths,products} from "../../../src/lib/catalog";
-const clean=(form:FormData,key:string,max=250)=>String(form.get(key)??"").trim().slice(0,max);
-export async function POST(request:NextRequest){const form=await request.formData();const rawLocale=clean(form,"locale",2),locale=isLocale(rawLocale)?rawLocale:"en",p=paths(locale);const redirect=(status:string)=>NextResponse.redirect(new URL(`${p.studio}?status=${status}#book`,request.url),303);const name=clean(form,"name",80),phone=clean(form,"phone",20),email=clean(form,"email",150),date=clean(form,"date",10),time=clean(form,"time",5),bag=clean(form,"bag",80),note=clean(form,"note",300);const mins=Number(time.slice(0,2))*60+Number(time.slice(3));const today=new Date();const visit=new Date(`${date}T00:00:00+07:00`);if(name.length<2||!/^0\d{9}$/.test(phone)||(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!/^\d{2}:\d{2}$/.test(time)||mins<480||mins>1260||mins%30!==0||visit.getTime()<today.getTime()-86400000||visit.getTime()>today.getTime()+31*86400000||bag&&!products.some(product=>product.handle===bag)||!form.has("consent")||!env.DB)return redirect("error");try{await env.DB.prepare("INSERT INTO studio_visits (id,created_at,name,phone,email,visit_date,visit_time,bag,note,locale,status) VALUES (?,?,?,?,?,?,?,?,?,?,?)").bind(crypto.randomUUID(),new Date().toISOString(),name,phone,email||null,date,time,bag||null,note||null,locale,"requested").run();return redirect("success")}catch{return redirect("error")}}
+import { env } from "cloudflare:workers";
+import { NextRequest, NextResponse } from "next/server";
+import { isLocale, paths, products } from "../../../src/lib/catalog";
+import { storeRepository } from "../../../src/lib/data";
+
+const clean = (form: FormData, key: string, max = 250) =>
+  String(form.get(key) ?? "")
+    .trim()
+    .slice(0, max);
+
+export async function POST(request: NextRequest) {
+  const form = await request.formData();
+  const rawLocale = clean(form, "locale", 2);
+  const locale = isLocale(rawLocale) ? rawLocale : "en";
+  const redirect = (status: string) =>
+    NextResponse.redirect(
+      new URL(`${paths(locale).studio}?status=${status}#book`, request.url),
+      303,
+    );
+  const name = clean(form, "name", 80);
+  const phone = clean(form, "phone", 20);
+  const email = clean(form, "email", 150);
+  const date = clean(form, "date", 10);
+  const time = clean(form, "time", 5);
+  const bag = clean(form, "bag", 80);
+  const note = clean(form, "note", 300);
+  const minutes = Number(time.slice(0, 2)) * 60 + Number(time.slice(3));
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const maxDate = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(Date.now() + 30 * 86_400_000));
+  if (
+    name.length < 2 ||
+    !/^0\d{9}$/.test(phone) ||
+    (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ||
+    !/^\d{4}-\d{2}-\d{2}$/.test(date) ||
+    date < today ||
+    date > maxDate ||
+    !/^\d{2}:\d{2}$/.test(time) ||
+    minutes < 480 ||
+    minutes > 1260 ||
+    minutes % 30 !== 0 ||
+    (bag && !products.some((product) => product.handle === bag)) ||
+    !form.has("consent")
+  )
+    return redirect("error");
+  try {
+    const repository = await storeRepository(env.DB);
+    await repository.createVisit({
+      name,
+      phone,
+      email: email || null,
+      date,
+      time,
+      bag: bag || null,
+      note: note || null,
+      locale,
+    });
+    return redirect("success");
+  } catch {
+    return redirect("error");
+  }
+}
