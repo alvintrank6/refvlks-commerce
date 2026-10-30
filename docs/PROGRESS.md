@@ -98,3 +98,10 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck`, `npm run lint`, `npm run test` (8 tests), `npm run build` — pass. `npx playwright test tests/e2e/studio-contact-v2.spec.ts` — 15 passed at five widths in normal/reduced motion, including slot visibility, duplicate blocking, topic switching, persistence, rate limits, inline errors and axe checks.
 - Next: F10 Craft and About.
 
+## F10 · Craft and About
+
+- Replaced the legacy pages with three sections each. Craft shows the 70/30 material share, five visual process cards, and a transparent note about unverified batch QR and measurement claims. About shows the origin story, three promises, future plans and the linked 2022 Tuổi Trẻ source. Pending named-weaver and pattern claims remain hidden.
+- Added reusable full/lite/off story motion: ratio count-up and thread drawing on scroll, with desktop card stacking. Content remains readable when motion is reduced or JavaScript is off. Used only mapped product and lifestyle assets.
+- `npm run typecheck`, `npm run lint`, `npm run test` (8 tests), `npm run build` — pass. `npx playwright test tests/e2e/craft-about-v2.spec.ts` — 14 passed across five widths and reduced/normal motion, including section counts, claim gating, source/donation links, no-JavaScript content and axe checks. Inspected a full-page About screenshot at 1440 pixels.
+- Next: F11 Donation Event.
+

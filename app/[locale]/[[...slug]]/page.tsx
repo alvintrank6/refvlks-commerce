@@ -37,6 +37,7 @@ import { Claim } from "../../../src/components/Claim";
 import { CopyButton } from "../../../src/components/CopyButton";
 import { VisitDateTime } from "../../../src/components/VisitDateTime";
 import { CheckoutSubmit } from "../../../src/components/CheckoutSubmit";
+import { CraftV2, AboutV2 } from "../../../src/components/CraftAboutV2";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -167,11 +168,11 @@ export default async function Page({ params, searchParams }: Props) {
         ) : kind === "product" ? (
           <ProductPage locale={locale} handle={slug[1]} q={q} />
         ) : kind === "craft" ? (
-          <Craft locale={locale} />
+          <CraftV2 locale={locale} />
         ) : kind === "donation" ? (
           <Donation locale={locale} />
         ) : kind === "about" ? (
-          <About locale={locale} />
+          <AboutV2 locale={locale} />
         ) : kind === "studio" ? (
           <Studio locale={locale} q={q} />
         ) : kind === "cart" ? (
@@ -542,74 +543,6 @@ async function ProductPage({
         />
       </div>
     </div>
-  );
-}
-
-function Craft({ locale }: { locale: Locale }) {
-  const d = dictionary(locale),
-    p = paths(locale);
-  return (
-    <>
-      <section className="container page-hero">
-        <Eyebrow>{d.craft.eyebrow}</Eyebrow>
-        <h1>{d.craft.title}</h1>
-        <p className="lead">{d.craft.intro}</p>
-      </section>
-      <section className="section container content-grid">
-        <Picture id="SP01-05" locale={locale} />
-        <div className="text-stack">
-          <Eyebrow>70 / 30</Eyebrow>
-          <h2>{d.home.materialsTitle}</h2>
-          <p className="lead">{d.craft.body}</p>
-          <p>{d.home.materialNote}</p>
-          <ButtonLink href={`${p.shop}?tier=heritage`}>
-            {d.common.shopCollection}
-          </ButtonLink>
-        </div>
-      </section>
-      <section className="section materials-section">
-        <div className="container materials-grid">
-          <div className="material-panel">
-            <div className="material-number">70%</div>
-            <h3>{d.craft.new}</h3>
-            <p>{d.home.materialOne}</p>
-          </div>
-          <div className="material-panel">
-            <div className="material-number">30%</div>
-            <h3>{d.craft.recovered}</h3>
-            <p>{d.home.materialTwo}</p>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-function About({ locale }: { locale: Locale }) {
-  const d = dictionary(locale),
-    p = paths(locale);
-  return (
-    <>
-      <section className="container page-hero">
-        <Eyebrow>{d.about.eyebrow}</Eyebrow>
-        <h1>{d.about.title}</h1>
-        <p className="lead">{d.about.intro}</p>
-      </section>
-      <section className="section container content-grid">
-        <div className="text-stack">
-          <Eyebrow>HANOI / REFVLKS</Eyebrow>
-          <h2>{d.home.headline}</h2>
-          <p className="lead">{d.home.collectionBody}</p>
-          <div className="button-row">
-            <ButtonLink href={p.shop}>{d.about.cta}</ButtonLink>
-            <ButtonLink secondary href={p.studio}>
-              {d.nav.studio}
-            </ButtonLink>
-          </div>
-        </div>
-        <Picture id="LIFE-01" locale={locale} />
-      </section>
-    </>
   );
 }
 

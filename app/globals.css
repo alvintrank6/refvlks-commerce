@@ -2043,6 +2043,169 @@ input[type="date"] {
   width: 100%;
   background: var(--sand);
 }
+.craft-share {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 42px 7%;
+  align-items: center;
+}
+.craft-share-intro h1,
+.about-why h1 {
+  max-width: 12ch;
+}
+.craft-share > .picture {
+  aspect-ratio: 4 / 5;
+}
+.craft-ratio {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 26px 8%;
+  position: relative;
+}
+.ratio-thread {
+  grid-column: 1 / -1;
+  height: 5px;
+  background: var(--sand);
+}
+.ratio-thread span {
+  display: block;
+  width: 70%;
+  height: 100%;
+  background: var(--accent);
+}
+.ratio-number {
+  display: block;
+  color: var(--primary);
+  font:
+    400 clamp(74px, 11vw, 170px) Fraunces,
+    Georgia,
+    serif;
+  line-height: 1;
+}
+.craft-ratio-note {
+  grid-column: 1 / -1;
+}
+.craft-process,
+.about-promises {
+  background: var(--sand);
+}
+.craft-process h2,
+.about-promises h2 {
+  margin-bottom: 45px;
+}
+.story-stack {
+  position: relative;
+  display: grid;
+  gap: 28px;
+  padding-left: 34px;
+}
+.story-thread {
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+}
+.story-stack-card {
+  position: sticky;
+  top: calc(92px + var(--stack-offset, 0px));
+  display: grid;
+  grid-template-columns: 60px minmax(0, 38%) 1fr;
+  align-items: center;
+  gap: 25px;
+  min-height: 330px;
+  padding: 25px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px rgb(31 23 18 / 7%);
+}
+.story-stack-card:nth-of-type(2) {
+  --stack-offset: 8px;
+}
+.story-stack-card:nth-of-type(3) {
+  --stack-offset: 16px;
+}
+.story-stack-card:nth-of-type(4) {
+  --stack-offset: 24px;
+}
+.story-stack-card:nth-of-type(5) {
+  --stack-offset: 32px;
+}
+.story-stack-card .picture,
+.story-stack-card .weft-card {
+  width: 100%;
+  height: 270px;
+}
+.story-stack-card h3 {
+  font-size: clamp(30px, 3vw, 48px);
+}
+.story-stack-card p {
+  max-width: 50ch;
+}
+.weft-card {
+  background: var(--primary) url("/brand/refvlks_pattern_weft.svg") center /
+    cover;
+}
+.craft-weave,
+.about-why,
+.about-next {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7%;
+  align-items: center;
+}
+.craft-weave-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.craft-weave-images .picture:first-child {
+  grid-row: span 2;
+}
+.craft-weave-images .picture {
+  min-height: 240px;
+}
+.craft-weave h3 {
+  margin-top: 45px;
+}
+.about-why .picture,
+.about-next .picture {
+  aspect-ratio: 4 / 5;
+}
+.source-link {
+  display: inline-block;
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  .craft-share,
+  .craft-weave,
+  .about-why,
+  .about-next {
+    grid-template-columns: 1fr;
+  }
+  .story-stack {
+    padding-left: 16px;
+  }
+  .story-thread {
+    left: 0;
+  }
+  .story-stack-card {
+    position: relative;
+    top: auto;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+  .story-stack-card .picture,
+  .story-stack-card .weft-card {
+    height: 230px;
+  }
+  .craft-ratio {
+    grid-template-columns: 1fr;
+  }
+}
 .booking-card .field:has(#message-order) {
   display: none;
 }
