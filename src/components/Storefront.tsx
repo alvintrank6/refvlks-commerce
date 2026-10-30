@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { Link } from "next-view-transitions";
 import {
   assets,
   dictionary,
@@ -19,6 +20,7 @@ export function ResponsivePicture({
   sizes = "(max-width: 700px) 100vw, 50vw",
   mobileId,
   decorative = false,
+  viewTransitionName,
 }: {
   id: string;
   locale: Locale;
@@ -28,6 +30,7 @@ export function ResponsivePicture({
   sizes?: string;
   mobileId?: string;
   decorative?: boolean;
+  viewTransitionName?: string;
 }) {
   const asset = assets.get(id);
   if (!asset) return null;
@@ -69,6 +72,7 @@ export function ResponsivePicture({
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : undefined}
         sizes={sizes}
+        style={viewTransitionName ? { viewTransitionName } : undefined}
       />
     </picture>
   );
@@ -264,6 +268,7 @@ export function ButtonLink({
         secondary ? "button button-secondary" : "button button-primary"
       }
       href={href}
+      data-magnetic={!secondary ? "true" : undefined}
     >
       {children}
       <span aria-hidden="true">↗</span>
@@ -283,9 +288,11 @@ export function ProductCard({
   const p = paths(locale),
     d = dictionary(locale);
   return (
-    <a
+    <Link
       className="product-card"
       href={`${p.product}/${product.handle}?colour=${variant.colourKey}`}
+      data-view-transition="true"
+      prefetch={false}
     >
       <div className="card-media">
         <Picture
@@ -293,6 +300,7 @@ export function ProductCard({
           locale={locale}
           kind="card"
           decorative
+          viewTransitionName={`product-${product.handle}-${variant.colourKey}`}
         />
         <Picture
           id={variant.hoverImage}
@@ -314,6 +322,6 @@ export function ProductCard({
         <h3>{product.name[locale]}</h3>
         <span>{money(variant.priceVnd)}</span>
       </div>
-    </a>
+    </Link>
   );
 }

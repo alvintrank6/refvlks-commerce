@@ -58,3 +58,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - Applied the React component review checklist to the new client code. The heavier Flip module loads only after an add action.
 - Next: F5 motion core and Home H-02 Reveal.
 
+## F5 · Motion core and Home Reveal
+
+- Added first-visit preloader, page curtain, product card to gallery View Transition, desktop Lenis with scroll progress, heading SplitText, magnetic primary buttons and a contextual desktop cursor. Motion runs in full, touch/light and reduced/off tiers. The original logo SVG remains the only wordmark.
+- Replaced the legacy Home reveal with the V2 H-02 story and exact EN/VI copy. Desktop loads eight frames when the section approaches, then pins and scrubs through them over 200% scroll; touch, reduced motion and no JavaScript show three static cards. A skip link lands on the collection. The frame loader leaves the readable cards visible if an image fails.
+- A production browser check exposed an RSC prefetch error from Vinext with `next-view-transitions`; disabled prefetch on the product card link. The subsequent card-to-product and back navigation check has no browser errors.
+- `npm run lint` — pass. `npm run typecheck` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e` — 49 passed, including F5 at 360/390/768/1024/1440 pixels in normal and reduced motion, no-JavaScript content and navigation, keyboard travel through the pin, View Transition navigation, and axe serious/critical checks. Screenshots: `test-results/screens/F5/`.
+- Next: F6 Home H-04 and H-05.
+

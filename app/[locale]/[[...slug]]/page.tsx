@@ -24,6 +24,7 @@ import CheckoutPage from "../../../src/components/CheckoutPage";
 import QRCode from "qrcode";
 import { vietqrPayload } from "../../../src/lib/vietqr";
 import { HomeMotion } from "../../../src/motion/HomeMotion";
+import { HomeReveal } from "../../../src/components/HomeReveal";
 import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
 import { AddToBagForm } from "../../../src/components/AddToBagForm";
 import { Claim } from "../../../src/components/Claim";
@@ -203,9 +204,12 @@ function Home({ locale }: { locale: Locale }) {
           <span className="hero-index">01 / REFVLKS</span>
         </div>
       </section>
+      <HomeReveal locale={locale} />
       <section
         className="section container home-collection"
         data-section="H-03"
+        id="collection"
+        tabIndex={-1}
       >
         <div className="section-heading">
           <div>
@@ -232,37 +236,6 @@ function Home({ locale }: { locale: Locale }) {
               locale={locale}
             />
           ))}
-        </div>
-      </section>
-      <section className="section dark-section" id="reveal">
-        <div className="container">
-          <a className="text-link" href="#after-reveal">
-            {d.home.skipReveal}
-          </a>
-          <div className="reveal-layout">
-            <div>
-              <Eyebrow>{d.home.revealLabel}</Eyebrow>
-              <h2>{d.home.revealTitle}</h2>
-              <div className="reveal-steps">
-                <div className="reveal-step">{d.home.revealOne}</div>
-                <div className="reveal-step">{d.home.revealTwo}</div>
-                <div className="reveal-step">{d.home.revealThree}</div>
-              </div>
-              <a className="text-link" href={p.craft}>
-                {d.common.learnMore} ↗
-              </a>
-            </div>
-            <div>
-              <div className="reveal-image">
-                <Picture id="REVEAL-08" locale={locale} />
-              </div>
-              <div className="reveal-small">
-                <Picture id="REVEAL-01" locale={locale} />
-                <Picture id="REVEAL-05" locale={locale} />
-                <Picture id="REVEAL-08" locale={locale} />
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="section materials-section" id="after-reveal">
@@ -456,7 +429,15 @@ async function ProductPage({
           <div className="gallery">
             {gallery.map((id, index) => (
               <figure key={id} className="gallery-frame">
-                <Picture id={id} locale={locale} />
+                <Picture
+                  id={id}
+                  locale={locale}
+                  viewTransitionName={
+                    index === 0
+                      ? `product-${product.handle}-${variant.colourKey}`
+                      : undefined
+                  }
+                />
                 <figcaption className="gallery-index">
                   {String(index + 1).padStart(2, "0")} /{" "}
                   {String(gallery.length).padStart(2, "0")}

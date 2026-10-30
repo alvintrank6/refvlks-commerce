@@ -155,6 +155,26 @@ img {
 .button-primary:hover {
   background: #5b3b29;
 }
+.button-primary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.button-primary::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: auto 0 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.button-primary:hover::before,
+.button-primary:focus-visible::before {
+  transform: scaleX(1);
+}
 .button-secondary {
   color: var(--primary);
   background: transparent;
@@ -529,6 +549,135 @@ img {
 .reveal-small img {
   height: 100%;
 }
+.reveal-motion-root {
+  display: contents;
+}
+.motion-line {
+  padding-block: 0.14em;
+  margin-block: -0.14em;
+}
+.reveal-section {
+  overflow: clip;
+}
+.reveal-skip {
+  display: inline-block;
+  margin-bottom: 26px;
+}
+.reveal-cinematic {
+  display: none;
+}
+.reveal-section.is-cinematic {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+}
+.reveal-section.is-cinematic .reveal-cinematic {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.3fr);
+  gap: clamp(32px, 6vw, 110px);
+  align-items: center;
+  position: relative;
+  padding: 20px 0 28px 24px;
+}
+.reveal-section.is-cinematic .reveal-cards {
+  display: none;
+}
+.reveal-narrative h2,
+.reveal-cards h2 {
+  max-width: 780px;
+}
+.reveal-story-steps {
+  margin: 28px 0;
+}
+.reveal-story-step {
+  opacity: 0.45;
+  border-top: 1px solid rgba(244, 239, 230, 0.35);
+  padding: 16px 0;
+  transition: opacity 0.3s ease;
+}
+.reveal-story-step.is-active {
+  opacity: 1;
+}
+.reveal-story-step strong,
+.reveal-card strong {
+  color: #e8a795;
+  font:
+    500 18px PlexMono,
+    monospace;
+}
+.reveal-story-step p,
+.reveal-card p {
+  margin: 7px 0 0;
+  font-size: clamp(18px, 1.7vw, 25px);
+  line-height: 1.4;
+}
+.reveal-frames {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  background: var(--sand);
+}
+.reveal-frame {
+  position: absolute;
+  inset: 0;
+}
+.reveal-frame .picture,
+.reveal-frame img {
+  width: 100%;
+  height: 100%;
+}
+.reveal-frame span {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  padding: 5px 8px;
+  background: var(--primary);
+  color: var(--bg);
+  font:
+    500 11px PlexMono,
+    monospace;
+}
+.reveal-progress {
+  position: absolute;
+  top: 20px;
+  bottom: 28px;
+  left: 0;
+  width: 2px;
+  background: rgba(244, 239, 230, 0.3);
+}
+.reveal-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.reveal-cards {
+  display: grid;
+  gap: 24px;
+}
+.reveal-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 28px;
+  border-top: 1px solid rgba(244, 239, 230, 0.35);
+  padding-top: 24px;
+}
+.reveal-card .picture {
+  aspect-ratio: 4 / 3;
+}
+.reveal-card img {
+  height: 100%;
+}
+@media (max-width: 700px) {
+  .reveal-card {
+    display: block;
+  }
+  .reveal-card > div:last-child {
+    padding-top: 18px;
+  }
+}
 .materials-section {
   background: var(--sand);
 }
@@ -618,6 +767,108 @@ main {
 }
 .home-motion-root {
   display: contents;
+}
+[data-preloader],
+[data-curtain] {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-transition);
+  background: var(--primary);
+  color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  visibility: hidden;
+}
+[data-preloader] {
+  transform: translateY(100%);
+  gap: var(--space-5);
+}
+html.first-visit [data-preloader] {
+  visibility: visible;
+  transform: translateY(0);
+}
+[data-preloader] svg {
+  width: min(300px, 60vw);
+  stroke: var(--bg);
+  stroke-width: 1;
+}
+[data-curtain] {
+  transform: translateY(100%);
+  background: var(--primary) url("/brand/refvlks_pattern_weft.svg") center /
+    cover;
+}
+html.curtain-incoming [data-curtain] {
+  visibility: visible;
+  transform: translateY(0);
+}
+[data-scroll-progress] {
+  position: fixed;
+  z-index: calc(var(--z-header) + 1);
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+[data-cursor-ui] {
+  position: fixed;
+  z-index: var(--z-toast);
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  translate: -50% -50%;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    width 0.22s,
+    height 0.22s,
+    opacity 0.18s;
+  display: grid;
+  place-items: center;
+  color: var(--bg);
+  font:
+    500 11px PlexMono,
+    monospace;
+}
+[data-cursor-ui].is-visible {
+  opacity: 1;
+}
+[data-cursor-ui].is-context {
+  width: 72px;
+  height: 72px;
+  background: var(--primary);
+  border: 1px solid var(--bg);
+}
+@media (max-width: 1023px), (prefers-reduced-motion: reduce) {
+  [data-cursor-ui] {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-progress] {
+    display: none;
+  }
+  .button-primary::before {
+    transition: none;
+  }
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.55s;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms;
+  }
 }
 .rolling-link {
   position: relative;

@@ -62,6 +62,15 @@
     },
     "revealLabel": "MỞ RA",
     "revealTitle": "Câu chuyện nằm ở bên trong.",
+    "reveal": {
+      "eyebrow": "PHẦN BÊN TRONG",
+      "title": "Câu chuyện nằm ở bên trong.",
+      "skip": "Bỏ qua phần trình diễn",
+      "one": "Thân túi bằng vải chuyên dụng mới, cắt để giữ phom.",
+      "two": "Quai và nắp từ cotton, jeans và vải tổng hợp tái chế. Một phần đến từ quần áo quyên góp trong các chuyến hằng tháng.",
+      "three": "Mở ra: lớp lót dệt tại Việt Nam.",
+      "cta": "Xem cách chúng tôi làm"
+    },
     "revealOne": "Thân túi từ vải chuyên dụng mới.",
     "revealTwo": "Quai và nắp từ cotton, jeans và vải tổng hợp tái chế.",
     "revealThree": "Mở ra: lớp lót dệt.",

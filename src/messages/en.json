@@ -62,6 +62,15 @@
     },
     "revealLabel": "THE REVEAL",
     "revealTitle": "The story opens from within.",
+    "reveal": {
+      "eyebrow": "THE REVEAL",
+      "title": "The story opens from within.",
+      "skip": "Skip the reveal",
+      "one": "A body of new technical textile, cut to hold its shape.",
+      "two": "Handles and flaps in recovered cotton, denim and synthetics. Some of it comes from clothes donated to our monthly drives.",
+      "three": "Open it: a lining woven in Vietnam.",
+      "cta": "See how it's made"
+    },
     "revealOne": "A body cut from new technical textile.",
     "revealTwo": "Handles and flaps in recovered cotton, denim and synthetics.",
     "revealThree": "Open it: a woven lining.",
