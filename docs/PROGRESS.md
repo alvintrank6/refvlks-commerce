@@ -112,3 +112,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - Added route drawing, process card stacking and a light Cocoa background transition with reduced/no-JavaScript fallbacks. `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/donation-v2.spec.ts` — 14 passed across five widths and motion modes, donor/volunteer consent, no-JavaScript registration, rate limit and axe checks. Inspected a full-page desktop screenshot.
 - Next: F12 Help, Legal and 404.
 
+## F12 · Help, Legal and 404
+
+- Added Size & fit, Shipping/inspection/returns, Care/repair and FAQ guides, plus Privacy, Terms and Payment pages in EN/VI. Size and fit shows explicit "coming soon" values for all unconfirmed product measurements; the other pages use approved fees, payment methods and service facts without draft deadlines, warranty periods or return windows.
+- Corrected the Vietnamese help/legal URL mapping throughout the footer, checkout, Donation Event, Home invitations, sitemap and language switch. Unknown topics now return a localized 404 with status 404 and collection/home paths.
+- The legal pages are implementation drafts from the supplied policy source; business details and legal review remain pending. [Vietnam's Law 91/2025/QH15 on personal data protection](https://vanban.chinhphu.vn/?classid=1&docid=214590&pageid=27160&typegroup=) took effect on 1 January 2026, so the supplied 2023-oriented draft should be reviewed before any public release. No analytics or ad pixels were added.
+- `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/help-legal-v2.spec.ts` — 15 passed at five widths and normal/reduced motion, including all seven Vietnamese localized URLs and switches, 404 status, omitted assumptions and axe checks.
+- Next: F13 metadata, structured data and asset metadata.
+

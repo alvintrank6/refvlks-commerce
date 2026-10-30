@@ -101,3 +101,29 @@ export const paths = (locale: Locale) =>
         help: "/en/help",
         legal: "/en/legal",
       };
+
+export type HelpTopic = "size-fit" | "shipping-returns" | "care-repair" | "faq";
+export type LegalTopic = "privacy" | "terms" | "payment";
+const viHelp: Record<HelpTopic, string> = {
+  "size-fit": "kich-thuoc",
+  "shipping-returns": "giao-hang-doi-tra",
+  "care-repair": "bao-quan-sua-chua",
+  faq: "cau-hoi",
+};
+const viLegal: Record<LegalTopic, string> = {
+  privacy: "bao-mat",
+  terms: "dieu-khoan",
+  payment: "thanh-toan",
+};
+export const helpPath = (locale: Locale, topic: HelpTopic) =>
+  `${paths(locale).help}/${locale === "vi" ? viHelp[topic] : topic}`;
+export const legalPath = (locale: Locale, topic: LegalTopic) =>
+  `${paths(locale).legal}/${locale === "vi" ? viLegal[topic] : topic}`;
+export const parseHelpTopic = (locale: Locale, slug: string) =>
+  (Object.keys(viHelp) as HelpTopic[]).find(
+    (topic) => (locale === "vi" ? viHelp[topic] : topic) === slug,
+  );
+export const parseLegalTopic = (locale: Locale, slug: string) =>
+  (Object.keys(viLegal) as LegalTopic[]).find(
+    (topic) => (locale === "vi" ? viLegal[topic] : topic) === slug,
+  );

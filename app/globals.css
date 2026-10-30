@@ -2375,6 +2375,76 @@ input[type="date"] {
 .policy-content ul {
   padding-left: 22px;
 }
+.policy-block {
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.policy-block p {
+  max-width: 68ch;
+}
+.policy-content > .button {
+  margin-top: 36px;
+}
+.size-table-scroll {
+  overflow-x: auto;
+  margin: 40px 0;
+}
+.size-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+.size-table th,
+.size-table td {
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+  padding: 13px 14px;
+}
+.size-table thead {
+  background: var(--sand);
+}
+.size-table tbody th {
+  font-weight: 600;
+}
+.size-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  margin-bottom: 48px;
+}
+.size-card {
+  scroll-margin-top: 100px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 18px;
+}
+.size-card .picture {
+  aspect-ratio: 4 / 3;
+}
+.size-card h2 {
+  font-size: 27px;
+  margin: 18px 0 6px;
+}
+.not-found-page {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  background: var(--bg) url("/brand/refvlks_pattern_weft.svg") bottom / 600px
+    auto repeat-x;
+}
+.not-found-page .logo {
+  display: inline-block;
+  margin-bottom: 55px;
+}
+.not-found-page h1 {
+  max-width: 11ch;
+}
+@media (max-width: 600px) {
+  .size-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .mono {
   font:
     500 13px PlexMono,

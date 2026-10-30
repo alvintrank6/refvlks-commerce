@@ -1,5 +1,11 @@
 import { cartDetails, type CartLine } from "../lib/cart";
-import { dictionary, money, paths, type Locale } from "../lib/catalog";
+import {
+  dictionary,
+  legalPath,
+  money,
+  paths,
+  type Locale,
+} from "../lib/catalog";
 import { policy } from "../content/policy";
 import { Eyebrow } from "./Storefront";
 import { CheckoutSubmit } from "./CheckoutSubmit";
@@ -226,8 +232,8 @@ export default function CheckoutPage({
               <input type="checkbox" name="consent" required />
               <span>
                 {d.checkout.terms}{" "}
-                <a href={`${p.legal}/terms`}>{d.footer.terms}</a> ·{" "}
-                <a href={`${p.legal}/privacy`}>{d.footer.privacy}</a>
+                <a href={legalPath(locale, "terms")}>{d.footer.terms}</a> ·{" "}
+                <a href={legalPath(locale, "privacy")}>{d.footer.privacy}</a>
               </span>
             </label>
             {fieldError("consent")}

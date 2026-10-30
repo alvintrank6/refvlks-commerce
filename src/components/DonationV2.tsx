@@ -1,7 +1,7 @@
 import { env } from "cloudflare:workers";
 import { cookies } from "next/headers";
 import { PackageOpen, Shirt, Truck, Recycle } from "lucide-react";
-import { dictionary, paths, type Locale } from "../lib/catalog";
+import { dictionary, legalPath, paths, type Locale } from "../lib/catalog";
 import { donationRepository } from "../lib/data";
 import { isApproved } from "../content/claims";
 import { ButtonLink, Eyebrow, Picture } from "./Storefront";
@@ -429,7 +429,7 @@ export async function DonationV2({
                 />
                 <span>
                   {locale === "vi" ? "Tôi đồng ý với " : "I agree to the "}
-                  <a href={`${p.legal}/privacy`}>
+                  <a href={legalPath(locale, "privacy")}>
                     {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
                   </a>
                 </span>

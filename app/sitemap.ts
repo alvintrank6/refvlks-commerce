@@ -1,5 +1,11 @@
 import type { MetadataRoute } from "next";
-import { paths, products, type Locale } from "../src/lib/catalog";
+import {
+  paths,
+  products,
+  helpPath,
+  legalPath,
+  type Locale,
+} from "../src/lib/catalog";
 const origin = "https://refvlks-atelier-2026.alvintrank95.chatgpt.site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
@@ -13,12 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       p.about,
       p.studio,
       p.contact,
-      `${p.help}/faq`,
-      `${p.help}/care-repair`,
-      `${p.help}/shipping-returns`,
-      `${p.legal}/privacy`,
-      `${p.legal}/terms`,
-      `${p.legal}/payment`,
+      helpPath(locale, "size-fit"),
+      helpPath(locale, "faq"),
+      helpPath(locale, "care-repair"),
+      helpPath(locale, "shipping-returns"),
+      legalPath(locale, "privacy"),
+      legalPath(locale, "terms"),
+      legalPath(locale, "payment"),
       ...products.map((product) => `${p.product}/${product.handle}`),
     ])
       entries.push({ url: origin + url, changeFrequency: "weekly" });

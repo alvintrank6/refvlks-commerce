@@ -1,4 +1,4 @@
-import { dictionary, paths, type Locale } from "../lib/catalog";
+import { dictionary, helpPath, paths, type Locale } from "../lib/catalog";
 import { ButtonLink, Eyebrow, Picture } from "./Storefront";
 import { Claim } from "./Claim";
 import { CarriedMotion, InvitationMotion } from "../motion/HomeClosingMotion";
@@ -111,7 +111,7 @@ export function HomeCarried({ locale }: { locale: Locale }) {
                   <p>{d.home.carried.studioBody}</p>
                 </div>
               </Claim>
-              <ButtonLink href={`${p.help}/shipping-returns`}>
+              <ButtonLink href={helpPath(locale, "shipping-returns")}>
                 {d.home.carried.cta}
               </ButtonLink>
             </div>

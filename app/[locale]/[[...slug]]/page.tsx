@@ -5,6 +5,10 @@ import {
   allVariants,
   dictionary,
   isLocale,
+  helpPath,
+  legalPath,
+  parseHelpTopic,
+  parseLegalTopic,
   money,
   paths,
   productByHandle,
@@ -39,6 +43,7 @@ import { VisitDateTime } from "../../../src/components/VisitDateTime";
 import { CheckoutSubmit } from "../../../src/components/CheckoutSubmit";
 import { CraftV2, AboutV2 } from "../../../src/components/CraftAboutV2";
 import { DonationV2 } from "../../../src/components/DonationV2";
+import { HelpV2, LegalV2 } from "../../../src/components/HelpLegalV2";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -80,16 +85,19 @@ function altPath(
   query: Record<string, string | string[] | undefined>,
 ) {
   const other = locale === "en" ? "vi" : "en";
+  if (kind === "help") {
+    const topic = parseHelpTopic(locale, slug[1] ?? "");
+    return topic ? helpPath(other, topic) : paths(other).home;
+  }
+  if (kind === "legal") {
+    const topic = parseLegalTopic(locale, slug[1] ?? "");
+    return topic ? legalPath(other, topic) : paths(other).home;
+  }
   const path =
     (paths(other) as unknown as Record<string, string>)[kind] ??
     paths(other).home;
   const tail =
-    kind === "product" ||
-    kind === "order" ||
-    kind === "help" ||
-    kind === "legal"
-      ? `/${slug.slice(1).join("/")}`
-      : "";
+    kind === "product" || kind === "order" ? `/${slug.slice(1).join("/")}` : "";
   const colour = param(query, "colour");
   return `${path}${tail}${colour ? `?colour=${encodeURIComponent(colour)}` : ""}`;
 }
@@ -155,6 +163,12 @@ export default async function Page({ params, searchParams }: Props) {
   const q = await searchParams;
   const kind = kindOf(locale, slug);
   if (kind === "unknown") notFound();
+  const helpTopic =
+    kind === "help" ? parseHelpTopic(locale, slug[1] ?? "") : undefined;
+  const legalTopic =
+    kind === "legal" ? parseLegalTopic(locale, slug[1] ?? "") : undefined;
+  if (kind === "help" && !helpTopic) notFound();
+  if (kind === "legal" && !legalTopic) notFound();
   const cart = await getCart();
   const count = cart.reduce((n, line) => n + line.qty, 0);
   const altHref = altPath(locale, kind, slug, q);
@@ -189,9 +203,9 @@ export default async function Page({ params, searchParams }: Props) {
         ) : kind === "order" ? (
           <Order locale={locale} token={slug[1]} />
         ) : kind === "help" ? (
-          <Help locale={locale} topic={slug[1]} />
+          <HelpV2 locale={locale} topic={helpTopic} />
         ) : kind === "legal" ? (
-          <Legal locale={locale} topic={slug[1]} />
+          <LegalV2 locale={locale} topic={legalTopic} />
         ) : null}
       </main>
       <Footer locale={locale} />
@@ -1086,119 +1100,6 @@ function Contact({
           </form>
         </div>
       </div>
-    </section>
-  );
-}
-
-function Help({ locale, topic }: { locale: Locale; topic?: string }) {
-  const d = dictionary(locale);
-  const title =
-    topic === "shipping-returns"
-      ? d.footer.shipping
-      : topic === "care-repair"
-        ? d.footer.care
-        : topic === "faq"
-          ? d.footer.faq
-          : null;
-  if (!title) notFound();
-  return (
-    <section className="container page-hero policy-content">
-      <Eyebrow>{d.nav.help}</Eyebrow>
-      <h1>{title}</h1>
-      {topic === "shipping-returns" ? (
-        <>
-          <h2>{d.checkout.delivery}</h2>
-          <p>
-            {d.checkout.ship}. {d.checkout.pickup}. {d.checkout.codDetail}
-          </p>
-          <h2>{d.footer.shipping}</h2>
-          <p>
-            {locale === "vi"
-              ? "Bạn có thể kiểm tra túi trước khi thanh toán khi nhận hàng. Liên hệ chúng tôi nếu túi có lỗi sản xuất hoặc cần đổi trả."
-              : "You may inspect the bag before paying on delivery. Contact us if the bag has a manufacturing defect or you need an exchange."}
-          </p>
-        </>
-      ) : topic === "care-repair" ? (
-        <>
-          <h2>{d.footer.care}</h2>
-          <p>
-            {d.home.trustTwo}{" "}
-            {locale === "vi"
-              ? "Lau nhẹ bằng khăn ẩm và xà phòng dịu. Không giặt máy, tẩy hoặc sấy."
-              : "Spot clean with a damp cloth and mild soap. Do not machine wash, bleach or tumble dry."}
-          </p>
-        </>
-      ) : (
-        <>
-          <h2>
-            {locale === "vi"
-              ? "Tôi có thể xem túi trước khi mua?"
-              : "Can I see the bag first?"}
-          </h2>
-          <p>{d.home.trustThree}</p>
-          <h2>
-            {locale === "vi"
-              ? "Tôi có thể kiểm hàng?"
-              : "Can I inspect before paying?"}
-          </h2>
-          <p>{d.home.trustOne}</p>
-        </>
-      )}
-    </section>
-  );
-}
-
-function Legal({ locale, topic }: { locale: Locale; topic?: string }) {
-  const d = dictionary(locale);
-  const title =
-    topic === "privacy"
-      ? d.footer.privacy
-      : topic === "terms"
-        ? d.footer.terms
-        : topic === "payment"
-          ? d.checkout.payment
-          : null;
-  if (!title) notFound();
-  return (
-    <section className="container page-hero policy-content">
-      <Eyebrow>{d.footer.legal}</Eyebrow>
-      <h1>{title}</h1>
-      {topic === "privacy" ? (
-        <>
-          <p>
-            {locale === "vi"
-              ? "Chúng tôi dùng thông tin bạn cung cấp để xử lý đơn hàng, yêu cầu ghé studio và tin nhắn. Thông tin không được hiển thị công khai."
-              : "We use the information you provide to process orders, studio visit requests, and messages. It is not displayed publicly."}
-          </p>
-          <p>
-            {locale === "vi"
-              ? "Liên hệ Refvlks qua biểu mẫu liên hệ nếu bạn muốn hỏi về dữ liệu của mình."
-              : "Contact Refvlks through the contact form if you have a question about your data."}
-          </p>
-        </>
-      ) : topic === "terms" ? (
-        <>
-          <p>
-            {locale === "vi"
-              ? "Giá và phí giao hàng được hiển thị trước khi bạn đặt đơn. Refvlks sẽ liên hệ xác nhận đơn hàng."
-              : "Prices and shipping charges are shown before you place your order. Refvlks will contact you to confirm it."}
-          </p>
-          <p>
-            {locale === "vi"
-              ? "Đơn hàng thanh toán khi nhận hàng cho phép kiểm tra túi trước khi trả tiền."
-              : "Cash on delivery lets you inspect the bag before paying."}
-          </p>
-        </>
-      ) : (
-        <>
-          <p>{d.checkout.codDetail}</p>
-          <p>{d.checkout.transferDetail}</p>
-          <p>{d.checkout.cardDetail}</p>
-        </>
-      )}
-      {locale === "en" && (
-        <p className="message-box">The Vietnamese version applies.</p>
-      )}
     </section>
   );
 }

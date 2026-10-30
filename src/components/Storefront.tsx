@@ -6,6 +6,8 @@ import {
   dictionary,
   money,
   paths,
+  helpPath,
+  legalPath,
   type Locale,
   type Product,
   type Variant,
@@ -218,18 +220,31 @@ export function Footer({ locale }: { locale: Locale }) {
             <h2>{d.nav.help}</h2>
             <RollingLink href={p.contact} text={d.nav.contact} />
             <RollingLink
-              href={`${p.help}/shipping-returns`}
+              href={helpPath(locale, "size-fit")}
+              text={d.footer.size}
+            />
+            <RollingLink
+              href={helpPath(locale, "shipping-returns")}
               text={d.footer.shipping}
             />
-            <RollingLink href={`${p.help}/care-repair`} text={d.footer.care} />
-            <RollingLink href={`${p.help}/faq`} text={d.footer.faq} />
+            <RollingLink
+              href={helpPath(locale, "care-repair")}
+              text={d.footer.care}
+            />
+            <RollingLink href={helpPath(locale, "faq")} text={d.footer.faq} />
           </div>
           <div>
             <h2>{d.footer.legal}</h2>
-            <RollingLink href={`${p.legal}/privacy`} text={d.footer.privacy} />
-            <RollingLink href={`${p.legal}/terms`} text={d.footer.terms} />
             <RollingLink
-              href={`${p.legal}/payment`}
+              href={legalPath(locale, "privacy")}
+              text={d.footer.privacy}
+            />
+            <RollingLink
+              href={legalPath(locale, "terms")}
+              text={d.footer.terms}
+            />
+            <RollingLink
+              href={legalPath(locale, "payment")}
               text={d.checkout.payment}
             />
           </div>
