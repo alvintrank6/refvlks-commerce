@@ -123,7 +123,24 @@
     "all": "All",
     "empty": "No bags match these filters.",
     "clear": "Clear filters",
-    "count": "{n} bags"
+    "count": "{n} bags",
+    "priceAll": "All prices",
+    "priceUnder": "Under 1,500,000 ₫",
+    "priceMiddle": "1,500,000–1,800,000 ₫",
+    "priceAbove": "Over 1,800,000 ₫",
+    "showCount": "Show {n} bags",
+    "marquee": "INSPECT BEFORE YOU PAY · REPAIRS AVAILABLE · STUDIO VISITS BY APPOINTMENT · 70% NEW TECHNICAL TEXTILE · 30% RECOVERED ·",
+    "tiers": {
+      "title": "Three tiers, one standard.",
+      "essential": "Open and easy. An all-over woven motif and no flap, for the fastest grab-and-go.",
+      "signature": "A flap that snaps shut and a woven band or panel you notice.",
+      "heritage": "Our most structured bag, with a buckled flap and a full woven lining.",
+      "from": "From",
+      "link": "Shop {tier}",
+      "inspect": "Inspect before you pay",
+      "repairs": "Repairs available",
+      "studio": "Try them at the studio"
+    }
   },
   "product": {
     "materials": "Materials & making",

@@ -29,6 +29,8 @@ import {
   HomeCarried,
   HomeInvitations,
 } from "../../../src/components/HomeClosing";
+import { ShopGrid } from "../../../src/components/ShopGrid";
+import { ShopTiers } from "../../../src/components/ShopTiers";
 import { MaterialHotspots } from "../../../src/components/MaterialHotspots";
 import { AddToBagForm } from "../../../src/components/AddToBagForm";
 import { Claim } from "../../../src/components/Claim";
@@ -87,9 +89,13 @@ function altPath(
   return `${path}${tail}${colour ? `?colour=${encodeURIComponent(colour)}` : ""}`;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: Props): Promise<Metadata> {
   const { locale: raw, slug = [] } = await params;
   if (!isLocale(raw)) return {};
+  const query = await searchParams;
   const d = dictionary(raw),
     kind = kindOf(raw, slug);
   let title =
@@ -97,7 +103,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "Túi đi làm, ngoài tĩnh, trong có câu chuyện dệt"
       : "Work Bags, Quiet Outside, Woven Inside";
   let description = d.home.hero.body;
-  if (kind === "shop") title = d.shop.title;
+  if (kind === "shop") {
+    const tier = param(query, "tier");
+    title = ["essential", "signature", "heritage"].includes(tier)
+      ? tier[0].toUpperCase() + tier.slice(1)
+      : d.shop.title;
+  }
   if (kind === "product") {
     const product = productByHandle(slug[1] ?? "");
     if (product) {
@@ -116,9 +127,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     robots:
-      kind === "cart" || kind === "checkout" || kind === "order"
+      kind === "cart" ||
+      kind === "checkout" ||
+      kind === "order" ||
+      (kind === "shop" &&
+        Boolean(
+          param(query, "tier") ||
+          param(query, "colour") ||
+          param(query, "price") ||
+          param(query, "sort"),
+        ))
         ? { index: false, follow: false }
         : undefined,
+    alternates: kind === "shop" ? { canonical: paths(raw).shop } : undefined,
   };
 }
 
@@ -257,82 +278,31 @@ function Shop({
 }) {
   const d = dictionary(locale),
     p = paths(locale);
-  const tier = param(q, "tier"),
-    sort = param(q, "sort"),
-    colour = param(q, "colour");
-  let rows = allVariants.filter(
-    ({ product, variant }) =>
-      (!tier || product.tier === tier) &&
-      (!colour || variant.colourKey === colour),
-  );
-  if (sort === "low")
-    rows = [...rows].sort((a, b) => a.variant.priceVnd - b.variant.priceVnd);
-  if (sort === "high")
-    rows = [...rows].sort((a, b) => b.variant.priceVnd - a.variant.priceVnd);
+  const initial = {
+    tier: param(q, "tier"),
+    colour: param(q, "colour"),
+    price: param(q, "price"),
+    sort: param(q, "sort") || "featured",
+  };
+  const items = allVariants.map(({ product, variant }) => ({
+    sku: variant.sku,
+    tier: product.tier,
+    colour: variant.colourKey,
+    colourName: variant.colour[locale],
+    price: variant.priceVnd,
+    card: <ProductCard product={product} variant={variant} locale={locale} />,
+  }));
   return (
     <>
-      <section className="container page-hero">
-        <Eyebrow>{d.shop.eyebrow}</Eyebrow>
-        <h1>{tier ? tier[0].toUpperCase() + tier.slice(1) : d.shop.title}</h1>
-        <p className="lead">{d.shop.intro}</p>
-      </section>
-      <section className="container section" style={{ paddingTop: 0 }}>
-        <div className="filters">
-          <form className="filter-form" action={p.shop} method="get">
-            <div className="field">
-              <label htmlFor="tier">{d.shop.tier}</label>
-              <select id="tier" name="tier" defaultValue={tier}>
-                <option value="">{d.shop.all}</option>
-                <option value="essential">Essential</option>
-                <option value="signature">Signature</option>
-                <option value="heritage">Heritage</option>
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="colour">{d.common.colour}</label>
-              <select id="colour" name="colour" defaultValue={colour}>
-                <option value="">{d.shop.all}</option>
-                {allVariants.map(({ variant }) => (
-                  <option key={variant.sku} value={variant.colourKey}>
-                    {variant.colour[locale]}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="sort">{d.shop.sort}</label>
-              <select id="sort" name="sort" defaultValue={sort}>
-                <option value="featured">{d.shop.featured}</option>
-                <option value="low">{d.shop.low}</option>
-                <option value="high">{d.shop.high}</option>
-              </select>
-            </div>
-            <button className="button button-secondary" type="submit">
-              {d.shop.filter} →
-            </button>
-          </form>
-          <span className="filter-count">
-            {d.shop.count.replace("{n}", String(rows.length))}
-          </span>
-        </div>
-        {rows.length ? (
-          <div className="product-grid">
-            {rows.map(({ product, variant }) => (
-              <ProductCard
-                key={variant.sku}
-                product={product}
-                variant={variant}
-                locale={locale}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="empty-state">
-            <h2>{d.shop.empty}</h2>
-            <ButtonLink href={p.shop}>{d.shop.clear}</ButtonLink>
-          </div>
-        )}
-      </section>
+      <ShopGrid
+        shopPath={p.shop}
+        initial={initial}
+        items={items}
+        copy={d.shop}
+        colourLabel={d.common.colour}
+        priceLabel={d.common.price}
+      />
+      <ShopTiers locale={locale} />
     </>
   );
 }

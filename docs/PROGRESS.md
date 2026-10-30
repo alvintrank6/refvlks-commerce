@@ -74,3 +74,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npm run test:e2e` — 62 passed, including F6 at 360/390/768/1024/1440 pixels in normal/reduced motion, gallery end reach, caption/invitation navigation, no browser errors and serious/critical axe checks. Screenshots: `test-results/screens/F6/`.
 - Next: F7 Shop S-01–S-03.
 
+## F7 · Shop
+
+- Rebuilt Shop as S-01 header/marquee, S-02 sticky tier/colour/price/sort filters and S-03 three-tier explainer. The marquee responds to desktop scroll direction, stays steady on touch and stops for reduced motion. Tier images and copy follow the V2 spec; displayed starting prices come from the product seed.
+- Filters remain server-rendered GET forms without JavaScript. With JavaScript, results, H1, count, title and URL update in place; GSAP Flip animates retained/reordered cards. Mobile has a native-details bottom drawer with a live result count. Browser history restores prior filters.
+- Tier-filtered URLs use the Shop canonical and noindex metadata. Applied the React component checklist: client receives compact item metadata and card nodes; GSAP Flip loads only after filter interaction.
+- `npm run typecheck` — pass. `npm run lint` — pass. `npm run test` — 8 passed. `npm run build` — pass. `npx playwright test tests/e2e/shop-v2.spec.ts` — 13 passed at 360/390/768/1024/1440 pixels in normal/reduced motion, desktop filter/sort/history, mobile drawer, no-JavaScript GET filtering and axe serious/critical checks. Screenshots: `test-results/screens/F7/`.
+- Next: F8 checkout.
+

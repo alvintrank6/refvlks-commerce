@@ -123,7 +123,24 @@
     "all": "Tất cả",
     "empty": "Không có mẫu phù hợp.",
     "clear": "Xóa bộ lọc",
-    "count": "{n} mẫu"
+    "count": "{n} mẫu",
+    "priceAll": "Mọi mức giá",
+    "priceUnder": "Dưới 1.500.000 ₫",
+    "priceMiddle": "1.500.000–1.800.000 ₫",
+    "priceAbove": "Trên 1.800.000 ₫",
+    "showCount": "Xem {n} mẫu",
+    "marquee": "KIỂM HÀNG TRƯỚC KHI TRẢ TIỀN · CÓ DỊCH VỤ SỬA CHỮA · GHÉ STUDIO THEO LỊCH HẸN · 70% VẢI CHUYÊN DỤNG MỚI · 30% VẢI TÁI CHẾ ·",
+    "tiers": {
+      "title": "Ba dòng, một tiêu chuẩn.",
+      "essential": "Mở miệng, dễ dùng. Họa tiết dệt phủ toàn thân, không nắp, lấy đồ nhanh nhất.",
+      "signature": "Nắp bấm đóng lại và một dải hoặc mảng dệt làm điểm nhấn.",
+      "heritage": "Chiếc túi đứng phom nhất, nắp có khóa cài và lớp lót dệt toàn phần.",
+      "from": "Từ",
+      "link": "Xem dòng {tier}",
+      "inspect": "Kiểm hàng trước khi trả tiền",
+      "repairs": "Có sửa chữa",
+      "studio": "Thử tại studio"
+    }
   },
   "product": {
     "materials": "Chất liệu & cách làm",
