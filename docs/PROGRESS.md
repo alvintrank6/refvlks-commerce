@@ -105,3 +105,10 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck`, `npm run lint`, `npm run test` (8 tests), `npm run build` — pass. `npx playwright test tests/e2e/craft-about-v2.spec.ts` — 14 passed across five widths and reduced/normal motion, including section counts, claim gating, source/donation links, no-JavaScript content and axe checks. Inspected a full-page About screenshot at 1440 pixels.
 - Next: F11 Donation Event.
 
+## F11 · Donation Event
+
+- Replaced the placeholder with DE-01 through DE-03: an illustrated Hanoi–Northwest route, four process cards, accepted/not-accepted textile lists, two claim-safe FAQs and registration. The page uses no documentary people photos. Event date, collection window, destination and impact metrics stay hidden while their seed values and claim approvals are absent.
+- Signup records donor, volunteer or both; donation requires recycling consent while volunteer-only signup does not. The success message uses a short-lived HTTP-only name cookie, avoiding personal data in the URL. The pre-existing per-IP donation limit remains active. Optional admin email uses `DONATION_NOTIFY_EMAIL`; no live key was supplied. Event JSON-LD is gated until an actual event date exists.
+- Added route drawing, process card stacking and a light Cocoa background transition with reduced/no-JavaScript fallbacks. `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/donation-v2.spec.ts` — 14 passed across five widths and motion modes, donor/volunteer consent, no-JavaScript registration, rate limit and axe checks. Inspected a full-page desktop screenshot.
+- Next: F12 Help, Legal and 404.
+

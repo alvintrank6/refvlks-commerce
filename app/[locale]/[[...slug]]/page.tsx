@@ -38,6 +38,7 @@ import { CopyButton } from "../../../src/components/CopyButton";
 import { VisitDateTime } from "../../../src/components/VisitDateTime";
 import { CheckoutSubmit } from "../../../src/components/CheckoutSubmit";
 import { CraftV2, AboutV2 } from "../../../src/components/CraftAboutV2";
+import { DonationV2 } from "../../../src/components/DonationV2";
 
 type Props = {
   params: Promise<{ locale: string; slug?: string[] }>;
@@ -170,7 +171,7 @@ export default async function Page({ params, searchParams }: Props) {
         ) : kind === "craft" ? (
           <CraftV2 locale={locale} />
         ) : kind === "donation" ? (
-          <Donation locale={locale} />
+          <DonationV2 locale={locale} status={param(q, "status")} />
         ) : kind === "about" ? (
           <AboutV2 locale={locale} />
         ) : kind === "studio" ? (
@@ -195,17 +196,6 @@ export default async function Page({ params, searchParams }: Props) {
       </main>
       <Footer locale={locale} />
     </>
-  );
-}
-
-function Donation({ locale }: { locale: Locale }) {
-  const d = dictionary(locale);
-  return (
-    <section className="container page-hero">
-      <Eyebrow>{d.donation.eyebrow}</Eyebrow>
-      <h1>{d.donation.title}</h1>
-      <p className="lead">{d.donation.intro}</p>
-    </section>
   );
 }
 

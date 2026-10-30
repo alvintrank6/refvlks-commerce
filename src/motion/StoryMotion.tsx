@@ -78,6 +78,42 @@ export function StoryMotion({ children }: { children: ReactNode }) {
                 },
               );
             });
+          root
+            .querySelectorAll<SVGPathElement>(".route-thread")
+            .forEach((path) => {
+              const length = path.getTotalLength();
+              gsap.fromTo(
+                path,
+                { strokeDasharray: length, strokeDashoffset: length },
+                {
+                  strokeDashoffset: 0,
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: path,
+                    start: "top 90%",
+                    end: "bottom 25%",
+                    scrub: true,
+                  },
+                },
+              );
+            });
+          const donationJoin =
+            root.querySelector<HTMLElement>(".donation-join");
+          if (donationJoin)
+            gsap.fromTo(
+              donationJoin,
+              { backgroundColor: "#f4efe6" },
+              {
+                backgroundColor: "#d8c4b2",
+                ease: "none",
+                scrollTrigger: {
+                  trigger: donationJoin,
+                  start: "top 80%",
+                  end: "top 20%",
+                  scrub: true,
+                },
+              },
+            );
           if (!context.conditions?.full) return;
           root
             .querySelectorAll<HTMLElement>(".story-stack-card")

@@ -2178,6 +2178,142 @@ input[type="date"] {
   display: inline-block;
   margin-top: 20px;
 }
+.donation-hero {
+  background: var(--sand);
+  padding-bottom: 0;
+}
+.donation-hero-grid,
+.donation-join-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 7%;
+  align-items: center;
+}
+.donation-hero h1 {
+  max-width: 13ch;
+}
+.donation-route {
+  width: 100%;
+  border: 1px solid var(--border);
+}
+.donation-marquee {
+  margin-top: 70px;
+}
+.donation-impact {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 24px;
+}
+.donation-process {
+  background: var(--bg);
+}
+.donation-process h2 {
+  max-width: 17ch;
+}
+.donation-step-icon {
+  min-height: 200px;
+  display: grid;
+  place-items: center;
+  color: var(--primary);
+  background: var(--sand);
+  overflow: hidden;
+}
+.donation-step-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 190px;
+  gap: 5px;
+}
+.donation-step-images .picture {
+  height: 190px;
+  min-width: 0;
+}
+.donation-step-icon:has(.donation-step-images) > svg {
+  display: none;
+}
+.donation-accept {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 80px;
+}
+.donation-accept > div {
+  border-top: 2px solid var(--accent);
+  padding: 25px;
+  background: var(--surface);
+}
+.donation-accept ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+.donation-join {
+  background: #d8c4b2;
+  scroll-margin-top: 92px;
+}
+.donation-event-card {
+  border-top: 1px solid var(--accent);
+  padding: 22px 0;
+  margin-bottom: 40px;
+}
+.donation-form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 32px;
+}
+.donation-form {
+  display: grid;
+  gap: 18px;
+}
+.donation-role {
+  border: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.donation-role legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.donation-role label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.donation-role input,
+.donation-form .consent input {
+  accent-color: var(--primary);
+}
+.donation-form:has(.donation-role input[value="volunteer"]:checked)
+  .donation-amount,
+.donation-form:has(.donation-role input[value="volunteer"]:checked)
+  .donation-recycle,
+.donation-form:has(.donation-role input[value="volunteer"]:checked)
+  .donation-recycle
+  + .field-error {
+  display: none;
+}
+.faq-list details {
+  border-top: 1px solid var(--border);
+  padding: 15px 0;
+}
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.faq-list p {
+  max-width: 48ch;
+}
+@media (max-width: 767px) {
+  .donation-hero-grid,
+  .donation-join-grid,
+  .donation-accept {
+    grid-template-columns: 1fr;
+  }
+  .donation-form-card {
+    padding: 22px;
+  }
+}
 @media (max-width: 767px) {
   .craft-share,
   .craft-weave,

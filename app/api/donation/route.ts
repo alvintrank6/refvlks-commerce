@@ -6,6 +6,8 @@ import {
   validateDonation,
   type DonationSignup,
 } from "../../../src/lib/data/donation";
+import { requestIpHash } from "../../../src/lib/ip-hash";
+import { sendTransactionalEmail } from "../../../src/lib/email";
 
 const clean = (form: FormData, key: string, max = 250) =>
   String(form.get(key) ?? "")
@@ -25,22 +27,7 @@ export async function POST(request: NextRequest) {
   if (clean(form, "website")) return redirect("error");
   const role = clean(form, "role", 12);
   const amount = clean(form, "amount", 12);
-  const ip =
-    request.headers.get("cf-connecting-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
-  const ipHash = ip
-    ? Array.from(
-        new Uint8Array(
-          await crypto.subtle.digest(
-            "SHA-256",
-            new TextEncoder().encode(
-              `${new Date().toISOString().slice(0, 10)}:${ip}:${process.env.RATE_LIMIT_SALT ?? "refvlks"}`,
-            ),
-          ),
-        ),
-        (byte) => byte.toString(16).padStart(2, "0"),
-      ).join("")
-    : null;
+  const ipHash = await requestIpHash(request);
   const input: Partial<DonationSignup> = {
     id: crypto.randomUUID(),
     name: clean(form, "name", 80),
@@ -66,9 +53,23 @@ export async function POST(request: NextRequest) {
   if (!validateDonation(input)) return redirect("error");
   try {
     const repository = await donationRepository(env.DB);
-    return redirect(
-      (await repository.register(input)) === "saved" ? "success" : "rate-limit",
-    );
+    const status = await repository.register(input);
+    if (status === "rate_limited") return redirect("rate-limit");
+    if (process.env.DONATION_NOTIFY_EMAIL)
+      await sendTransactionalEmail({
+        to: process.env.DONATION_NOTIFY_EMAIL,
+        subject: `Refvlks donation signup: ${input.role}`,
+        text: `Name: ${input.name}\nPhone: ${input.phone}\nEmail: ${input.email ?? ""}\nRole: ${input.role}\nAmount: ${input.amount ?? ""}\nNote: ${input.note ?? ""}`,
+        idempotencyKey: `donation-${input.id}`,
+      }).catch((error) => console.error("Donation notification failed", error));
+    const response = redirect("success");
+    response.cookies.set("donation-thanks", input.name, {
+      path: "/",
+      maxAge: 60,
+      httpOnly: true,
+      sameSite: "lax",
+    });
+    return response;
   } catch {
     return redirect("error");
   }
