@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { env } from "cloudflare:workers";
 import {
   allVariants,
+  assets,
   dictionary,
   isLocale,
   helpPath,
@@ -125,8 +126,14 @@ export async function generateMetadata({
       : d.shop.title;
   }
   const titles: Record<string, string> = {
-    craft: raw === "vi" ? "Thủ công & vật liệu: bên trong túi Refvlks" : "Craft & Materials: Inside Every Refvlks Bag",
-    donation: raw === "vi" ? "Sự kiện quyên góp áo quần lên vùng cao" : "Donation Event: Clothes to the Mountains",
+    craft:
+      raw === "vi"
+        ? "Thủ công & vật liệu: bên trong túi Refvlks"
+        : "Craft & Materials: Inside Every Refvlks Bag",
+    donation:
+      raw === "vi"
+        ? "Sự kiện quyên góp áo quần lên vùng cao"
+        : "Donation Event: Clothes to the Mountains",
     about: d.about.title,
     studio: d.studio.title,
     contact: d.contact.title,
@@ -137,7 +144,10 @@ export async function generateMetadata({
   if (titles[kind]) title = titles[kind];
   const helpTitles: Record<string, [string, string]> = {
     "size-fit": ["Size & fit", "Kích thước & độ vừa"],
-    "shipping-returns": ["Shipping, inspection & returns", "Giao hàng, kiểm tra & đổi trả"],
+    "shipping-returns": [
+      "Shipping, inspection & returns",
+      "Giao hàng, kiểm tra & đổi trả",
+    ],
     "care-repair": ["Care & repair", "Bảo quản & sửa chữa"],
     faq: ["Frequently asked questions", "Câu hỏi thường gặp"],
   };
@@ -146,8 +156,10 @@ export async function generateMetadata({
     terms: ["Terms of sale", "Điều khoản bán hàng"],
     payment: ["Payment methods", "Phương thức thanh toán"],
   };
-  const helpTopic = kind === "help" ? parseHelpTopic(raw, slug[1] ?? "") : undefined;
-  const legalTopic = kind === "legal" ? parseLegalTopic(raw, slug[1] ?? "") : undefined;
+  const helpTopic =
+    kind === "help" ? parseHelpTopic(raw, slug[1] ?? "") : undefined;
+  const legalTopic =
+    kind === "legal" ? parseLegalTopic(raw, slug[1] ?? "") : undefined;
   if (helpTopic) title = helpTitles[helpTopic][raw === "vi" ? 1 : 0];
   if (legalTopic) title = legalTitles[legalTopic][raw === "vi" ? 1 : 0];
   if (kind === "product") {
@@ -158,27 +170,94 @@ export async function generateMetadata({
     }
   }
   if (kind === "donation") {
-    description = raw === "vi" ? "Mỗi tháng, Refvlks mang quần áo đã phân loại lên với bà con vùng cao Tây Bắc. Áo quá cũ được tái chế thành vải cho túi." : "Once a month, Refvlks takes sorted, wearable clothes to mountain communities in the Northwest. Worn-out pieces become recovered textile.";
+    description =
+      raw === "vi"
+        ? "Mỗi tháng, Refvlks mang quần áo đã phân loại lên với bà con vùng cao Tây Bắc. Áo quá cũ được tái chế thành vải cho túi."
+        : "Once a month, Refvlks takes sorted, wearable clothes to mountain communities in the Northwest. Worn-out pieces become recovered textile.";
   }
-  if (kind === "craft") description = raw === "vi" ? "70% vải chuyên dụng mới, 30% vải tái chế từ quai đến khăn, một phần từ quần áo quyên góp đã quá cũ." : "70% new technical textile, 30% recovered textile from handles to scarves, part of it from donated clothes too worn to give.";
+  if (kind === "craft")
+    description =
+      raw === "vi"
+        ? "70% vải chuyên dụng mới, 30% vải tái chế từ quai đến khăn, một phần từ quần áo quyên góp đã quá cũ."
+        : "70% new technical textile, 30% recovered textile from handles to scarves, part of it from donated clothes too worn to give.";
   if (kind === "about") description = d.about.intro;
   if (kind === "studio") description = d.studio.intro;
   if (kind === "contact") description = d.contact.intro;
   if (kind === "shop") description = d.shop.intro;
-  if (kind === "help" || kind === "legal") description = `${title}. ${raw === "vi" ? "Hướng dẫn từ Refvlks." : "Guidance from Refvlks."}`;
+  if (kind === "help" || kind === "legal")
+    description = `${title}. ${raw === "vi" ? "Hướng dẫn từ Refvlks." : "Guidance from Refvlks."}`;
   const privatePage = ["cart", "checkout", "order", "unknown"].includes(kind);
-  const filteredShop = kind === "shop" && Boolean(param(query, "tier") || param(query, "colour") || param(query, "price") || param(query, "sort"));
-  const path = seoPath(raw, kind, kind === "help" ? [slug[0], helpTopic ?? "faq"] : kind === "legal" ? [slug[0], legalTopic ?? "terms"] : slug);
+  const filteredShop =
+    kind === "shop" &&
+    Boolean(
+      param(query, "tier") ||
+      param(query, "colour") ||
+      param(query, "price") ||
+      param(query, "sort"),
+    );
+  const path = seoPath(
+    raw,
+    kind,
+    kind === "help"
+      ? [slug[0], helpTopic ?? "faq"]
+      : kind === "legal"
+        ? [slug[0], legalTopic ?? "terms"]
+        : slug,
+  );
   const other: Locale = raw === "en" ? "vi" : "en";
-  const otherPath = seoPath(other, kind, kind === "help" ? [slug[0], helpTopic ?? "faq"] : kind === "legal" ? [slug[0], legalTopic ?? "terms"] : slug);
-  const productOg = kind === "product" && productByHandle(slug[1] ?? "") ? `/images/og/refvlks_og_${slug[1]}.jpg` : "/images/og/refvlks_og_v2.jpg";
+  const otherPath = seoPath(
+    other,
+    kind,
+    kind === "help"
+      ? [slug[0], helpTopic ?? "faq"]
+      : kind === "legal"
+        ? [slug[0], legalTopic ?? "terms"]
+        : slug,
+  );
+  const productOg =
+    kind === "product" && productByHandle(slug[1] ?? "")
+      ? `/images/og/refvlks_og_${slug[1]}.jpg`
+      : "/images/og/refvlks_og_v2.jpg";
   return {
     title,
     description,
-    robots: privatePage || filteredShop ? { index: false, follow: false } : { index: true, follow: true },
-    alternates: { canonical: absoluteUrl(path), languages: { en: absoluteUrl(raw === "en" ? path : otherPath), vi: absoluteUrl(raw === "vi" ? path : otherPath), "x-default": absoluteUrl(seoPath("en", kind, kind === "help" ? [slug[0], helpTopic ?? "faq"] : kind === "legal" ? [slug[0], legalTopic ?? "terms"] : slug)) } },
-    openGraph: { type: "website", siteName: "Refvlks", title, description, url: absoluteUrl(path), locale: raw === "vi" ? "vi_VN" : "en_US", images: [{ url: productOg, width: 1200, height: 630, alt: title }] },
-    twitter: { card: "summary_large_image", title, description, images: [productOg] },
+    robots:
+      privatePage || filteredShop
+        ? { index: false, follow: false }
+        : { index: true, follow: true },
+    alternates: {
+      canonical: absoluteUrl(path),
+      languages: {
+        en: absoluteUrl(raw === "en" ? path : otherPath),
+        vi: absoluteUrl(raw === "vi" ? path : otherPath),
+        "x-default": absoluteUrl(
+          seoPath(
+            "en",
+            kind,
+            kind === "help"
+              ? [slug[0], helpTopic ?? "faq"]
+              : kind === "legal"
+                ? [slug[0], legalTopic ?? "terms"]
+                : slug,
+          ),
+        ),
+      },
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Refvlks",
+      title,
+      description,
+      url: absoluteUrl(path),
+      locale: raw === "vi" ? "vi_VN" : "en_US",
+      images: [{ url: productOg, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [productOg],
+    },
   };
 }
 
@@ -198,26 +277,108 @@ export default async function Page({ params, searchParams }: Props) {
   const cart = await getCart();
   const count = cart.reduce((n, line) => n + line.qty, 0);
   const altHref = altPath(locale, kind, slug, q);
-  const canonicalSlug = kind === "help" ? [slug[0], helpTopic!] : kind === "legal" ? [slug[0], legalTopic!] : slug;
-  const stock = kind === "product" && env.DB && productByHandle(slug[1] ?? "")
-    ? (await env.DB.prepare("SELECT stock FROM inventory WHERE sku=?").bind(productByHandle(slug[1] ?? "")!.variants[0].sku).first<{ stock: number }>())?.stock
-    : undefined;
+  const canonicalSlug =
+    kind === "help"
+      ? [slug[0], helpTopic!]
+      : kind === "legal"
+        ? [slug[0], legalTopic!]
+        : slug;
+  const stock =
+    kind === "product" && env.DB && productByHandle(slug[1] ?? "")
+      ? (
+          await env.DB.prepare("SELECT stock FROM inventory WHERE sku=?")
+            .bind(productByHandle(slug[1] ?? "")!.variants[0].sku)
+            .first<{ stock: number }>()
+        )?.stock
+      : undefined;
   const schemas = seoSchemas(locale, kind, canonicalSlug, stock);
+  const heroAsset =
+    kind === "product"
+      ? (productByHandle(slug[1] ?? "")?.variants.find(
+          (variant) => variant.colourKey === param(q, "colour"),
+        )?.cardImage ?? productByHandle(slug[1] ?? "")?.variants[0]?.cardImage)
+      : kind === "shop"
+        ? allVariants[0].variant.cardImage
+        : undefined;
+  const heroVariant = heroAsset
+    ? assets
+        .get(heroAsset)
+        ?.variants.find(
+          (variant) => variant.kind === (kind === "shop" ? "card" : "full"),
+        )
+    : undefined;
+  const heroMobileVariant =
+    kind === "product" && heroAsset
+      ? assets
+          .get(heroAsset)
+          ?.variants.find((variant) => variant.kind === "card")
+      : undefined;
   if (kind === "donation") {
     const event = await (await donationRepository(env.DB)).getEvent();
-    if (event.nextEvent.date) schemas.push({
-      "@context": "https://schema.org", "@type": "Event",
-      name: locale === "vi" ? "Sự kiện quyên góp Refvlks" : "Refvlks Donation Event",
-      startDate: event.nextEvent.date,
-      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-      eventStatus: "https://schema.org/EventScheduled",
-      location: { "@type": "Place", name: event.nextEvent.destination[locale] ?? "Refvlks Studio", address: "22 Lê Quý Đôn, Hà Nội, Vietnam" },
-      url: absoluteUrl(paths(locale).donation),
-    });
+    if (event.nextEvent.date)
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "Event",
+        name:
+          locale === "vi"
+            ? "Sự kiện quyên góp Refvlks"
+            : "Refvlks Donation Event",
+        startDate: event.nextEvent.date,
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: {
+          "@type": "Place",
+          name: event.nextEvent.destination[locale] ?? "Refvlks Studio",
+          address: "22 Lê Quý Đôn, Hà Nội, Vietnam",
+        },
+        url: absoluteUrl(paths(locale).donation),
+      });
   }
   return (
     <>
-      {schemas.map((schema, index) => <script key={index} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(schema) }} />)}
+      {kind === "home" && (
+        <>
+          <link
+            rel="preload"
+            as="image"
+            href={assets.get("HOME-02")?.variants[0]?.files.avif}
+            media="(max-width: 800px)"
+            fetchPriority="high"
+          />
+          <link
+            rel="preload"
+            as="image"
+            href={assets.get("HOME-01")?.variants[0]?.files.avif}
+            media="(min-width: 801px)"
+            fetchPriority="high"
+          />
+        </>
+      )}
+      {heroMobileVariant?.files.avif && (
+        <link
+          rel="preload"
+          as="image"
+          href={heroMobileVariant.files.avif}
+          media="(max-width: 800px)"
+          fetchPriority="high"
+        />
+      )}
+      {heroVariant?.files.avif && (
+        <link
+          rel="preload"
+          as="image"
+          href={heroVariant.files.avif}
+          media={kind === "product" ? "(min-width: 801px)" : undefined}
+          fetchPriority="high"
+        />
+      )}
+      {schemas.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
+        />
+      ))}
       <Header locale={locale} altHref={altHref} count={count} />
       <main id="main">
         {kind === "home" ? (
@@ -336,13 +497,20 @@ function Shop({
     price: param(q, "price"),
     sort: param(q, "sort") || "featured",
   };
-  const items = allVariants.map(({ product, variant }) => ({
+  const items = allVariants.map(({ product, variant }, index) => ({
     sku: variant.sku,
     tier: product.tier,
     colour: variant.colourKey,
     colourName: variant.colour[locale],
     price: variant.priceVnd,
-    card: <ProductCard product={product} variant={variant} locale={locale} />,
+    card: (
+      <ProductCard
+        product={product}
+        variant={variant}
+        locale={locale}
+        priority={index === 0}
+      />
+    ),
   }));
   return (
     <>
@@ -405,6 +573,8 @@ async function ProductPage({
                 <Picture
                   id={id}
                   locale={locale}
+                  priority={index === 0}
+                  mobileKind={index === 0 ? "card" : undefined}
                   viewTransitionName={
                     index === 0
                       ? `product-${product.handle}-${variant.colourKey}`

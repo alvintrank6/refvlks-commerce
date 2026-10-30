@@ -48,19 +48,19 @@
       "variants": [
         {
           "kind": "full",
-          "w": 1024,
-          "h": 1536,
+          "w": 780,
+          "h": 1170,
           "files": {
-            "avif": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile.avif",
-            "webp": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile.webp"
+            "avif": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile-perf.avif",
+            "webp": "/images/home/refvlks_home_02_hero-weft-structured-tote-mobile-perf.webp"
           },
           "kb": {
-            "avif": 116,
-            "webp": 153
+            "avif": 55,
+            "webp": 55
           },
           "q": {
-            "avif": 63,
-            "webp": 84
+            "avif": 55,
+            "webp": 78
           }
         }
       ]

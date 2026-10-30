@@ -21,6 +21,7 @@ export function ResponsivePicture({
   priority = false,
   sizes = "(max-width: 700px) 100vw, 50vw",
   mobileId,
+  mobileKind,
   decorative = false,
   viewTransitionName,
 }: {
@@ -31,6 +32,7 @@ export function ResponsivePicture({
   priority?: boolean;
   sizes?: string;
   mobileId?: string;
+  mobileKind?: string;
   decorative?: boolean;
   viewTransitionName?: string;
 }) {
@@ -43,7 +45,9 @@ export function ResponsivePicture({
   if (!src) return null;
   const mobile = mobileId
     ? assets.get(mobileId)?.variants.find((item) => item.kind === "full")
-    : undefined;
+    : mobileKind
+      ? asset.variants.find((item) => item.kind === mobileKind)
+      : undefined;
   return (
     <picture className={`picture ${className}`}>
       {mobile?.files.avif && (
@@ -72,7 +76,7 @@ export function ResponsivePicture({
         height={variant.h}
         alt={decorative ? "" : asset.alt[locale]}
         loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : undefined}
+        fetchPriority={priority ? "high" : "low"}
         sizes={sizes}
         style={viewTransitionName ? { viewTransitionName } : undefined}
       />
@@ -295,10 +299,12 @@ export function ProductCard({
   product,
   variant,
   locale,
+  priority = false,
 }: {
   product: Product;
   variant: Variant;
   locale: Locale;
+  priority?: boolean;
 }) {
   const p = paths(locale),
     d = dictionary(locale);
@@ -315,6 +321,7 @@ export function ProductCard({
           locale={locale}
           kind="card"
           decorative
+          priority={priority}
           viewTransitionName={`product-${product.handle}-${variant.colourKey}`}
         />
         <Picture

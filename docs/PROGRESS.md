@@ -6,16 +6,16 @@ Existing checkout: Next.js App Router compatibility through Vinext, TypeScript, 
 
 ### Gaps against `10-UPDATE-V2.md`
 
-| V2 slice | Existing work | Remaining work |
-|---|---|---|
-| F1–F2 | Locale routes, assets, catalog and D1 schema | Five-item navigation, Donation Event routes and seed, claim gate, local/Supabase adapter contract |
-| F3–F4 | Header, footer, hero, product cards, product pages and cart | V2 page structure, card interaction, hotspots, product detail sections |
-| F5–F6 | Simple reveal section and CSS transitions | E1–E5, E8–E10, E17–E20 with full/lite/off tiers; Home H-04 and H-05 |
-| F7 | Server-rendered shop filters | S-01–S-03, marquee, tier comparison, motion |
-| F8 | Working cart, checkout, transfer QR and stock transaction | V2 copy, field-level errors, copy actions, email integration when configured |
-| F9 | Studio and contact forms persist to D1 | Three-section studio, slot availability, full contact topics, optional email |
-| F10–F11 | Basic Craft and About | Three-section V2 content, Donation Event and registration |
-| F12–F14 | Basic Help/Legal, metadata and sitemap | Complete content, 404, structured data, automation and browser QA evidence |
+| V2 slice | Existing work                                               | Remaining work                                                                                    |
+| -------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| F1–F2    | Locale routes, assets, catalog and D1 schema                | Five-item navigation, Donation Event routes and seed, claim gate, local/Supabase adapter contract |
+| F3–F4    | Header, footer, hero, product cards, product pages and cart | V2 page structure, card interaction, hotspots, product detail sections                            |
+| F5–F6    | Simple reveal section and CSS transitions                   | E1–E5, E8–E10, E17–E20 with full/lite/off tiers; Home H-04 and H-05                               |
+| F7       | Server-rendered shop filters                                | S-01–S-03, marquee, tier comparison, motion                                                       |
+| F8       | Working cart, checkout, transfer QR and stock transaction   | V2 copy, field-level errors, copy actions, email integration when configured                      |
+| F9       | Studio and contact forms persist to D1                      | Three-section studio, slot availability, full contact topics, optional email                      |
+| F10–F11  | Basic Craft and About                                       | Three-section V2 content, Donation Event and registration                                         |
+| F12–F14  | Basic Help/Legal, metadata and sitemap                      | Complete content, 404, structured data, automation and browser QA evidence                        |
 
 ### Run plan
 
@@ -128,3 +128,11 @@ Work through F1–F14 in order, retaining working commerce code. Add verified te
 - `npm run typecheck`, `npm run lint`, `npm run test` (8), `npm run build` — pass. `npx playwright test tests/e2e/seo-v2.spec.ts` — 4 passed against the local production preview. Visually inspected the generic OG card.
 - Next: F14 full QA and final handoff. No source push or deployment.
 
+## F14 · Full QA and local handoff
+
+- Ran the complete local production-preview suite: 150/150 Playwright tests passed. After optimizing LCP images, reran the affected Home, Shop, Product and SEO suites: 54/54 passed across 360/390/768/1024/1440 pixels and normal/reduced motion. `npm run lint`, `npm run typecheck`, `npm run test` (8) and `npm run build` passed on final source.
+- Improved LCP by preloading the responsive hero and initial product image, prioritizing the first Shop and Product frame, using the existing card-resolution image for the first Product mobile gallery frame, and deriving a 780 × 1170, 55 KB mobile hero from the mapped original photo. The crop was visually inspected. Other gallery images have low fetch priority.
+- Under an Edge headless 390 × 844 sample with simulated 4× CPU and 1.6 Mbps / 150 ms RTT, reduced motion: Home LCP 1.40 s / CLS 0.022 / initial JS 213 KB gzip; Shop 1.43 s / 0.018 / 212 KB; Product 1.40 s / 0.028 / 211 KB; Donation Event 1.05 s / 0.030 / 212 KB. These are one-run local lab measurements; INP and sustained frame rate remain unmeasured.
+- Edge and WebKit passed the core four routes at 390/1440 pixels plus desktop add-to-cart, no page errors or horizontal overflow. Firefox Playwright installed but its Windows binary failed to launch due incorrect side-by-side configuration, so Firefox remains unverified. Real iOS Safari is unverified.
+- Updated `README.md` and added `HANDOVER.md`, including setup, measured results, data migrations, remaining owner/launch decisions and no-deploy boundary. `npm run dev` served `/en` and `/vi` at `http://localhost:3000` with HTTP 200.
+- Final screenshots, traces and measurement JSON are in ignored `test-results/screens/F14/`. Slice screenshots are in `test-results/screens/F1/` and `F3/` through `F12/` (F2 was data only). Production email, hosted Supabase/RLS, real QR scans and live orders remain unverified without credentials or a release decision.
