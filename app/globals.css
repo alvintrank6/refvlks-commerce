@@ -355,14 +355,6 @@ img {
   height: 110%;
   margin-top: -5%;
 }
-.hero-weft {
-  position: absolute;
-  inset: auto 0 0;
-  height: 34%;
-  background: url("/brand/refvlks_pattern_weft.svg") center / cover;
-  opacity: 0.35;
-  pointer-events: none;
-}
 .hero-index {
   position: absolute;
   right: 24px;
@@ -839,14 +831,6 @@ img {
 .invitation-donation {
   background: var(--sand);
 }
-.invitation-donation::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: url("/brand/refvlks_pattern_weft.svg") center / cover;
-  opacity: 0.13;
-}
 .invitation-donation > .picture {
   width: min(40%, 260px);
   aspect-ratio: 4 / 3;
@@ -1056,15 +1040,9 @@ html.first-visit [data-preloader] {
   visibility: visible;
   transform: translateY(0);
 }
-[data-preloader] svg {
-  width: min(300px, 60vw);
-  stroke: var(--bg);
-  stroke-width: 1;
-}
 [data-curtain] {
   transform: translateY(100%);
-  background: var(--primary) url("/brand/refvlks_pattern_weft.svg") center /
-    cover;
+  background: var(--sand);
 }
 html.curtain-incoming [data-curtain] {
   visibility: visible;

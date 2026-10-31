@@ -15,7 +15,6 @@ export function HomeMotion({ children }: { children: ReactNode }) {
       const hero = root.querySelector<HTMLElement>(".hero");
       const media = root.querySelector<HTMLElement>(".hero-media .picture");
       const image = media?.querySelector("img");
-      const pattern = root.querySelector<HTMLElement>(".hero-weft");
       const mm = gsap.matchMedia();
       mm.add(
         {
@@ -36,17 +35,6 @@ export function HomeMotion({ children }: { children: ReactNode }) {
               scrub: true,
             },
           });
-          if (pattern)
-            gsap.to(pattern, {
-              yPercent: tier.full ? -4 : -2,
-              ease: "none",
-              scrollTrigger: {
-                trigger: hero,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-              },
-            });
           if (!tier.full) return;
           const rotateX = gsap.quickTo(media, "rotationX", {
             duration: 0.3,

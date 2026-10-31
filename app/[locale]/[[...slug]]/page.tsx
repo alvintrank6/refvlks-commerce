@@ -438,7 +438,6 @@ function Home({ locale }: { locale: Locale }) {
         </div>
         <div className="hero-media">
           <Picture id="HOME-01" mobileId="HOME-02" locale={locale} priority />
-          <span className="hero-weft" aria-hidden="true" />
           <span className="hero-index">01 / REFVLKS</span>
         </div>
       </section>

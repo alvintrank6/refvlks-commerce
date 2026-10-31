@@ -105,12 +105,8 @@ export function MotionProvider({ children }: { children: ReactNode }) {
             hero.decode().catch(() => undefined),
             new Promise((resolve) => setTimeout(resolve, 450)),
           ]);
-        const [{ default: gsap }, { DrawSVGPlugin }] = await Promise.all([
-          import("gsap"),
-          import("gsap/DrawSVGPlugin"),
-        ]);
+        const { default: gsap } = await import("gsap");
         if (!alive) return;
-        gsap.registerPlugin(DrawSVGPlugin);
         const full = window.matchMedia(
           "(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
         ).matches;
@@ -125,21 +121,13 @@ export function MotionProvider({ children }: { children: ReactNode }) {
           gsap.to(overlay, { opacity: 0, duration: 0.3, onComplete: finish });
           return;
         }
-        const lines = overlay.querySelectorAll("line");
-        gsap.set(lines, { drawSVG: "0%" });
         gsap
           .timeline({ onComplete: finish })
-          .to(lines, {
-            drawSVG: "100%",
-            duration: 0.28,
-            stagger: 0.06,
-            ease: motionTokens.ease.standard,
-          })
           .fromTo(
             overlay.querySelector("img"),
             { y: 8, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.25 },
-            0.1,
+            0,
           )
           .to(
             overlay,
@@ -399,17 +387,6 @@ export function MotionProvider({ children }: { children: ReactNode }) {
           height="44"
           alt=""
         />
-        <svg viewBox="0 0 300 70" aria-hidden="true">
-          {Array.from({ length: 7 }, (_, index) => (
-            <line
-              key={index}
-              x1="0"
-              x2="300"
-              y1={5 + index * 10}
-              y2={5 + index * 10}
-            />
-          ))}
-        </svg>
       </div>
       <div data-curtain aria-hidden="true">
         <img
