@@ -831,6 +831,9 @@ img {
 .invitation-donation {
   background: var(--sand);
 }
+.invitation-donation .eyebrow-line {
+  visibility: hidden;
+}
 .invitation-donation > .picture {
   width: min(40%, 260px);
   aspect-ratio: 4 / 3;
