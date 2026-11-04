@@ -1,6 +1,6 @@
 # Refvlks V2 storefront
 
-An English and Vietnamese storefront for Refvlks work bags, studio visits and the monthly clothes donation programme. The Site runs on the existing Sites/Vinext Worker with Cloudflare D1 for the local production preview. This V2 branch has **not** been pushed or deployed; the hosted private Site still serves V1.
+An English and Vietnamese storefront for Refvlks work bags, studio visits and the monthly clothes donation programme. The public Site is hosted at <https://refvlks-atelier-2026.alvintrank95.chatgpt.site>. The application runs on a Sites/Vinext Worker with Cloudflare D1; local development uses the file data adapter by default.
 
 ## Run locally
 
@@ -44,6 +44,6 @@ The browser and performance scripts target a built preview at port 4173. Browser
 - `src/lib/data/` contains local, D1 and optional Supabase adapters. D1 and Supabase migrations are in `drizzle/` and `supabase/migrations/`.
 - Commerce accepts cash on delivery and bank transfer. The card page is a disabled preview. Seed prices, stock and shipping fees were approved for this local implementation by the owner in this task.
 
-## Release boundary
+## Deployment notes
 
-No analytics, pixels or third-party marketing scripts were added. No push or deployment was performed. Legal review, remaining business details, live email and Supabase credentials, live QR scanning, and production order tests remain launch prerequisites; see [HANDOVER.md](HANDOVER.md).
+The repository contains source code, product imagery, content, migrations and tests. Generated builds, local databases, dependencies and credentials are excluded by `.gitignore`. No analytics, pixels or third-party marketing scripts were added. See [HANDOVER.md](HANDOVER.md) for the original launch checklist and remaining integration notes.
