@@ -1,21 +1,32 @@
 import type { Metadata } from "next";
 import { LocaleProvider } from "../../src/components/LocaleProvider";
 import { ViewTransitions } from "next-view-transitions";
-import { MotionProvider } from "../../src/motion/MotionProvider";
 import { absoluteUrl, jsonLd, siteOrigin } from "../../src/lib/seo";
 import "../globals.css";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
-  title: { default: "Work Bags | Refvlks", template: "%s | Refvlks" },
-  description: "Tailored work bags with woven details from Hanoi.",
+  title: { default: "Refolks · Heritage in Motion", template: "%s" },
+  description:
+    "Refolks work bags pair Thai brocade heritage with circular materials for contemporary life.",
   icons: {
-    icon: "/brand/favicons/icon.svg",
-    apple: "/brand/favicons/apple-touch-icon.png",
+    icon: "/images/refolks/icon-192.png",
+    apple: "/images/refolks/icon-180.png",
   },
   manifest: "/manifest.webmanifest",
-  openGraph: { siteName: "Refvlks", images: [{ url: "/images/og/refvlks_og_v2.jpg", width: 1200, height: 630, alt: "Refvlks work bags" }] },
-  twitter: { card: "summary_large_image", images: ["/images/og/refvlks_og_v2.jpg"] },
+  openGraph: {
+    siteName: "Refolks",
+    images: [
+      {
+        url: "/images/refolks/tote-02-lifestyle.webp",
+        width: 1200,
+        height: 900,
+        alt: "Refolks work tote",
+      },
+    ],
+  },
 };
+
 export default async function RootLayout({
   children,
   params,
@@ -28,23 +39,25 @@ export default async function RootLayout({
   return (
     <ViewTransitions>
       <html lang={selected}>
-        <head>
+        <body>
           <script
+            type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `(function(){var h=document.documentElement;try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches){h.classList.add('js-motion');if(!sessionStorage.getItem('refvlks-visited')){h.classList.add('first-visit');sessionStorage.setItem('refvlks-visited','1')}if(sessionStorage.getItem('refvlks-curtain')){h.classList.add('curtain-incoming');sessionStorage.removeItem('refvlks-curtain')}}}catch(e){}setTimeout(function(){if(!window.__refvlksMotionReady)h.classList.remove('js-motion','first-visit','curtain-incoming')},3000)})()`,
+              __html: jsonLd({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "@id": `${siteOrigin}/#organization`,
+                name: "Refolks",
+                url: siteOrigin,
+                logo: absoluteUrl("/images/refolks/logo-dark.png"),
+                description:
+                  selected === "vi"
+                    ? "Túi công sở kết hợp thổ cẩm Thái và vật liệu tuần hoàn."
+                    : "Work bags blending Thai brocade with circular materials.",
+              }),
             }}
           />
-        </head>
-        <body>
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd({
-            "@context": "https://schema.org", "@type": "Organization",
-            "@id": `${siteOrigin}/#organization`, name: "Refvlks", url: siteOrigin,
-            logo: absoluteUrl("/brand/refvlks_logo_wordmark_primary.svg"),
-            description: selected === "vi" ? "Túi đi làm với chi tiết dệt thủ công tại Việt Nam." : "Work bags with textile woven by hand in Vietnam.",
-          }) }} />
-          <LocaleProvider locale={selected}>
-            <MotionProvider>{children}</MotionProvider>
-          </LocaleProvider>
+          <LocaleProvider locale={selected}>{children}</LocaleProvider>
         </body>
       </html>
     </ViewTransitions>
